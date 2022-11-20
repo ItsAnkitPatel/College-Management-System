@@ -19,7 +19,7 @@ public class ShowStudentDetails implements ActionListener{
     static JFrame studentDetailsframe , studentbgFrame;
     Choice rollNoChoice;
     JTable table ;
-    JButton searchButton,addButton,updateButton,printButton,cancelButton;
+    JButton clearButton, searchButton,addButton,updateButton,printButton,cancelButton;
     public ShowStudentDetails() {
     showStuDetail = true;
     showStuDetail = true;
@@ -97,31 +97,32 @@ public class ShowStudentDetails implements ActionListener{
             e.printStackTrace();
         }
     
+    /*====================Adding Clear button on the right side of choice bar================================*/   
+    
+    clearButton =new JButton("Clear");
+    clearButton.setBounds(470,50,100,25);
+    clearButton.setFont(new Font("Times New Roman",Font.BOLD,18));
+    
+    clearButton.addActionListener(this);
+    
+     clearButton.setBackground(Color.WHITE);
+    
+     // ADDING CURSOR SYMBOL 
+    clearButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
+     //SETTING BORDER TRANSPARENT
+    clearButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+    studentDetailsframe.add(clearButton);
+    
+    
     /*======================Adding Table ====================================*/
     table = new JTable();
     table.setFillsViewportHeight(true);
     table.setFont(new Font("Times New Roman",Font.BOLD,15));
     table.setEnabled(false);
    
-    
-        try {
-                Conn connect = new Conn();
-                ResultSet rs = connect.s.executeQuery("select * from students");//This will store the whole result of this query
-                table.setModel(DbUtils.resultSetToTableModel(rs));
-                table.setRowHeight(50);
-               
-                
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-    
-    
-    JScrollPane jsp = new JScrollPane(table); //This will addButton a scrollbar into our table
-    jsp.setBounds(10,100,1380,350);
-    jsp.setBorder(BorderFactory.createEmptyBorder(0,0,0,0)); 
-    studentDetailsframe.add(jsp);
+    tableCreation();
+        
     
     
     /*======================Search Button and Image Icon====================================*/
@@ -244,7 +245,26 @@ public class ShowStudentDetails implements ActionListener{
     }
     
 
+    void tableCreation(){
+         try {
+                Conn connect = new Conn();
+                ResultSet rs = connect.s.executeQuery("select * from students");//This will store the whole result of this query
+                table.setModel(DbUtils.resultSetToTableModel(rs));
+                table.setRowHeight(50);
+               
+                
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
     
+    
+    JScrollPane jsp = new JScrollPane(table); //This will addButton a scrollbar into our table
+    jsp.setBounds(10,100,1380,350);
+    jsp.setBorder(BorderFactory.createEmptyBorder(0,0,0,0)); 
+    studentDetailsframe.add(jsp);
+            
+    }
     
     public static void main(String[] args) {
         new ShowStudentDetails();
@@ -252,29 +272,59 @@ public class ShowStudentDetails implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getSource() == searchButton){
+        
+        if(e.getSource() == clearButton){
+           tableCreation();
+           
+        }
+        
+        
+        
+        else if(e.getSource() == searchButton){
+            String query = "select * from students where rollno = '"+rollNoChoice.getSelectedItem()+"'";
+            try {
+                Conn c = new Conn();
+                ResultSet rs = c.s.executeQuery(query);
+                table.setModel(DbUtils.resultSetToTableModel(rs));
+                table.setRowHeight(50);
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
             
-        }else if(e.getSource() == updateButton){
             
-        }else if(e.getSource() == addButton){
+            
+        }
+        
+        else if(e.getSource() == updateButton){
+            
+             new UpdateStudent();
+            
+            
+        }
+        
+        else if(e.getSource() == addButton){
             studentDetailsframe.setVisible(false);
             studentbgFrame.setVisible(false);
             new AddStudent();
             
             
-        }else if(e.getSource() == printButton){
+        }
+        
+        else if(e.getSource() == printButton){
             try {
                 table.print();
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-        }else if(e.getSource() == cancelButton){
+        }
+        
+        else if(e.getSource() == cancelButton){
             studentDetailsframe.dispose();
             studentbgFrame.dispose();
-            if(!Dashboard.dashboardFrame.isActive()){
-                Dashboard.dashboardFrame.setVisible(true);
-            }
+
+            Dashboard.dashboardFrame.setVisible(true);
+            
         }
     }
     
