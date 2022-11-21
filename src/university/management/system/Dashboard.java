@@ -9,7 +9,9 @@ import java.awt.event.ActionListener;
 public class Dashboard implements ActionListener{
     static JFrame dashboardFrame ;
     Dashboard() {
+        
         dashboardFrame = new JFrame();
+        
         Font font1 = new Font("FreeSerif", Font.BOLD, 18);
         dashboardFrame.setSize(1920,1080);
         dashboardFrame.setBackground(Color.WHITE);
@@ -107,8 +109,8 @@ public class Dashboard implements ActionListener{
         upadteInfo.setForeground(Color.RED);
         menuBar.add(upadteInfo);
             //=======================Update menu items=================
-       JMenuItem updateFacultyInfo = new JMenuItem("Update Faculty Details");
-       updateFacultyInfo.setPreferredSize(dimension);
+        JMenuItem updateFacultyInfo = new JMenuItem("Update Faculty Details");
+        updateFacultyInfo.setPreferredSize(dimension);
         updateFacultyInfo.setBackground(Color.WHITE);
         updateFacultyInfo.addActionListener(this);
         upadteInfo.add(updateFacultyInfo);
@@ -119,9 +121,6 @@ public class Dashboard implements ActionListener{
         updateStudentInfo.setBackground(Color.WHITE);
         updateStudentInfo.addActionListener(this);
         upadteInfo.add(updateStudentInfo);
-        
-        
-        
         
         
         
