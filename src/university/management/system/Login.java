@@ -7,7 +7,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
 public class Login  implements ActionListener {
     
-    static JFrame loginFrame = new JFrame();
+    static JFrame loginFrame;
 
     
     JPasswordField passwordJTextField; 
@@ -18,11 +18,9 @@ public class Login  implements ActionListener {
     JButton exitButton ;
    
     public Login(){
+        loginFrame = new JFrame();
         loginFrame.getContentPane().setBackground(Color.WHITE);
-        loginFrame.setLayout(null);
-        
-        
-        
+        loginFrame.setLayout(null);    
         loginFrame.setSize(1000,690);
         loginFrame.setLocation(450,200);
         
@@ -42,41 +40,30 @@ public class Login  implements ActionListener {
         
         
         //=====================UserName =============================================
-//        JLabel username = new JLabel("Username");
-//        username.setBounds(40,20,100,50);
-//        loginFrame.add(username);
-        
 
         userJTextField = new JTextField();
         
-        
         userJTextField.setBackground(new Color(234,232,255,255));        
         userJTextField.setBorder(null);
-        userJTextField.setToolTipText("Enter your username");
+        userJTextField.setToolTipText("Enter your username");// When user hover over the textfield the given text will message will show
         userJTextField.setBounds(695,288,150,20);
-    
-        
         
         loginFrame.add(userJTextField);
         
         
         
-        
         //=======================Password============================================
-        
-        
-//        JLabel password = new JLabel("Password");
-//        password.setBounds(40,80,100,50);
-//        loginFrame.add(password);
-
 
         passwordJTextField = new JPasswordField();
+        
         passwordJTextField.setBackground(new Color(234,232,255,255));
         passwordJTextField.setBorder(null);
-        passwordJTextField.setToolTipText("Enter your password");
+        passwordJTextField.setToolTipText("Enter your password");// When user hover over the textfield the given text will message will show
         passwordJTextField.setBounds(695,328,150,20);
    
         loginFrame.add(passwordJTextField);
+        
+        
         
 //========================Login Button==========================================================        
         
@@ -84,8 +71,7 @@ public class Login  implements ActionListener {
         loginButton.setBounds(712,400,80,20);
         loginButton.setBackground(new Color(0,0,0,0));
         
-
-           
+        
         // ADDING CURSOR SYMBOL 
         loginButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
@@ -93,9 +79,8 @@ public class Login  implements ActionListener {
         loginButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         
         loginButton.addActionListener(this);
+        
         finalImageJLabel.add(loginButton);
-        
-        
         
         
 //=================================ExitImage + Text + Button=====================================================
@@ -107,8 +92,6 @@ public class Login  implements ActionListener {
         exitImageJLabel.setBounds(870, 550, 100, 100);
         exitImageJLabel.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
         finalImageJLabel.add(exitImageJLabel);
-        
-        
         
         
         //=========Exit Text======================
@@ -135,7 +118,7 @@ public class Login  implements ActionListener {
 
         
         
-//=================================================================================================================
+//==============================THE END===========================================================
 
 
 
@@ -164,7 +147,7 @@ public class Login  implements ActionListener {
          
          
          
-         /*Step 4.==========Executing the MySQL Queries ======Part of creating JDBC steps=============*/  
+         /*Step 4.==========Executing the MySQL Queries ======Part of "Creating JDBC" steps=============*/  
             
             try {
                 
@@ -193,7 +176,7 @@ public class Login  implements ActionListener {
                     
                 }
                 
-//                c.s.close(); //This is Step 5 :Closing the connection .This is optional but a good practice
+//                c.s.close(); //This is Step 5 of JDBC : Closing the connection .This is optional but a good practice
                 
             } catch (Exception ex) {
                 ex.printStackTrace();
