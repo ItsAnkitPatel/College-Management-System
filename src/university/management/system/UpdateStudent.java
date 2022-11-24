@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import java.sql.ResultSet;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class UpdateStudent implements ActionListener,Runnable{
@@ -475,11 +477,42 @@ public class UpdateStudent implements ActionListener,Runnable{
         t.start();
         
     }
-   
     
+   
+    void showData(){
+        String query = "select * from students where rollno = '"+rollNoChoice.getSelectedItem()+"'";
+            try {
+                Conn c = new Conn();
+                ResultSet rs = c.s.executeQuery(query);
+                while(rs.next()){
+                    nameTextField.setText(rs.getString("name"));
+                    fatherNameTextField.setText(rs.getString("fname"));
+                    showRollNo.setText(rs.getString("rollno"));
+                    dcdob.setDate(new SimpleDateFormat("dd-MMM-yyyy")
+                                        .parse(rs.getString("dob")));
+                    
+                    addressTextArea.setText(rs.getString("address"));
+                    phoneTextField.setText((rs.getString("phone")));
+                    emailTextField.setText((rs.getString("email")));
+                    adhaarTextField.setText((rs.getString("adhaar")));
+                    class10TextField.setText((rs.getString("class_10")));
+                    class12TextField.setText((rs.getString("class_12")));
+                    courseComboBox.setSelectedItem(rs.getString("course"));
+                    branchComboBox.setSelectedItem(rs.getString("branch"));
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+            
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-         if(e.getSource() == submitButton){
+         if(e.getSource() == searchButton){
+            showData();
+        }
+
+         else if(e.getSource() == submitButton){
                 
                 String name = nameTextField.getText();
                 String fname = fatherNameTextField.getText();
@@ -540,7 +573,7 @@ public class UpdateStudent implements ActionListener,Runnable{
 
             studentFrame.dispose();
             studentbgFrame.dispose();
-            new ShowStudentDetails();
+//            new ShowStudentDetails();
         }
         
     }
