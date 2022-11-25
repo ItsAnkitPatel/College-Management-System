@@ -216,28 +216,19 @@ public class UpdateStudent implements ActionListener,Runnable{
         addressLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
         studentFrame.add(addressLabel);
         
-       
-        
+              
         addressTextArea = new JTextArea();
         addressTextArea.setLineWrap(true); //This will help to wrap the lines so it will not cross the border
         addressTextArea.setWrapStyleWord(true);
         addressTextArea.setFont(new Font("Times New Roman",Font.PLAIN,20));
         
-        
-        
-        
-        
-        
             //============Adding scroll bar===================
-        JScrollPane jsp = new JScrollPane(addressTextArea);
-        jsp.setBounds(210,280,300,150);
-
+            JScrollPane jsp = new JScrollPane(addressTextArea);
+            jsp.setBounds(210,280,300,150);
         
         studentFrame.add(jsp);
                 
-
-        
-        
+       
         
         /*===========Phone number Label and it's Text field=================*/
         phoneLabel = new JLabel("Phone");
@@ -353,9 +344,7 @@ public class UpdateStudent implements ActionListener,Runnable{
         studentFrame.add(branchComboBox);
         
         
-        
-        
-        
+  
         
         /*=========================Image Icon====================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/AddDataImage.jpg"));
@@ -387,7 +376,6 @@ public class UpdateStudent implements ActionListener,Runnable{
         
         //SETTING BORDER TRANSPARENT
         submitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));        
-//        submitButton.setBorder(new RoundedBorder(60));
         submitButton.setBackground(Color.WHITE);
         submitButton.addActionListener(this);
         
@@ -423,10 +411,6 @@ public class UpdateStudent implements ActionListener,Runnable{
         studentFrame.setResizable(false);
         
         studentFrame.setVisible(true);
-    }
-    
-    public static void main(String[] args) {
-        new UpdateStudent();
     }
 
 
@@ -573,7 +557,7 @@ public class UpdateStudent implements ActionListener,Runnable{
 
             studentFrame.dispose();
             studentbgFrame.dispose();
-//            new ShowStudentDetails();
+           new ShowStudentDetails();
         }
         
     }
