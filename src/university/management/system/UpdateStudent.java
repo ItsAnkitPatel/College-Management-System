@@ -9,7 +9,6 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.*;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 
 public class UpdateStudent implements ActionListener,Runnable{
@@ -23,7 +22,7 @@ public class UpdateStudent implements ActionListener,Runnable{
     JLabel title ,headingLabel;
     Choice rollNoChoice;
     JLabel nameLabel,fatherNameLabel,rollNumberLabel, showRollNo,
-            phoneLabel,generatedRollNumber,emailLabel ,adhaarLabel,class10Label,class12Label;
+            phoneLabel,emailLabel ,adhaarLabel,class10Label,class12Label;
     
     JTextField nameTextField,fatherNameTextField,
                 phoneTextField,emailTextField,adhaarTextField,class10TextField,class12TextField;
@@ -44,7 +43,7 @@ public class UpdateStudent implements ActionListener,Runnable{
     JLabel branchLabel;
     JComboBox branchComboBox;
     
-    JButton searchButton,submitButton,cancelButton ;
+    JButton searchButton,updateButton,cancelButton ;
     
 
     
@@ -56,7 +55,7 @@ public class UpdateStudent implements ActionListener,Runnable{
 
 
    void addStudentBackground() {
-    /*============Adding Background image first*/
+    /*============Adding Background image first================================*/
         studentbgFrame = new JFrame();
         studentbgFrame.setSize(1920,1080);
         studentbgFrame.setLocation(0,0);
@@ -224,13 +223,9 @@ public class UpdateStudent implements ActionListener,Runnable{
         addressTextArea.setFont(new Font("Times New Roman",Font.PLAIN,20));
         
         
-        
-        
-        
-        
             //============Adding scroll bar===================
-        JScrollPane jsp = new JScrollPane(addressTextArea);
-        jsp.setBounds(210,280,300,150);
+            JScrollPane jsp = new JScrollPane(addressTextArea);
+            jsp.setBounds(210,280,300,150);
 
         
         studentFrame.add(jsp);
@@ -325,7 +320,7 @@ public class UpdateStudent implements ActionListener,Runnable{
         courseLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
         studentFrame.add(courseLabel);
         
-        String[] courses = {"B.Tech","BBA","BCA","Bsc","Msc","MBA","MCA","MCom","MA","BA"};
+        String[] courses = {"","B.Tech","BBA","BCA","Bsc","Msc","MBA","MCA","MCom","MA","BA"};
         courseComboBox = new JComboBox(courses);
         courseComboBox.setBounds(260,615,200,25);
         courseComboBox.setFont(new Font("Times New Roman",Font.BOLD,20));
@@ -344,7 +339,7 @@ public class UpdateStudent implements ActionListener,Runnable{
         studentFrame.add(branchLabel);
         
         
-        String branch[] = {"Computer Science", "Electronics", "Mechanical", "Civil", "IT"};
+        String branch[] = {"","Computer Science", "Electronics", "Mechanical", "Civil", "IT"};
         branchComboBox = new JComboBox(branch);
         branchComboBox.setFont(new Font("Times New Roman",Font.BOLD,18));
         branchComboBox.setBounds(260,684,200,25);
@@ -372,24 +367,23 @@ public class UpdateStudent implements ActionListener,Runnable{
         
         
         /*=========================Submit Button Image Icon====================*/
-        ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
+        ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/updateButton.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
         
         
         
-        submitButton=  new JButton(submitFinalImageIcon);
-        submitButton.setBounds(465,770,190,60);
-        studentFrame.add(submitButton);
+        updateButton=  new JButton(submitFinalImageIcon);
+        updateButton.setBounds(465,770,190,60);
+        studentFrame.add(updateButton);
 
         // ADDING CURSOR SYMBOL 
-        submitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        updateButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
         //SETTING BORDER TRANSPARENT
-        submitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));        
-//        submitButton.setBorder(new RoundedBorder(60));
-        submitButton.setBackground(Color.WHITE);
-        submitButton.addActionListener(this);
+        updateButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        updateButton.setBackground(Color.WHITE);
+        updateButton.addActionListener(this);
         
 
        
@@ -512,11 +506,11 @@ public class UpdateStudent implements ActionListener,Runnable{
             showData();
         }
 
-         else if(e.getSource() == submitButton){
+         else if(e.getSource() == updateButton){
                 
                 String name = nameTextField.getText();
                 String fname = fatherNameTextField.getText();
-                String rollno = generatedRollNumber.getText();
+                String rollno = showRollNo.getText();
                 String dob =((JTextField) dcdob.getDateEditor().getUiComponent()).getText();
                 String address = addressTextArea.getText();
                 String phone = phoneTextField.getText();
@@ -539,21 +533,23 @@ public class UpdateStudent implements ActionListener,Runnable{
                 if(i>= strArray.length){
                 flag = true;
                  }
-        
+
             if(flag){
                 studentFrame.dispose();
 
                 try {//Creating mysql query
 
-                String query = "insert into students values('"+name+"','"+fname+"','"+rollno+"',"
-                        + "'"+dob+"','"+address+"','"+phone+"','"+email+"','"+adhaar+"','"+class10+"','"+class12+"','"+course+"','"+branch+"')";
-
-
+                String query = "update students set name ='"+name+"',fname ='"+fname+"'"
+                                +",dob='"+dob+"'"+",address='"+address+"',phone='"+phone+"'"
+                                +",email='"+email+"',adhaar='"+adhaar+"'"+",class_10='"+class10+"'"
+                                +",class_12='"+class12+"'"+",course='"+course+"',branch='"+branch+"'"
+                                +" where rollno='"+rollno+"'"; 
+                
                 Conn connect = new Conn(); //Creating and Registering driver class
                 connect.s.executeUpdate(query); //executeUpdate method use for DML commands in sql
 
                 
-
+ 
 
 
             } catch (Exception ex) { 
@@ -573,7 +569,7 @@ public class UpdateStudent implements ActionListener,Runnable{
 
             studentFrame.dispose();
             studentbgFrame.dispose();
-//            new ShowStudentDetails();
+            new ShowStudentDetails();
         }
         
     }
@@ -588,7 +584,7 @@ public class UpdateStudent implements ActionListener,Runnable{
                 popupSuccessImageFrame.dispose();
                 threadNumber =0;
                 studentbgFrame.dispose();
-                new AddStudent();
+                new UpdateStudent();
                 
             }else if(threadNumber ==2 ){ // 2 is for failure 
                 studentFrame.setVisible(false);
