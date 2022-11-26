@@ -8,11 +8,15 @@ import com.toedter.calendar.JDateChooser;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
 public class AddStudent implements ActionListener,Runnable{
-  static  boolean addStu = false;
+   
+
+ 
   Thread t;
    JFrame studentFrame ;
    JFrame studentbgFrame ;
@@ -77,7 +81,7 @@ public class AddStudent implements ActionListener,Runnable{
     }
     
     public AddStudent() {
-        addStu = true;
+      
         addStudentBackground();
       
         studentFrame = new JFrame();
@@ -85,10 +89,8 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.setLocation(400,80);
         studentFrame.getContentPane().setBackground(Color.WHITE);
         studentFrame.setLayout(null);
-        
         studentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
-        
         
 //=========================Title of the form====================================
 
@@ -222,13 +224,13 @@ public class AddStudent implements ActionListener,Runnable{
         
         /*===========AdhaarNo. Label and it's Text field=================*/
         adhaarLabel = new JLabel("AdhaarNo.");
-        adhaarLabel.setBounds(550,380,130,50);
+        adhaarLabel.setBounds(550,390,130,50);
         adhaarLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
         studentFrame.add(adhaarLabel);
         
         
         adhaarTextField = new JTextField();
-        adhaarTextField.setBounds(740,385,250,30);
+        adhaarTextField.setBounds(740,395,250,30);
         adhaarTextField.setFont(new Font("Times New Roman",Font.PLAIN,24));
         studentFrame.add(adhaarTextField);
         
@@ -276,7 +278,7 @@ public class AddStudent implements ActionListener,Runnable{
         courseLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
         studentFrame.add(courseLabel);
         
-        String[] courses = {"B.Tech","BBA","BCA","Bsc","Msc","MBA","MCA","MCom","MA","BA"};
+        String[] courses = {"","B.Tech","BBA","BCA","Bsc","Msc","MBA","MCA","MCom","MA","BA"};
         courseComboBox = new JComboBox(courses);
         courseComboBox.setBounds(260,595,200,25);
         courseComboBox.setFont(new Font("Times New Roman",Font.BOLD,20));
@@ -295,7 +297,7 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.add(branchLabel);
         
         
-        String branch[] = {"Computer Science", "Electronics", "Mechanical", "Civil", "IT"};
+        String branch[] = {"","Computer Science", "Electronics", "Mechanical", "Civil", "IT"};
         branchComboBox = new JComboBox(branch);
         branchComboBox.setFont(new Font("Times New Roman",Font.BOLD,18));
         branchComboBox.setBounds(260,664,200,25);
@@ -427,7 +429,96 @@ public class AddStudent implements ActionListener,Runnable{
         
     }
     
-
+    void checkFormatIsCorrect(){
+        
+    }
+    
+    void isEmpty(Integer i){
+        switch (i) {
+            case 0:
+                nameTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(nameTextField);
+               break;
+               
+            case 1:
+                fatherNameTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(fatherNameTextField);
+                break;
+                
+            case 3:
+                dcdob.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                JLabel showIsEmptyMessage = new JLabel("You cannot left this field empty");
+                showIsEmptyMessage.setFont(new Font("serif",Font.PLAIN,12));
+                studentFrame.add(showIsEmptyMessage);
+                showIsEmptyMessage.setBounds(740,225,200,20);
+                break;
+            
+            case 4:
+                addressTextArea.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                JLabel showIsEmptyMessage2= new JLabel("You cannot left this field empty");
+                showIsEmptyMessage2.setFont(new Font("serif",Font.PLAIN,12));
+                studentFrame.add(showIsEmptyMessage2);
+                showIsEmptyMessage2.setBounds(210,415,210,20);
+                
+                break;
+            
+            case 5:
+                phoneTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(phoneTextField);
+                break;
+            
+            case 6:
+                emailTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(emailTextField);
+                break;
+            
+            case 7:
+                adhaarTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(adhaarTextField);
+                break;
+            
+            case 8:
+                class10TextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(class10TextField);
+                break;
+                
+            case 9:
+                class12TextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(class12TextField);
+                break;
+                
+            case 10:
+                courseComboBox.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(courseComboBox);
+                break;
+            
+            case 11:
+                branchComboBox.setBorder(BorderFactory.createLineBorder(Color.RED,2));
+                showMessageForTextFields(branchComboBox);
+                break;
+                
+        }
+    }
+    
+    void showMessageForTextFields(JTextField textField){
+        JLabel showIsEmptyMessage = new JLabel("You cannot left this field empty");
+        showIsEmptyMessage.setFont(new Font("serif",Font.PLAIN,12));
+        studentFrame.add(showIsEmptyMessage);
+        showIsEmptyMessage.setBounds(textField.getX(),textField.getY()+30,200,20);
+    }
+   
+    
+   
+    
+    void showMessageForTextFields(JComboBox textField){
+        JLabel showIsEmptyMessage = new JLabel("You cannot left this field empty");
+        showIsEmptyMessage.setFont(new Font("serif",Font.PLAIN,12));
+        studentFrame.add(showIsEmptyMessage);
+        showIsEmptyMessage.setBounds(textField.getX(),textField.getY()+30,200,20);
+        
+    }
+    /*We hard coded setBounds of TextArea and JDateChooser only because we have only one field of them
+      that's why we did not created methods for them */
     
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -448,26 +539,28 @@ public class AddStudent implements ActionListener,Runnable{
                 String course  = (String)courseComboBox.getSelectedItem();
                 String branch = (String) branchComboBox.getSelectedItem();
 
-                boolean flag = false;
-                String[] strArray = {name,fname,rollno,dob,address,phone,adhaar,class10,class12,course,branch};
-
+                boolean flag = true;
+                String[] strArray = {name,fname,rollno,dob,address,phone,email,adhaar,class10,class12,course,branch};
+                List <Integer> fieldIsEmpty = new ArrayList<Integer>();
                 int i =0;
                 for(; i < strArray.length;i++){
                     if(strArray[i].isEmpty()){
-                        break;
+                        flag = false;
+                        fieldIsEmpty.add(i);
                     }
                 }
-                if(i>= strArray.length){
-                flag = true;
-                 }
-        
+//                if(i>= strArray.length){
+//                flag = true;
+//                 }
+               
             if(flag){
                 studentFrame.dispose();
 
                 try {//Creating mysql query
 
                 String query = "insert into students values('"+name+"','"+fname+"','"+rollno+"',"
-                        + "'"+dob+"','"+address+"','"+phone+"','"+email+"','"+adhaar+"','"+class10+"','"+class12+"','"+course+"','"+branch+"')";
+                                 +"'"+dob+"','"+address+"','"+phone+"','"+email+"','"+adhaar+"','"
+                                 +class10+"','"+class12+"','"+course+"','"+branch+"')";
 
 
                 Conn connect = new Conn(); //Creating and Registering driver class
@@ -484,7 +577,11 @@ public class AddStudent implements ActionListener,Runnable{
             popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
             }else{
                 
-                popUpFailureImage();
+//                popUpFailureImage();
+            for(Integer num : fieldIsEmpty){
+                isEmpty(num);
+            }
+                
             }    
         
         }else if(e.getSource() == cancelButton){
@@ -492,14 +589,15 @@ public class AddStudent implements ActionListener,Runnable{
 
             studentFrame.dispose();
             studentbgFrame.dispose();
-            if(addStu == true && ShowStudentDetails.showStuDetail == false){
-                addStu = false;
-                Dashboard.dashboardFrame.setVisible(true);
+            if( ShowStudentDetails.isShowStuDetailON == true){
                 
-            }else if(ShowStudentDetails.showStuDetail == true&&addStu == true ){
-                ShowStudentDetails.showStuDetail = false;
+                ShowStudentDetails.isShowStuDetailON = false;
                 ShowStudentDetails.studentbgFrame.setVisible(true);
                 ShowStudentDetails.studentDetailsframe.setVisible(true);
+                
+            }else{
+               
+                Dashboard.dashboardFrame.setVisible(true);
                 
             }
         }
