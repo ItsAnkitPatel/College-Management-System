@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -16,13 +17,15 @@ import java.util.List;
 
 public class AddStudent implements ActionListener,Runnable{
    
-
+    public static void main(String[] args) {
+        new AddStudent();
+    }
   JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMessage6,showMessage7,showMessage8,showMessage9,showMessage10,showMessage11;
   
-  Thread t;
+    Thread t;
    JFrame studentFrame ;
    JFrame studentbgFrame ;
-     int  threadNumber =0;
+    
     
     JLabel nameLabel,fatherNameLabel,rollNumberLabel,
             phoneLabel,generatedRollNumber,emailLabel ,adhaarLabel,class10Label,class12Label;
@@ -53,9 +56,7 @@ public class AddStudent implements ActionListener,Runnable{
    
     
 
-    public static void main(String[] args) {
-        new AddStudent();
-    }
+  
    
     public AddStudent() {
         
@@ -80,7 +81,7 @@ public class AddStudent implements ActionListener,Runnable{
                     studentbgFrame.setVisible(true);
 
         
-                    
+           
         studentFrame = new JFrame();
         studentFrame.setSize(1100,900);
         studentFrame.setLocation(400,80);
@@ -157,9 +158,11 @@ public class AddStudent implements ActionListener,Runnable{
         
         dcdob = new JDateChooser();
         dcdob.setBounds(740,190,250,30);
-        dcdob.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        dcdob.setFont(new Font("Times New Roman",Font.BOLD,20));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) dcdob.getDateEditor();
+        editor.setEnabled(false);
+        editor.setBackground(Color.WHITE);
         studentFrame.add(dcdob);
-        
         
         
         
@@ -208,6 +211,8 @@ public class AddStudent implements ActionListener,Runnable{
         
         //Using lambda to create a check on phoneTextField so that user can only enter numbers
             phoneTextField.addKeyListener(new KeyAdapter() {
+                
+                @Override
                 public void keyPressed(KeyEvent ke) {
                        if ((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9')&&(phoneTextField.getText().length()<10)||(ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
                           phoneTextField.setEditable(true);
@@ -250,6 +255,7 @@ public class AddStudent implements ActionListener,Runnable{
         //Using lambda to create a check on adhaarTextField so that user can only enter numbers
             adhaarTextField.addKeyListener(new KeyAdapter() {
 
+                @Override
                 public void keyPressed(KeyEvent ke) {
 
                     if ((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9')&&(adhaarTextField.getText().length()<12)||(ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
@@ -279,6 +285,7 @@ public class AddStudent implements ActionListener,Runnable{
         //Using lambda to create a check on class10TextField so that user can only enter numbers
             class10TextField.addKeyListener(new KeyAdapter() {
 
+                @Override
                 public void keyPressed(KeyEvent ke) {
 
                     if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(class10TextField.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
@@ -310,6 +317,7 @@ public class AddStudent implements ActionListener,Runnable{
         //Using lambda to create a check on class12TextField so that user can only enter numbers
             class12TextField.addKeyListener(new KeyAdapter() {
 
+                @Override
                 public void keyPressed(KeyEvent ke) {
 
                     if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(class12TextField.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
@@ -358,9 +366,7 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.add(branchComboBox);
         
         
-        
-        
-        
+ 
         
         /*=========================Image Icon====================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/AddDataImage.jpg"));
@@ -425,7 +431,7 @@ public class AddStudent implements ActionListener,Runnable{
         
          /*Creating object of all message lables and making them invisible for the time*/
                 
-                //Message1 
+                //Message1 for name field
                 showMessage1 = new JLabel("You cannot left this field empty");
                 showMessage1.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage1.setBounds(nameTextField.getX(),nameTextField.getY()+30,200,20);
@@ -433,70 +439,70 @@ public class AddStudent implements ActionListener,Runnable{
                 showMessage1.setVisible(false);
                  
                  
-                //Message2 
+                //Message2 for fname field
                 showMessage2 = new JLabel("You cannot left this field empty");
                 showMessage2.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage2.setBounds(fatherNameTextField.getX(),fatherNameTextField.getY()+30,200,20);
                 studentFrame.add(showMessage2);
                 showMessage2.setVisible(false);
                 
-                //Message3
+                //Message3 for dcdob field
                 showMessage3 = new JLabel("You cannot left this field empty");
                 showMessage3.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage3.setBounds(740,225,200,20);
                 studentFrame.add(showMessage3);
                 showMessage3.setVisible(false);
                 
-                //Message4
+                //Message4 for address field
                 showMessage4= new JLabel("You cannot left this field empty");
                 showMessage4.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage4.setBounds(210,415,210,20);
                 studentFrame.add(showMessage4);
                 showMessage4.setVisible(false);
                 
-                //Message5
+                //Message5 for phone field
                 showMessage5 = new JLabel("You cannot left this field empty");
                 showMessage5.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage5.setBounds(phoneTextField.getX(),phoneTextField.getY()+30,200,20);
                 studentFrame.add(showMessage5);
                 showMessage5.setVisible(false);
                 
-                //Message6
+                //Message6 for email field
                 showMessage6 = new JLabel("You cannot left this field empty");
                 showMessage6.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage6.setBounds(emailTextField.getX(),emailTextField.getY()+30,200,20);
                 studentFrame.add(showMessage6);
                 showMessage6.setVisible(false);
         
-                //Message7
+                //Message7 for adhaar field
                 showMessage7 = new JLabel("You cannot left this field empty");
                 showMessage7.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage7.setBounds(adhaarTextField.getX(),adhaarTextField.getY()+30,200,20);
                 studentFrame.add(showMessage7);
                 showMessage7.setVisible(false);
                 
-                //Message8
+                //Message8 for class10 field
                 showMessage8 = new JLabel("You cannot left this field empty");
                 showMessage8.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage8.setBounds(class10TextField.getX(),class10TextField.getY()+30,200,20);
                 studentFrame.add(showMessage8);
                 showMessage8.setVisible(false);
                 
-                //Message9
+                //Message9 for class12 field
                 showMessage9 = new JLabel("You cannot left this field empty");
                 showMessage9.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage9.setBounds(class12TextField.getX(),class12TextField.getY()+30,200,20);
                 studentFrame.add(showMessage9);
                 showMessage9.setVisible(false);
                 
-                //Message10
+                //Message10 for course field
                 showMessage10 = new JLabel("You cannot left this field empty");
                 showMessage10.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage10.setBounds(courseComboBox.getX(),courseComboBox.getY()+30,200,20);
                 studentFrame.add(showMessage10);
                 showMessage10.setVisible(false);
                 
-                //Message11
+                //Message11 for branch field
                 showMessage11 = new JLabel("You cannot left this field empty");
                 showMessage11.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage11.setBounds(branchComboBox.getX(),branchComboBox.getY()+30,200,20);
@@ -532,41 +538,15 @@ public class AddStudent implements ActionListener,Runnable{
         popupSuccessImageFrame.setShape(new RoundRectangle2D.Double(0, 0, 500, 500, 30, 30)); //This will make the edges rounded
         
         popupSuccessImageFrame.setVisible(true); //makes the jframe visible
-        threadNumber =1;
+      
         t.start();
         
     }
     
     
-    void popUpFailureImage(){
-               
-        t = new Thread(this);
-        popupFailureImageFrame = new JFrame();
-        popupFailureImageFrame.setUndecorated(true); //removes the surrounding border
+    
+    
 
-        ImageIcon image = new ImageIcon(ClassLoader.getSystemResource("icons/FailureImage.jpg")); //imports the image
-        Image workDoneImage = image.getImage().getScaledInstance(850, 600,Image.SCALE_SMOOTH);
-        ImageIcon finalworkDoneImageIcon = new ImageIcon(workDoneImage);
-        JLabel lbl = new JLabel(finalworkDoneImageIcon); //puts the image into a jlabel
-
-        popupFailureImageFrame.getContentPane().add(lbl); //puts label inside the jframe
-
-        
-        popupFailureImageFrame.setLocation(500,200);
-        popupFailureImageFrame.setSize(850,600);
-        popupFailureImageFrame.setShape(new RoundRectangle2D.Double(0, 0, 850, 600, 30, 30)); //This will make the edges rounded
-        popupFailureImageFrame.setVisible(true); //makes the jframe visible
-        threadNumber =2;
-        t.start();
-        
-    }
-    
-    void checkFormatIsCorrect(){
-        
-    }
-    
-    
-    
     void isEmpty(int i){
         switch (i) {
             case 0:
@@ -725,10 +705,7 @@ public class AddStudent implements ActionListener,Runnable{
                         fieldIsEmpty.add(false);
                     }
                 }
-//                if(i>= strArray.length){
-//                flag = true;
-//                 }
-               
+
             if(flag){
                 studentFrame.dispose();
 
@@ -752,17 +729,19 @@ public class AddStudent implements ActionListener,Runnable{
                 
             popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
             }else{
-                studentFrame.setVisible(false);
-                popUpFailureImage();
-            for(int num =0; num<fieldIsEmpty.size();num++){
-                if(fieldIsEmpty.get(num) == true){
-                    isEmpty(num);
-                }else{
-                    changeBorderColorToBlack(num);
-                }
                
-            }
+             
+               studentFrame.setVisible(false);
                 
+                
+                    for(int num =0; num<fieldIsEmpty.size();num++){
+                        if(fieldIsEmpty.get(num) == true){
+                            isEmpty(num);
+                        }else{
+                            changeBorderColorToBlack(num);
+                        }
+                    }  
+                studentFrame.setVisible(true);
             }    
         
         }else if(e.getSource() == cancelButton){
@@ -788,21 +767,14 @@ public class AddStudent implements ActionListener,Runnable{
     @Override
     public void run() {
         try {
-            if(threadNumber ==1){//1 is for success 
+            
                studentFrame.dispose();
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
-                threadNumber =0;
                 studentbgFrame.dispose();
                 new AddStudent();
                 
-            }else if(threadNumber ==2 ){ // 2 is for failure 
-                threadNumber =0;
-                Thread.sleep(700);
-                popupFailureImageFrame.dispose();
-                studentFrame.setVisible(true);
-               
-            }     
+            
         }catch (Exception e) {
             e.printStackTrace();
         }
