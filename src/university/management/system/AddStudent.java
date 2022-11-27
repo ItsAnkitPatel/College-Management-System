@@ -1,4 +1,3 @@
-
 package university.management.system;
 
 import javax.swing.*;
@@ -204,8 +203,20 @@ public class AddStudent implements ActionListener,Runnable{
         phoneTextField = new JTextField();
         phoneTextField.setBounds(740,260,250,30);
         phoneTextField.setFont(new Font("Times New Roman",Font.PLAIN,25));
+        
         studentFrame.add(phoneTextField);
-        phoneTextField.setVisible(true);
+        
+        //Using lambda to create a check on phoneTextField so that user can only enter numbers
+            phoneTextField.addKeyListener(new KeyAdapter() {
+                public void keyPressed(KeyEvent ke) {
+                       if ((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9')&&(phoneTextField.getText().length()<10)||(ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                          phoneTextField.setEditable(true);
+
+                       } else {
+                          phoneTextField.setEditable(false);
+                       }
+                }
+             });
         
         
         
@@ -235,6 +246,20 @@ public class AddStudent implements ActionListener,Runnable{
         adhaarTextField.setBounds(740,395,250,30);
         adhaarTextField.setFont(new Font("Times New Roman",Font.PLAIN,24));
         studentFrame.add(adhaarTextField);
+        
+        //Using lambda to create a check on adhaarTextField so that user can only enter numbers
+            adhaarTextField.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9')&&(adhaarTextField.getText().length()<12)||(ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       adhaarTextField.setEditable(true);
+
+                    } else {
+                       adhaarTextField.setEditable(false);
+                    }
+                }
+            });
         
         
         
@@ -522,7 +547,6 @@ public class AddStudent implements ActionListener,Runnable{
             case 0:
                nameTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
                showMessage1.setVisible(true);
-               
                break;
                
             case 1:
@@ -564,7 +588,6 @@ public class AddStudent implements ActionListener,Runnable{
                 class12TextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
                 showMessage9.setVisible(true);
                 break;
-                
                 
             case 9:
                 courseComboBox.setBorder(BorderFactory.createLineBorder(Color.RED,2));
