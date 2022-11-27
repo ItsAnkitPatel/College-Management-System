@@ -378,7 +378,7 @@ public class AddStudent implements ActionListener,Runnable{
                 //Message1 
                 showMessage1 = new JLabel("You cannot left this field empty");
                 showMessage1.setFont(new Font("serif",Font.PLAIN,12));
-                
+                showMessage1.setBounds(nameTextField.getX(),nameTextField.getY()+30,200,20);
                 studentFrame.add(showMessage1);
                 showMessage1.setVisible(false);
                  
@@ -386,61 +386,70 @@ public class AddStudent implements ActionListener,Runnable{
                 //Message2 
                 showMessage2 = new JLabel("You cannot left this field empty");
                 showMessage2.setFont(new Font("serif",Font.PLAIN,12));
-                 
+                showMessage2.setBounds(fatherNameTextField.getX(),fatherNameTextField.getY()+30,200,20);
                 studentFrame.add(showMessage2);
                 showMessage2.setVisible(false);
                 
                 //Message3
                 showMessage3 = new JLabel("You cannot left this field empty");
                 showMessage3.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage3.setBounds(740,225,200,20);
                 studentFrame.add(showMessage3);
                 showMessage3.setVisible(false);
                 
                 //Message4
                 showMessage4= new JLabel("You cannot left this field empty");
                 showMessage4.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage4.setBounds(210,415,210,20);
                 studentFrame.add(showMessage4);
                 showMessage4.setVisible(false);
                 
                 //Message5
                 showMessage5 = new JLabel("You cannot left this field empty");
                 showMessage5.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage5.setBounds(phoneTextField.getX(),phoneTextField.getY()+30,200,20);
                 studentFrame.add(showMessage5);
                 showMessage5.setVisible(false);
                 
                 //Message6
                 showMessage6 = new JLabel("You cannot left this field empty");
                 showMessage6.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage6.setBounds(emailTextField.getX(),emailTextField.getY()+30,200,20);
                 studentFrame.add(showMessage6);
                 showMessage6.setVisible(false);
         
                 //Message7
                 showMessage7 = new JLabel("You cannot left this field empty");
                 showMessage7.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage7.setBounds(adhaarTextField.getX(),adhaarTextField.getY()+30,200,20);
                 studentFrame.add(showMessage7);
                 showMessage7.setVisible(false);
                 
                 //Message8
                 showMessage8 = new JLabel("You cannot left this field empty");
                 showMessage8.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage8.setBounds(class10TextField.getX(),class10TextField.getY()+30,200,20);
                 studentFrame.add(showMessage8);
                 showMessage8.setVisible(false);
                 
                 //Message9
                 showMessage9 = new JLabel("You cannot left this field empty");
                 showMessage9.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage9.setBounds(class12TextField.getX(),class12TextField.getY()+30,200,20);
                 studentFrame.add(showMessage9);
                 showMessage9.setVisible(false);
                 
                 //Message10
                 showMessage10 = new JLabel("You cannot left this field empty");
                 showMessage10.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage10.setBounds(courseComboBox.getX(),courseComboBox.getY()+30,200,20);
                 studentFrame.add(showMessage10);
                 showMessage10.setVisible(false);
                 
                 //Message11
                 showMessage11 = new JLabel("You cannot left this field empty");
                 showMessage11.setFont(new Font("serif",Font.PLAIN,12));
+                showMessage11.setBounds(branchComboBox.getX(),branchComboBox.getY()+30,200,20);
                 studentFrame.add(showMessage11);
                 showMessage11.setVisible(false);
                 
@@ -512,69 +521,58 @@ public class AddStudent implements ActionListener,Runnable{
         switch (i) {
             case 0:
                nameTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-               showMessage1.setBounds(nameTextField.getX(),nameTextField.getY()+30,200,20);
                showMessage1.setVisible(true);
                
                break;
                
             case 1:
                 fatherNameTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage2.setBounds(fatherNameTextField.getX(),fatherNameTextField.getY()+30,200,20);
                 showMessage2.setVisible(true);
                 break;
                 
             case 2:
                 dcdob.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage3.setBounds(740,225,200,20);
                 showMessage3.setVisible(true);
                 break;
             
             case 3:
                 addressTextArea.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage4.setBounds(210,415,210,20);
                 showMessage4.setVisible(true);
                 break;
             
             case 4:
                 phoneTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage5.setBounds(phoneTextField.getX(),phoneTextField.getY()+30,200,20);
                 showMessage5.setVisible(true);
                 break;
             
             case 5:
                 emailTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage6.setBounds(emailTextField.getX(),emailTextField.getY()+30,200,20);
                 showMessage6.setVisible(true);
                 break;
             
             case 6:
                 adhaarTextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage7.setBounds(adhaarTextField.getX(),adhaarTextField.getY()+30,200,20);
                 showMessage7.setVisible(true);
                 break;
             
             case 7:
                 class10TextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage8.setBounds(class10TextField.getX(),class10TextField.getY()+30,200,20);
                 showMessage8.setVisible(true);
                 break;
                 
             case 8:
                 class12TextField.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage9.setBounds(class12TextField.getX(),class12TextField.getY()+30,200,20);
                 showMessage9.setVisible(true);
                 break;
                 
                 
             case 9:
                 courseComboBox.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage10.setBounds(courseComboBox.getX(),courseComboBox.getY()+30,200,20);
                 showMessage10.setVisible(true);
                 break;
             
             case 10:
                 branchComboBox.setBorder(BorderFactory.createLineBorder(Color.RED,2));
-                showMessage11.setBounds(branchComboBox.getX(),branchComboBox.getY()+30,200,20);
                 showMessage11.setVisible(true);
                 break;
                 
