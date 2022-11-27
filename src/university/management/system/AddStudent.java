@@ -276,6 +276,19 @@ public class AddStudent implements ActionListener,Runnable{
         class10TextField.setFont(new Font("Times New Roman",Font.PLAIN,24));
         studentFrame.add(class10TextField);
         
+        //Using lambda to create a check on class10TextField so that user can only enter numbers
+            class10TextField.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(class10TextField.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       class10TextField.setEditable(true);
+
+                    } else {
+                       class10TextField.setEditable(false);
+                    }
+                }
+            });
         
         
         
@@ -294,7 +307,19 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.add(class12TextField);
         
         
-        
+        //Using lambda to create a check on class12TextField so that user can only enter numbers
+            class12TextField.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(class12TextField.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       class12TextField.setEditable(true);
+
+                    } else {
+                       class12TextField.setEditable(false);
+                    }
+                }
+            });
         
         
         
@@ -727,8 +752,8 @@ public class AddStudent implements ActionListener,Runnable{
                 
             popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
             }else{
-                
-//                popUpFailureImage();
+                studentFrame.setVisible(false);
+                popUpFailureImage();
             for(int num =0; num<fieldIsEmpty.size();num++){
                 if(fieldIsEmpty.get(num) == true){
                     isEmpty(num);
@@ -766,16 +791,14 @@ public class AddStudent implements ActionListener,Runnable{
             if(threadNumber ==1){//1 is for success 
                studentFrame.dispose();
                 Thread.sleep(800);
-
                 popupSuccessImageFrame.dispose();
                 threadNumber =0;
                 studentbgFrame.dispose();
                 new AddStudent();
                 
             }else if(threadNumber ==2 ){ // 2 is for failure 
-                studentFrame.setVisible(false);
                 threadNumber =0;
-                Thread.sleep(1500);
+                Thread.sleep(700);
                 popupFailureImageFrame.dispose();
                 studentFrame.setVisible(true);
                
