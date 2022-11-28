@@ -36,12 +36,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     JLabel DOB;
     JDateChooser dcdob ;
     
-    
     JLabel addressLabel;
     JTextArea addressTextArea;
-
-    
-    
+       
     JLabel qualificationLabel;
     JComboBox qualificationComboBox;
     
@@ -50,37 +47,36 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     
     JButton submitButton,cancelButton ;
     
-
-    
-    
     JFrame popupSuccessImageFrame ;
    
     
-    void addTeacherBackground(){
-    teacherbgFrame = new JFrame();
-        
-       /*============Adding Background image first*/
-        teacherbgFrame.setSize(1920,1080);
-        teacherbgFrame.setLocation(0,0);
-        teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-        Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-        ImageIcon img3 = new ImageIcon(img2);
-        
-        JLabel addBackgroundImage = new JLabel(img3);
-        addBackgroundImage.setBounds(0,0,1920,1080);
-        teacherbgFrame.add(addBackgroundImage);
-        teacherbgFrame.setUndecorated(true);
-        teacherbgFrame.setResizable(false);
-        teacherbgFrame.setVisible(true);
-}
+  
     public AddTeacher() {
+
+        
+            
+
+            /*============Adding Background image first*/
+             teacherbgFrame = new JFrame();
+             teacherbgFrame.setSize(1920,1080);
+             teacherbgFrame.setLocation(0,0);
+             teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
+             ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
+             Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
+             ImageIcon img3 = new ImageIcon(img2);
+
+             JLabel addBackgroundImage = new JLabel(img3);
+             addBackgroundImage.setBounds(0,0,1920,1080);
+             teacherbgFrame.add(addBackgroundImage);
+             teacherbgFrame.setUndecorated(true);
+             teacherbgFrame.setResizable(false);
+             teacherbgFrame.setVisible(true);
+
+
         
         
-        
-        addTeacherBackground();
         
         teacherFrame = new JFrame() ;
         teacherFrame.getContentPane().setBackground(Color.WHITE);

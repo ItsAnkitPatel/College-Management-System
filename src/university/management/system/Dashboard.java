@@ -208,8 +208,9 @@ public class Dashboard implements ActionListener{
             
 
         }else if(msg.equals("Enter Marks")){
+            dashboardFrame.setVisible(false);         
+            new EnterMarks();
             
- 
         }else if(msg.equals("Update Faculty Details")){
             dashboardFrame.setVisible(false);
             new UpdateTeacher();
