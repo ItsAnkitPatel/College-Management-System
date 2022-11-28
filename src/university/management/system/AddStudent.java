@@ -768,7 +768,7 @@ public class AddStudent implements ActionListener,Runnable{
     public void run() {
         try {
             
-               studentFrame.dispose();
+                
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
                 studentbgFrame.dispose();

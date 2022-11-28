@@ -2,6 +2,7 @@
 package university.management.system;
 
 import com.toedter.calendar.JDateChooser;
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -201,6 +202,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         dcdob = new JDateChooser();
         dcdob.setBounds(740,210,250,30);
         dcdob.setFont(new Font("Times New Roman",Font.PLAIN,20));
+        JTextFieldDateEditor editor = (JTextFieldDateEditor) dcdob.getDateEditor();
+        editor.setEnabled(false);
+        editor.setBackground(Color.WHITE);
         studentFrame.add(dcdob);
         
         
@@ -746,9 +750,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                         fieldIsEmpty.add(false);
                     }
                 }
-//                if(i>= strArray.length){
-//                flag = true;
-//                 }
 
             if(flag){
                 studentFrame.dispose();
