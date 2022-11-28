@@ -5,11 +5,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.*;
-public class Login  implements ActionListener {
+
+public class Login  implements ActionListener,Runnable {
     
     static JFrame loginFrame;
-
-    
+    Thread t;
+    JFrame popupFailureImageFrame;
     JPasswordField passwordJTextField; 
     JTextField userJTextField;
     
@@ -17,6 +18,9 @@ public class Login  implements ActionListener {
     JButton loginButton;
     JButton exitButton ;
    
+    public static void main(String[] args) {
+        new Login();
+    }
     public Login(){
         loginFrame = new JFrame();
         loginFrame.getContentPane().setBackground(Color.WHITE);
@@ -131,7 +135,28 @@ public class Login  implements ActionListener {
     }
     
 
+    void popUpFailureImage(){
+               
+        t = new Thread(this);
+        popupFailureImageFrame = new JFrame();
+        popupFailureImageFrame.setUndecorated(true); //removes the surrounding border
 
+        ImageIcon image = new ImageIcon(ClassLoader.getSystemResource("icons/FailureImage.jpg")); //imports the image
+        Image workDoneImage = image.getImage().getScaledInstance(850, 600,Image.SCALE_SMOOTH);
+        ImageIcon finalworkDoneImageIcon = new ImageIcon(workDoneImage);
+        JLabel lbl = new JLabel(finalworkDoneImageIcon); //puts the image into a jlabel
+
+        popupFailureImageFrame.getContentPane().add(lbl); //puts label inside the jframe
+
+        
+        popupFailureImageFrame.setLocation(500,200);
+        popupFailureImageFrame.setSize(850,600);
+        popupFailureImageFrame.setShape(new RoundRectangle2D.Double(0, 0, 850, 600, 30, 30)); //This will make the edges rounded
+        popupFailureImageFrame.setVisible(true); //makes the jframe visible
+      
+        t.start();
+        
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == loginButton){
@@ -165,12 +190,12 @@ public class Login  implements ActionListener {
                     new Dashboard();
                     
                     
-                }else{//If validation is false then we will show popup of invalid username and password 
+                }else{//If validation is false then we will show popup of popup image 
                     
                     
-                    loginFrame.dispose();
-                    JOptionPane.showMessageDialog(null,"Invalid username or password ");
-                    new Login();
+                    loginFrame.setVisible(false);
+//                    JOptionPane.showMessageDialog(null,"Invalid username or password ");
+                   popUpFailureImage();
                     
       
                     
@@ -189,6 +214,22 @@ public class Login  implements ActionListener {
         }
         
     }   
+
+    @Override
+    public void run() {
+        
+        try {
+            
+            Thread.sleep(1000);
+            popupFailureImageFrame.dispose();
+            loginFrame.dispose();
+            
+            new Login();
+        } catch (InterruptedException ex) {
+            ex.printStackTrace();
+        }
+        
+    }
 
    
 }

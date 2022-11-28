@@ -8,6 +8,9 @@ import java.awt.event.ActionListener;
 
 public class Dashboard implements ActionListener{
     static JFrame dashboardFrame ;
+    public static void main(String[] args) {
+        new Dashboard();
+    }
     Dashboard() {
         
         dashboardFrame = new JFrame();
@@ -203,28 +206,20 @@ public class Dashboard implements ActionListener{
             
         }else if(msg.equals("Exam Results")){
             
-            
-            
+
         }else if(msg.equals("Enter Marks")){
-            
-            
-           
-            
+            dashboardFrame.setVisible(false);         
+            new EnterMarks();
             
         }else if(msg.equals("Update Faculty Details")){
-            
-            
+            dashboardFrame.setVisible(false);
+            new UpdateTeacher();
             
         }else if(msg.equals("Update Student Details")){
-            
-          
-            
-            
-            
+            dashboardFrame.setVisible(false);
+            new UpdateStudent();
             
         }else if(msg.equals("Fees Structure")){
-            
-            
             
         }else if(msg.equals("Student Fee Form")){
             

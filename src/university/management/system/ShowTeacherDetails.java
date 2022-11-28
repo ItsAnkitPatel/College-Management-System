@@ -12,7 +12,7 @@ import net.proteanit.sql.DbUtils;
 
 
 public class ShowTeacherDetails implements ActionListener {
- static boolean showTeachDetails = false;
+ static boolean isShowTeachDetailsON = false;
 
  static JFrame teacherDetailsFrame ,teacherbgFrame;
     Choice empNoChoice;
@@ -20,7 +20,7 @@ public class ShowTeacherDetails implements ActionListener {
     JButton clearButton,searchButton,addButton,updateButton,printButton,cancelButton;
 
     public ShowTeacherDetails() {
-        showTeachDetails = true;
+        isShowTeachDetailsON = true;
 
             /*============Adding Background image first*/
             teacherbgFrame = new JFrame();
@@ -51,14 +51,15 @@ public class ShowTeacherDetails implements ActionListener {
 
 
                 //============Adding Image and making edges round===========================================
-                    ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Database.jpg"));
-                    Image i2 = i1.getImage().getScaledInstance(550, 350,Image.SCALE_SMOOTH);
-                    ImageIcon finalImageIcon = new ImageIcon(i2);
+                ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Database.jpg"));
+                Image i2 = i1.getImage().getScaledInstance(550, 345,Image.SCALE_SMOOTH);
+                ImageIcon finalImageIcon = new ImageIcon(i2);
 
 
-                    JLabel addImage = new JLabel(finalImageIcon);
-                    addImage.setBounds(850,430,550,350);
-                    teacherDetailsFrame.add(addImage);
+                JLabel addImage = new JLabel(finalImageIcon);
+                addImage.setBounds(850,445,550,345);
+                teacherDetailsFrame.add(addImage);
+
 
 
                     teacherDetailsFrame.setUndecorated(true);
@@ -145,12 +146,6 @@ public class ShowTeacherDetails implements ActionListener {
 
 
 
-
-
-
-
-
-
          /*======================Update Button and Image Icon====================================*/
         ImageIcon updateIcon = new ImageIcon(ClassLoader.getSystemResource("icons/UpdateButtonImage.png"));
         Image updateImg = updateIcon.getImage().getScaledInstance(190, 70, Image.SCALE_SMOOTH);
@@ -167,9 +162,6 @@ public class ShowTeacherDetails implements ActionListener {
         updateButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         updateButton.addActionListener(this);
         teacherDetailsFrame.add(updateButton);
-
-
-
 
 
 
@@ -233,9 +225,7 @@ public class ShowTeacherDetails implements ActionListener {
 
         teacherDetailsFrame.add(cancelButton);
 
-
-
-
+        
 
         teacherDetailsFrame.setVisible(true);
         teacherDetailsFrame.setResizable(false);
@@ -271,7 +261,7 @@ public class ShowTeacherDetails implements ActionListener {
               teacherDetailsFrame.dispose();
               teacherbgFrame.dispose();
               
-           new ShowStudentDetails(); //The only reason we are re launching a new anonymous object because the table is not properly rendering
+           new ShowTeacherDetails(); //The only reason we are re launching a new anonymous object because the table is not properly rendering
                                      // which is why we are doing this
         }
         
@@ -293,8 +283,9 @@ public class ShowTeacherDetails implements ActionListener {
         
         
         else if(e.getSource() == updateButton){
-            
-            new UpdateStudent();
+            teacherDetailsFrame.dispose();
+            teacherbgFrame.dispose();
+            new UpdateTeacher();
             
         }
         
