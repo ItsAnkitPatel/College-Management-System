@@ -54,7 +54,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     
     
     JFrame popupSuccessImageFrame ;
-    JFrame popupFailureImageFrame ;
    
     
     void addTeacherBackground(){
