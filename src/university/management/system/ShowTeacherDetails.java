@@ -12,7 +12,7 @@ import net.proteanit.sql.DbUtils;
 
 
 public class ShowTeacherDetails implements ActionListener {
- static boolean showTeachDetails = false;
+ static boolean isShowTeachDetailsON = false;
 
  static JFrame teacherDetailsFrame ,teacherbgFrame;
     Choice empNoChoice;
@@ -20,7 +20,7 @@ public class ShowTeacherDetails implements ActionListener {
     JButton clearButton,searchButton,addButton,updateButton,printButton,cancelButton;
 
     public ShowTeacherDetails() {
-        showTeachDetails = true;
+        isShowTeachDetailsON = true;
 
             /*============Adding Background image first*/
             teacherbgFrame = new JFrame();

@@ -787,10 +787,19 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         }
         else if(e.getSource() == cancelButton){
             
-
             updateTeacherFrame.dispose();
             updateTeacherbgFrame.dispose();
-            new ShowTeacherDetails();
+           if( ShowTeacherDetails.isShowTeachDetailsON == true){
+                
+                ShowTeacherDetails.isShowTeachDetailsON = false;
+                ShowTeacherDetails.teacherbgFrame.setVisible(true);
+                ShowTeacherDetails.teacherDetailsFrame.setVisible(true);
+                
+            }else{
+               
+                Dashboard.dashboardFrame.setVisible(true);
+                
+            }
         }
         
     }

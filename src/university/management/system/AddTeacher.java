@@ -742,9 +742,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
             teacherFrame.dispose();
             teacherbgFrame.dispose();
 
-            if(ShowTeacherDetails.showTeachDetails == true){
+            if(ShowTeacherDetails.isShowTeachDetailsON == true){
                 
-                ShowTeacherDetails.showTeachDetails = false;
+                ShowTeacherDetails.isShowTeachDetailsON = false;
                 ShowTeacherDetails.teacherbgFrame.setVisible(true);
                 ShowTeacherDetails.teacherDetailsFrame.setVisible(true);
                 

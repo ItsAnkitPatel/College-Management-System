@@ -19,8 +19,8 @@ public class UpdateStudent implements ActionListener,Runnable{
 JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMessage6,showMessage7,showMessage8,showMessage9,showMessage10,showMessage11;
 
     Thread t;
-    JFrame studentFrame ;
-    JFrame studentbgFrame ;
+    JFrame updateStudentFrame ;
+    JFrame updateStudentbgFrame ;
     
 
     
@@ -62,11 +62,11 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     public UpdateStudent() {
       
                     /*============Adding Background image first================================*/
-                    studentbgFrame = new JFrame();
-                    studentbgFrame.setSize(1920,1080);
-                    studentbgFrame.setLocation(0,0);
-                    studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    studentbgFrame.setLayout(null);
+                    updateStudentbgFrame = new JFrame();
+                    updateStudentbgFrame.setSize(1920,1080);
+                    updateStudentbgFrame.setLocation(0,0);
+                    updateStudentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    updateStudentbgFrame.setLayout(null);
 
                     ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background1.png"));
                     Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
@@ -74,19 +74,19 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 
                     JLabel addBackgroundImage = new JLabel(img3);
                     addBackgroundImage.setBounds(0,0,1920,1080);
-                    studentbgFrame.add(addBackgroundImage);
-                    studentbgFrame.setUndecorated(true);
-                    studentbgFrame.setResizable(false);
-                    studentbgFrame.setVisible(true);
+                    updateStudentbgFrame.add(addBackgroundImage);
+                    updateStudentbgFrame.setUndecorated(true);
+                    updateStudentbgFrame.setResizable(false);
+                    updateStudentbgFrame.setVisible(true);
 
       
-        studentFrame = new JFrame();
-        studentFrame.setSize(1100,900);
-        studentFrame.setLocation(400,80);
-        studentFrame.getContentPane().setBackground(Color.WHITE);
-        studentFrame.setLayout(null);
+        updateStudentFrame = new JFrame();
+        updateStudentFrame.setSize(1100,900);
+        updateStudentFrame.setLocation(400,80);
+        updateStudentFrame.getContentPane().setBackground(Color.WHITE);
+        updateStudentFrame.setLayout(null);
         
-        studentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        updateStudentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
        
         
         
@@ -95,13 +95,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         title = new JLabel("Update Student Details");
         title.setBounds(350,10,500,50);
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
-        studentFrame.add(title);
+        updateStudentFrame.add(title);
         
         /*======================Heading Label=======================================*/
         headingLabel = new JLabel("Select Roll Number");
         headingLabel.setBounds(20,70,210,25);
         headingLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(headingLabel);
+        updateStudentFrame.add(headingLabel);
 
 
 
@@ -110,7 +110,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         rollNoChoice = new Choice();
         rollNoChoice.setBounds(250,70,210,25);
         rollNoChoice.setFont(new Font("Times New Roman",Font.BOLD,20));
-        studentFrame.add(rollNoChoice);
+        updateStudentFrame.add(rollNoChoice);
 
 
             //Creating Connection and then addButton all roll number values into rollNoChoice bar    
@@ -144,7 +144,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
          //SETTING BORDER TRANSPARENT
         searchButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         searchButton.addActionListener(this);
-        studentFrame.add(searchButton);
+        updateStudentFrame.add(searchButton);
 
             
             
@@ -153,13 +153,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         nameLabel = new JLabel("Name");
         nameLabel.setBounds(100,140,100,50);
         nameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(nameLabel);
+        updateStudentFrame.add(nameLabel);
         
         
         nameTextField = new JTextField();
         nameTextField.setBounds(200,150,250,30);
         nameTextField.setFont(new Font("Ubuntu Mono",Font.PLAIN,25));
-        studentFrame.add(nameTextField);
+        updateStudentFrame.add(nameTextField);
         
         
         
@@ -168,13 +168,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         fatherNameLabel = new JLabel("Father's Name");
         fatherNameLabel.setBounds(550,140,180,50);
         fatherNameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(fatherNameLabel);
+        updateStudentFrame.add(fatherNameLabel);
         
         
         fatherNameTextField = new JTextField();
         fatherNameTextField.setBounds(740,150,250,30);
         fatherNameTextField.setFont(new Font("Ubuntu Mono",Font.PLAIN,25));
-        studentFrame.add(fatherNameTextField);
+        updateStudentFrame.add(fatherNameTextField);
         
         
         
@@ -183,12 +183,12 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         rollNumberLabel = new JLabel("RollNo.");
         rollNumberLabel.setBounds(100,200,100,50);
         rollNumberLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(rollNumberLabel);
+        updateStudentFrame.add(rollNumberLabel);
         
         showRollNo = new JLabel();
         showRollNo.setBounds(210,210,200,30);
         showRollNo.setFont(new Font("Times New Roman",Font.PLAIN,25));
-        studentFrame.add(showRollNo);
+        updateStudentFrame.add(showRollNo);
         
         
         
@@ -197,7 +197,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         DOB = new JLabel("Date of Birth");
         DOB.setBounds(550,200,180,50);
         DOB.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(DOB);
+        updateStudentFrame.add(DOB);
         
         dcdob = new JDateChooser();
         dcdob.setBounds(740,210,250,30);
@@ -205,7 +205,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         JTextFieldDateEditor editor = (JTextFieldDateEditor) dcdob.getDateEditor();
         editor.setEnabled(false);
         editor.setBackground(Color.WHITE);
-        studentFrame.add(dcdob);
+        updateStudentFrame.add(dcdob);
         
         
 
@@ -214,7 +214,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         addressLabel = new JLabel("Address");
         addressLabel.setBounds(100,270,100,50);
         addressLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(addressLabel);
+        updateStudentFrame.add(addressLabel);
         
        
         
@@ -229,7 +229,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
             jsp.setBounds(210,280,300,150);
 
         
-        studentFrame.add(jsp);
+        updateStudentFrame.add(jsp);
                 
 
         
@@ -238,13 +238,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         phoneLabel = new JLabel("Phone");
         phoneLabel.setBounds(550,270,100,50);
         phoneLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(phoneLabel);
+        updateStudentFrame.add(phoneLabel);
         
         
         phoneTextField = new JTextField();
         phoneTextField.setBounds(740,280,250,30);
         phoneTextField.setFont(new Font("Times New Roman",Font.PLAIN,25));
-        studentFrame.add(phoneTextField);
+        updateStudentFrame.add(phoneTextField);
         
         //Using lambda to create a check on phoneTextField so that user can only enter numbers
             phoneTextField.addKeyListener(new KeyAdapter() {
@@ -264,12 +264,12 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         emailLabel = new JLabel("Email");
         emailLabel.setBounds(550,340,100,50);
         emailLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(emailLabel);
+        updateStudentFrame.add(emailLabel);
         
         emailTextField = new JTextField();
         emailTextField.setBounds(740,350,250,30);
         emailTextField.setFont(new Font("Times New Roman",Font.PLAIN,25));
-        studentFrame.add(emailTextField);
+        updateStudentFrame.add(emailTextField);
         
 
         
@@ -278,13 +278,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         adhaarLabel = new JLabel("AdhaarNo.");
         adhaarLabel.setBounds(550,400,130,50);
         adhaarLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
-        studentFrame.add(adhaarLabel);
+        updateStudentFrame.add(adhaarLabel);
         
         
         adhaarTextField = new JTextField();
         adhaarTextField.setBounds(740,415,250,30);
         adhaarTextField.setFont(new Font("Times New Roman",Font.PLAIN,24));
-        studentFrame.add(adhaarTextField);
+        updateStudentFrame.add(adhaarTextField);
         
          //Using lambda to create a check on adhaarTextField so that user can only enter numbers
             adhaarTextField.addKeyListener(new KeyAdapter() {
@@ -305,13 +305,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         class10Label = new JLabel("Class X(%)");
         class10Label.setBounds(100,450,150,50);
         class10Label.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(class10Label);
+        updateStudentFrame.add(class10Label);
         
         
         class10TextField = new JTextField();
         class10TextField.setBounds(260,460,100,30);
         class10TextField.setFont(new Font("Times New Roman",Font.PLAIN,24));
-        studentFrame.add(class10TextField);
+        updateStudentFrame.add(class10TextField);
         
         
         //Using lambda to create a check on class10TextField so that user can only enter numbers
@@ -334,13 +334,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         class12Label = new JLabel("Class XII(%)");
         class12Label.setBounds(100,520,150,50);
         class12Label.setFont(new Font("Times New Roman",Font.BOLD,25));
-        studentFrame.add(class12Label);
+        updateStudentFrame.add(class12Label);
         
         
         class12TextField = new JTextField();
         class12TextField.setBounds(260,528,100,30);
         class12TextField.setFont(new Font("Times New Roman",Font.PLAIN,25));
-        studentFrame.add(class12TextField);
+        updateStudentFrame.add(class12TextField);
         
          //Using lambda to create a check on class12TextField so that user can only enter numbers
             class12TextField.addKeyListener(new KeyAdapter() {
@@ -362,14 +362,14 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         courseLabel = new JLabel("Course");
         courseLabel.setBounds(100,600,150,50);
         courseLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
-        studentFrame.add(courseLabel);
+        updateStudentFrame.add(courseLabel);
         
         String[] courses = {"","B.Tech","BBA","BCA","Bsc","Msc","MBA","MCA","MCom","MA","BA"};
         courseComboBox = new JComboBox(courses);
         courseComboBox.setBounds(260,615,200,25);
         courseComboBox.setFont(new Font("Times New Roman",Font.BOLD,20));
         courseComboBox.setBackground(Color.WHITE);
-        studentFrame.add(courseComboBox);
+        updateStudentFrame.add(courseComboBox);
         
         
         
@@ -377,7 +377,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         branchLabel = new JLabel("Branch");
         branchLabel.setBounds(100,670,150,50);
         branchLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
-        studentFrame.add(branchLabel);
+        updateStudentFrame.add(branchLabel);
         
         
         String branch[] = {"","Computer Science", "Electronics", "Mechanical", "Civil", "IT"};
@@ -386,7 +386,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         branchComboBox.setBounds(260,684,200,25);
         branchComboBox.setBackground(Color.WHITE);
         
-        studentFrame.add(branchComboBox);
+        updateStudentFrame.add(branchComboBox);
         
         
        
@@ -399,7 +399,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 
         JLabel addImage = new JLabel(finalImageIcon);
         addImage.setBounds(700,520,400,400);
-        studentFrame.add(addImage);
+        updateStudentFrame.add(addImage);
         
         
         
@@ -412,7 +412,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         updateButton=  new JButton(submitFinalImageIcon);
         updateButton.setBounds(465,770,190,60);
-        studentFrame.add(updateButton);
+        updateStudentFrame.add(updateButton);
 
         // ADDING CURSOR SYMBOL 
         updateButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -442,7 +442,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         cancelButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
         
         cancelButton.addActionListener(this);
-        studentFrame.add(cancelButton);
+        updateStudentFrame.add(cancelButton);
         
         
         /*Creating object of all message lables and making them invisible for the time*/
@@ -451,7 +451,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                 showMessage1 = new JLabel("You cannot left this field empty");
                 showMessage1.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage1.setBounds(nameTextField.getX(),nameTextField.getY()+30,200,20);
-                studentFrame.add(showMessage1);
+                updateStudentFrame.add(showMessage1);
                 showMessage1.setVisible(false);
                  
                  
@@ -459,78 +459,78 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                 showMessage2 = new JLabel("You cannot left this field empty");
                 showMessage2.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage2.setBounds(fatherNameTextField.getX(),fatherNameTextField.getY()+30,200,20);
-                studentFrame.add(showMessage2);
+                updateStudentFrame.add(showMessage2);
                 showMessage2.setVisible(false);
                 
                 //Message3 for dcdob field
                 showMessage3 = new JLabel("You cannot left this field empty");
                 showMessage3.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage3.setBounds(740,240,200,20);
-                studentFrame.add(showMessage3);
+                updateStudentFrame.add(showMessage3);
                 showMessage3.setVisible(false);
                 
                 //Message4 for address field
                 showMessage4= new JLabel("You cannot left this field empty");
                 showMessage4.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage4.setBounds(210,430,200,20);
-                studentFrame.add(showMessage4);
+                updateStudentFrame.add(showMessage4);
                 showMessage4.setVisible(false);
                 
                 //Message5 for phone field
                 showMessage5 = new JLabel("You cannot left this field empty");
                 showMessage5.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage5.setBounds(phoneTextField.getX(),phoneTextField.getY()+30,200,20);
-                studentFrame.add(showMessage5);
+                updateStudentFrame.add(showMessage5);
                 showMessage5.setVisible(false);
                 
                 //Message6 for email field
                 showMessage6 = new JLabel("You cannot left this field empty");
                 showMessage6.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage6.setBounds(emailTextField.getX(),emailTextField.getY()+30,200,20);
-                studentFrame.add(showMessage6);
+                updateStudentFrame.add(showMessage6);
                 showMessage6.setVisible(false);
         
                 //Message7 for adhaar field
                 showMessage7 = new JLabel("You cannot left this field empty");
                 showMessage7.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage7.setBounds(adhaarTextField.getX(),adhaarTextField.getY()+30,200,20);
-                studentFrame.add(showMessage7);
+                updateStudentFrame.add(showMessage7);
                 showMessage7.setVisible(false);
                 
                 //Message8 for class10 field
                 showMessage8 = new JLabel("You cannot left this field empty");
                 showMessage8.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage8.setBounds(class10TextField.getX(),class10TextField.getY()+30,200,20);
-                studentFrame.add(showMessage8);
+                updateStudentFrame.add(showMessage8);
                 showMessage8.setVisible(false);
                 
                 //Message9 for class12 field
                 showMessage9 = new JLabel("You cannot left this field empty");
                 showMessage9.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage9.setBounds(class12TextField.getX(),class12TextField.getY()+30,200,20);
-                studentFrame.add(showMessage9);
+                updateStudentFrame.add(showMessage9);
                 showMessage9.setVisible(false);
                 
                 //Message10 for course field
                 showMessage10 = new JLabel("You cannot left this field empty");
                 showMessage10.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage10.setBounds(courseComboBox.getX(),courseComboBox.getY()+30,200,20);
-                studentFrame.add(showMessage10);
+                updateStudentFrame.add(showMessage10);
                 showMessage10.setVisible(false);
                 
                 //Message11 for branch field
                 showMessage11 = new JLabel("You cannot left this field empty");
                 showMessage11.setFont(new Font("serif",Font.PLAIN,12));
                 showMessage11.setBounds(branchComboBox.getX(),branchComboBox.getY()+30,200,20);
-                studentFrame.add(showMessage11);
+                updateStudentFrame.add(showMessage11);
                 showMessage11.setVisible(false);
                 
                 
-        studentFrame.setUndecorated(true);
-        studentFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
-        studentFrame.setResizable(false);
+        updateStudentFrame.setUndecorated(true);
+        updateStudentFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
+        updateStudentFrame.setResizable(false);
         
-        studentFrame.setVisible(true);
+        updateStudentFrame.setVisible(true);
     }
     
     public static void main(String[] args) {
@@ -752,7 +752,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                 }
 
             if(flag){
-                studentFrame.dispose();
+                updateStudentFrame.dispose();
 
                 try {//Creating mysql query
 
@@ -772,7 +772,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                 
             popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
             }else{  
-                studentFrame.setVisible(false);
+                updateStudentFrame.setVisible(false);
                     for(int num =0; num<fieldIsEmpty.size();num++){
                         if(fieldIsEmpty.get(num) == true){
                             isEmpty(num);
@@ -780,15 +780,25 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                             changeBorderColorToBlack(num);
                         }  
                     }    
-                studentFrame.setVisible(true);
+                updateStudentFrame.setVisible(true);
             }
         }
         else if(e.getSource() == cancelButton){
             
 
-            studentFrame.dispose();
-            studentbgFrame.dispose();
-            new ShowStudentDetails();
+            updateStudentFrame.dispose();
+            updateStudentbgFrame.dispose();
+            if( ShowStudentDetails.isShowStuDetailON == true){
+                
+                ShowStudentDetails.isShowStuDetailON = false;
+                ShowStudentDetails.studentbgFrame.setVisible(true);
+                ShowStudentDetails.studentDetailsframe.setVisible(true);
+                
+            }else{
+               
+                Dashboard.dashboardFrame.setVisible(true);
+                
+            }
         }
         
     }
@@ -796,10 +806,10 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     @Override
     public void run() {
         try {
-               studentFrame.dispose();
+               updateStudentFrame.dispose();
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
-                studentbgFrame.dispose();
+                updateStudentbgFrame.dispose();
                 new UpdateStudent();
                 
         }catch (Exception e) {
