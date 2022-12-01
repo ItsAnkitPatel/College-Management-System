@@ -13,7 +13,9 @@ public class EnterMarks implements ActionListener {
     Choice rollNoChoice;
     JComboBox semesterComboBox;
     JButton cancelButton,submitButton;
-    
+    JLabel subjectLable,marksLable;
+    JTextField subject1TF,subject2TF,subject3TF,subject4TF,subject5TF;
+    JTextField subject1marksTF,subject2marksTF,subject3marksTF,subject4marksTF,subject5marksTF;
     public EnterMarks() {
         
         /*============Adding Background image first=================*/
@@ -84,19 +86,93 @@ public class EnterMarks implements ActionListener {
 
         /*======================Semester Label=======================================*/
         semesterLabel = new JLabel("Select semester");
-        semesterLabel.setBounds(20,130,210,25);
+        semesterLabel.setBounds(500,70,210,25);
         semesterLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
         enterMarksFrame.add(semesterLabel);
         
         String sem[] = {"","1st Semester", "2nd Semester", "3rd Semester", "4th Semester", "5th Semester","6th Semester","7th Semester","8th Semester"};
         semesterComboBox = new JComboBox(sem);
-        semesterComboBox.setBounds(250,130,210,25);
+        semesterComboBox.setBackground(Color.WHITE);
+        semesterComboBox.setBounds(670,70,210,25);
         semesterComboBox.setFont(new Font("Times New Roman",Font.BOLD,20));
         semesterComboBox.setBackground(Color.WHITE);
         enterMarksFrame.add(semesterComboBox);
         
         
-
+        
+        
+        /*======================Subject & Mark Label==================================*/
+        subjectLable = new JLabel("Enter Subjects");
+        subjectLable.setBounds(100,150,210,25);
+        subjectLable.setFont(new Font("Times New Roman",Font.BOLD,24));
+        enterMarksFrame.add(subjectLable);
+        
+        
+        marksLable = new JLabel("Enter Marks");
+        marksLable.setBounds(450,150,210,25);
+        marksLable.setFont(new Font("Times New Roman",Font.BOLD,24));
+        enterMarksFrame.add(marksLable);
+        
+        
+        
+        /*======================Subject 1 & marks textfield=================*/
+        subject1TF = new JTextField();
+        subject1TF.setBounds(100,200,250,30);
+        enterMarksFrame.add(subject1TF);
+        
+        subject1marksTF = new JTextField();
+        subject1marksTF.setBounds(450,200,100,30);
+        enterMarksFrame.add(subject1marksTF);
+        
+        /*======================Subject 2 & marks textfield=================*/
+        subject2TF = new JTextField();
+        subject2TF.setBounds(100,250,250,30);
+        enterMarksFrame.add(subject2TF);
+        
+        subject2marksTF = new JTextField();
+        subject2marksTF.setBounds(450,250,100,30);
+        enterMarksFrame.add(subject2marksTF);
+        
+        
+        /*======================Subject 3 & marks textfield=================*/
+        subject3TF = new JTextField();
+        subject3TF.setBounds(100,300,250,30);
+        enterMarksFrame.add(subject3TF);
+        
+        subject3marksTF = new JTextField();
+        subject3marksTF.setBounds(450,300,100,30);
+        enterMarksFrame.add(subject3marksTF);
+        
+        
+        /*======================Subject 4 & marks textfield=================*/
+        subject4TF = new JTextField();
+        subject4TF.setBounds(100,350,250,30);
+        enterMarksFrame.add(subject4TF);
+        
+        subject4marksTF = new JTextField();
+        subject4marksTF.setBounds(450,350,100,30);
+        enterMarksFrame.add(subject4marksTF);
+        
+        
+        
+        
+        /*======================Subject 5 & marks textfield=================*/
+        subject5TF = new JTextField();
+        subject5TF.setBounds(100,400,250,30);
+        enterMarksFrame.add(subject5TF);
+        
+        subject5marksTF = new JTextField();
+        subject5marksTF.setBounds(450,400,100,30);
+        enterMarksFrame.add(subject5marksTF);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         /*=========================Image Icon====================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/marksImage.png"));
@@ -116,7 +192,6 @@ public class EnterMarks implements ActionListener {
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
         
         
-        
         submitButton=  new JButton(submitFinalImageIcon);
         submitButton.setBounds(465,770,190,60);
         enterMarksFrame.add(submitButton);
@@ -131,10 +206,7 @@ public class EnterMarks implements ActionListener {
         
 
            
-        
-        
-        
-        
+   
         /*=========================Cancel Button Image Icon====================*/
         ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
         Image cancel = cancelIcon.getImage().getScaledInstance(210, 85, Image.SCALE_SMOOTH);
