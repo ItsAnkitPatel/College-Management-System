@@ -5,6 +5,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 public class EnterMarks implements ActionListener {
@@ -115,62 +117,206 @@ public class EnterMarks implements ActionListener {
         
         
         
-        /*======================Subject 1 & marks textfield=================*/
+        /*======================Subject 1 & it's Marks textfield=================*/
         subject1TF = new JTextField();
         subject1TF.setBounds(100,200,250,30);
+        subject1TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject1TF);
+        //Using lambda to create a check on subject1TF so that user can only enter characters
+            subject1TF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((((ke.getKeyChar() >= 'a' && ke.getKeyChar() <= 'z')|| (ke.getKeyChar() >= 'A' && ke.getKeyChar() <= 'Z') ) )|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject1TF.setEditable(true);
+
+                    } else {
+                       subject1TF.setEditable(false);
+                    }
+                }
+            });
+        
+        
+        
         
         subject1marksTF = new JTextField();
         subject1marksTF.setBounds(450,200,100,30);
+        subject1marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject1marksTF);
+        //Using lambda to create a check on subject1marksTF so that user can only enter number
+            subject1marksTF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(subject1marksTF.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject1marksTF.setEditable(true);
+
+                    } else {
+                       subject1marksTF.setEditable(false);
+                    }
+                }
+            });
         
-        /*======================Subject 2 & marks textfield=================*/
+        
+        
+        /*======================Subject 2 & it's Marks textfield=================*/
         subject2TF = new JTextField();
         subject2TF.setBounds(100,250,250,30);
+        subject2TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject2TF);
+        //Using lambda to create a check on subject1TF so that user can only enter characters
+            subject2TF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((((ke.getKeyChar() >= 'a' && ke.getKeyChar() <= 'z')|| (ke.getKeyChar() >= 'A' && ke.getKeyChar() <= 'Z') ) )|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject2TF.setEditable(true);
+
+                    } else {
+                       subject2TF.setEditable(false);
+                    }
+                }
+            });
+        
         
         subject2marksTF = new JTextField();
+        subject2marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject2marksTF.setBounds(450,250,100,30);
         enterMarksFrame.add(subject2marksTF);
+        //Using lambda to create a check on subject1marksTF so that user can only enter number
+            subject2marksTF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(subject2marksTF.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject2marksTF.setEditable(true);
+
+                    } else {
+                       subject2marksTF.setEditable(false);
+                    }
+                }
+            });
         
-        
-        /*======================Subject 3 & marks textfield=================*/
+        /*======================Subject 3 & it's Marks textfield=================*/
         subject3TF = new JTextField();
+        subject3TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject3TF.setBounds(100,300,250,30);
         enterMarksFrame.add(subject3TF);
+        //Using lambda to create a check on subject1TF so that user can only enter characters
+            subject3TF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((((ke.getKeyChar() >= 'a' && ke.getKeyChar() <= 'z')|| (ke.getKeyChar() >= 'A' && ke.getKeyChar() <= 'Z') ) )|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject3TF.setEditable(true);
+
+                    } else {
+                       subject3TF.setEditable(false);
+                    }
+                }
+            });
+        
+        
         
         subject3marksTF = new JTextField();
+        subject3marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject3marksTF.setBounds(450,300,100,30);
         enterMarksFrame.add(subject3marksTF);
+        //Using lambda to create a check on subject1marksTF so that user can only enter number
+            subject3marksTF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(subject3marksTF.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject3marksTF.setEditable(true);
+
+                    } else {
+                       subject3marksTF.setEditable(false);
+                    }
+                }
+            });
         
         
-        /*======================Subject 4 & marks textfield=================*/
+        /*======================Subject 4 & it's Marks textfield=================*/
         subject4TF = new JTextField();
+        subject4TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject4TF.setBounds(100,350,250,30);
         enterMarksFrame.add(subject4TF);
+        //Using lambda to create a check on subject1TF so that user can only enter characters
+            subject4TF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((((ke.getKeyChar() >= 'a' && ke.getKeyChar() <= 'z')|| (ke.getKeyChar() >= 'A' && ke.getKeyChar() <= 'Z') ) )|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject4TF.setEditable(true);
+
+                    } else {
+                       subject4TF.setEditable(false);
+                    }
+                }
+            });
         
         subject4marksTF = new JTextField();
+        subject4marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject4marksTF.setBounds(450,350,100,30);
         enterMarksFrame.add(subject4marksTF);
+        //Using lambda to create a check on subject1marksTF so that user can only enter number
+            subject4marksTF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(subject4marksTF.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject4marksTF.setEditable(true);
+
+                    } else {
+                       subject4marksTF.setEditable(false);
+                    }
+                }
+            });
         
         
         
         
-        /*======================Subject 5 & marks textfield=================*/
+        
+        /*======================Subject 5 & it's Marks textfield=================*/
         subject5TF = new JTextField();
+        subject5TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject5TF.setBounds(100,400,250,30);
         enterMarksFrame.add(subject5TF);
-        
+        //Using lambda to create a check on subject1TF so that user can only enter characters
+            subject5TF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if ((((ke.getKeyChar() >= 'a' && ke.getKeyChar() <= 'z')|| (ke.getKeyChar() >= 'A' && ke.getKeyChar() <= 'Z') ) )|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject5TF.setEditable(true);
+
+                    } else {
+                       subject5TF.setEditable(false);
+                    }
+                }
+            });    
+            
+            
         subject5marksTF = new JTextField();
+        subject5marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject5marksTF.setBounds(450,400,100,30);
         enterMarksFrame.add(subject5marksTF);
+        //Using lambda to create a check on subject1marksTF so that user can only enter number
+            subject5marksTF.addKeyListener(new KeyAdapter() {
+
+                public void keyPressed(KeyEvent ke) {
+
+                    if (((ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9') ||ke.getKeyChar() == '.' )&&(subject5marksTF.getText().length()<5)|| (ke.getKeyChar()==KeyEvent.VK_BACK_SPACE)) {
+                       subject5marksTF.setEditable(true);
+
+                    } else {
+                       subject5marksTF.setEditable(false);
+                    }
+                }
+            });
         
-        
-        
-        
-        
-        
-        
+
         
         
         
