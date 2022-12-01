@@ -52,8 +52,7 @@ public class Splash  implements Runnable{
 
     public static void main(String[] args) {
         new Splash();
-       
-        
+
     }
 
     

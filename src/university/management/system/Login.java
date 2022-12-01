@@ -18,9 +18,7 @@ public class Login  implements ActionListener,Runnable {
     JButton loginButton;
     JButton exitButton ;
    
-    public static void main(String[] args) {
-        new Login();
-    }
+   
     public Login(){
         loginFrame = new JFrame();
         loginFrame.getContentPane().setBackground(Color.WHITE);

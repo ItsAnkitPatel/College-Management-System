@@ -507,9 +507,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     }
     
     
-    public static void main(String[] args) {
-        new AddTeacher();
-    }
+    
     void popUpSucessImage(){
    
         t =new Thread(this);

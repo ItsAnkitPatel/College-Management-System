@@ -3,13 +3,16 @@ package university.management.system;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
-public class EnterMarks {
+public class EnterMarks implements ActionListener {
     JFrame enterMarksFrame, enterMarksbgFrame;
     JLabel title,rollNoLabel,semesterLabel;
     Choice rollNoChoice;
     JComboBox semesterComboBox;
+    JButton cancelButton;
     
     public EnterMarks() {
         
@@ -85,7 +88,7 @@ public class EnterMarks {
         semesterLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
         enterMarksFrame.add(semesterLabel);
         
-        String sem[] = {"","Semester1", "Semester2", "Semester3", "Semester4", "Semester5","Semester6","Semester7","Semester8"};
+        String sem[] = {"","1st Semester", "2nd Semester", "3rd Semester", "4th Semester", "5th Semester","6th Semester","7th Semester","8th Semester"};
         semesterComboBox = new JComboBox(sem);
         semesterComboBox.setBounds(250,130,210,25);
         semesterComboBox.setFont(new Font("Times New Roman",Font.BOLD,20));
@@ -101,6 +104,25 @@ public class EnterMarks {
         
         
         
+        /*=========================Cancel Button Image Icon====================*/
+        ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
+        Image cancel = cancelIcon.getImage().getScaledInstance(210, 85, Image.SCALE_SMOOTH);
+        ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
+
+        cancelButton=  new JButton(cancelFinalImageIcon);
+        cancelButton.setBounds(152,768,185,60);
+        cancelButton.setBackground(Color.WHITE);
+        
+        // ADDING CURSOR SYMBOL 
+        cancelButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        //SETTING BORDER TRANSPARENT
+        cancelButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        
+        cancelButton.addActionListener(this);
+        enterMarksFrame.add(cancelButton);
+        
+        
         
         
         enterMarksFrame.setUndecorated(true);
@@ -111,6 +133,14 @@ public class EnterMarks {
     }
     public static void main(String[] args) {
         new EnterMarks();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == cancelButton) {
+            enterMarksFrame.dispose();
+            enterMarksbgFrame.dispose();
+        }
     }
     
     

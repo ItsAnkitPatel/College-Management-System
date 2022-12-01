@@ -17,21 +17,22 @@ import java.util.List;
 
 public class AddStudent implements ActionListener,Runnable{
    
-    public static void main(String[] args) {
-        new AddStudent();
-    }
-  JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMessage6,showMessage7,showMessage8,showMessage9,showMessage10,showMessage11;
+    
+    JLabel showMessage1,showMessage2,showMessage3,showMessage4,
+           showMessage5,showMessage6,showMessage7,showMessage8,
+           showMessage9,showMessage10,showMessage11;
   
     Thread t;
-   JFrame studentFrame ;
-   JFrame studentbgFrame ;
+   JFrame studentFrame ,studentbgFrame ;
     
     
     JLabel nameLabel,fatherNameLabel,rollNumberLabel,
-            phoneLabel,generatedRollNumber,emailLabel ,adhaarLabel,class10Label,class12Label;
+           phoneLabel,generatedRollNumber,emailLabel ,
+           adhaarLabel,class10Label,class12Label;
     
     JTextField nameTextField,fatherNameTextField,
-                phoneTextField,emailTextField,adhaarTextField,class10TextField,class12TextField;
+               phoneTextField,emailTextField,
+               adhaarTextField,class10TextField,class12TextField;
     
     Random rm = new Random();
     long rollno = Math.abs((rm.nextLong()%9000L)+1000);  /*rm.nextLong %9000 will give -1 to 1 to ignore negative use Math.abs 
@@ -52,7 +53,7 @@ public class AddStudent implements ActionListener,Runnable{
     JButton submitButton,cancelButton ;
   
     JFrame popupSuccessImageFrame ;
-    JFrame popupFailureImageFrame ;
+
    
     
 

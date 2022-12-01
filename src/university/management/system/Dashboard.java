@@ -8,9 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Dashboard implements ActionListener{
     static JFrame dashboardFrame ;
-    public static void main(String[] args) {
-        new Dashboard();
-    }
+   
     Dashboard() {
         
         dashboardFrame = new JFrame();

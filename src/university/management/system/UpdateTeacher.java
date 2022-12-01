@@ -534,10 +534,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         updateTeacherFrame.setVisible(true);
     }
     
-    public static void main(String[] args) {
-        new UpdateTeacher();
-    }
-
 
     void popUpSucessImage(){
                

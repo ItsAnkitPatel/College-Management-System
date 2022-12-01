@@ -15,7 +15,7 @@ import net.proteanit.sql.DbUtils;
 
 
 public class ShowStudentDetails implements ActionListener{
-    static boolean showStuDetail = false;
+    static boolean isShowStuDetailON = false;
 
     static JFrame studentDetailsframe , studentbgFrame;
     Choice rollNoChoice;
@@ -24,7 +24,7 @@ public class ShowStudentDetails implements ActionListener{
     public ShowStudentDetails() {
         
         
-        showStuDetail = true;
+        isShowStuDetailON = true;
 
         studentbgFrame = new JFrame();
 
@@ -60,12 +60,12 @@ public class ShowStudentDetails implements ActionListener{
 
                 //============Adding Image and making edges round===========================================
                 ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Database.jpg"));
-                Image i2 = i1.getImage().getScaledInstance(550, 350,Image.SCALE_SMOOTH);
+                Image i2 = i1.getImage().getScaledInstance(550, 345,Image.SCALE_SMOOTH);
                 ImageIcon finalImageIcon = new ImageIcon(i2);
 
 
                 JLabel addImage = new JLabel(finalImageIcon);
-                addImage.setBounds(850,430,550,350);
+                addImage.setBounds(850,445,550,345);
                 studentDetailsframe.add(addImage);
 
 
@@ -75,7 +75,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
         /*======================Heading Label=======================================*/
-        JLabel headingLabel = new JLabel("Search by Roll Number");
+        JLabel headingLabel = new JLabel("Select Roll Number");
         headingLabel.setBounds(20,50,200,20);
         headingLabel.setFont(new Font("Times New Roman",Font.BOLD,20));
         studentDetailsframe.add(headingLabel);
@@ -279,9 +279,6 @@ public class ShowStudentDetails implements ActionListener{
     
     }
     
-    public static void main(String[] args) {
-        new ShowStudentDetails();
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -308,12 +305,11 @@ public class ShowStudentDetails implements ActionListener{
                 ex.printStackTrace();
             }
             
-            
-            
         }
         
         else if(e.getSource() == updateButton){
-            
+             studentDetailsframe.dispose();
+             studentbgFrame.dispose();
              new UpdateStudent();
   
         }

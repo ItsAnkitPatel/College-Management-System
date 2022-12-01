@@ -249,9 +249,7 @@ public class ShowTeacherDetails implements ActionListener {
     
             
     }
-    public static void main(String[] args) {
-        new ShowTeacherDetails();
-    }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
