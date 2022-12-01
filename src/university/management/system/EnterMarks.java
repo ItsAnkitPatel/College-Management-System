@@ -12,7 +12,7 @@ public class EnterMarks implements ActionListener {
     JLabel title,rollNoLabel,semesterLabel;
     Choice rollNoChoice;
     JComboBox semesterComboBox;
-    JButton cancelButton;
+    JButton cancelButton,submitButton;
     
     public EnterMarks() {
         
@@ -97,6 +97,37 @@ public class EnterMarks implements ActionListener {
         
         
 
+        
+        /*=========================Image Icon====================*/
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/marksImage.png"));
+        Image i2 = i1.getImage().getScaledInstance(400, 400,Image.SCALE_SMOOTH);
+        ImageIcon finalImageIcon = new ImageIcon(i2);
+        
+
+        JLabel addImage = new JLabel(finalImageIcon);
+        addImage.setBounds(650,400,400,400);
+        enterMarksFrame.add(addImage);
+        
+        
+        
+        /*=========================Submit Button Image Icon====================*/
+        ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
+        Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
+        ImageIcon submitFinalImageIcon = new ImageIcon(submit);
+        
+        
+        
+        submitButton=  new JButton(submitFinalImageIcon);
+        submitButton.setBounds(465,770,190,60);
+        enterMarksFrame.add(submitButton);
+
+        // ADDING CURSOR SYMBOL 
+        submitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        //SETTING BORDER TRANSPARENT
+        submitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        submitButton.setBackground(Color.WHITE);
+        submitButton.addActionListener(this);
         
 
            
