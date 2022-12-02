@@ -15,7 +15,8 @@ public class EnterMarks implements ActionListener {
     Choice rollNoChoice;
     JComboBox semesterComboBox;
     JButton cancelButton,submitButton;
-    JLabel subjectLable,marksLable;
+    JLabel subjectCodeLabel,subjectLable,marksLable;
+    JTextField sub1Code,sub2Code,sub3Code,sub4Code,sub5Code;
     JTextField subject1TF,subject2TF,subject3TF,subject4TF,subject5TF;
     JTextField subject1marksTF,subject2marksTF,subject3marksTF,subject4marksTF,subject5marksTF;
     public EnterMarks() {
@@ -57,13 +58,16 @@ public class EnterMarks implements ActionListener {
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
         enterMarksFrame.add(title);
         
+         
+        
+                
+        
+        
         /*======================Rollno Label=======================================*/
         rollNoLabel = new JLabel("Select Roll Number");
         rollNoLabel.setBounds(20,70,210,25);
         rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
         enterMarksFrame.add(rollNoLabel);
-
-
 
 
         /*======================Adding Choice rollnumber bar====================================*/
@@ -102,16 +106,53 @@ public class EnterMarks implements ActionListener {
         
         
         
+       /*======================Subject Code Label & it's 5 textfield==================================*/
+        subjectCodeLabel = new JLabel("Subject Code");
+        subjectCodeLabel.setBounds(20,150,150,25);
+        subjectCodeLabel.setFont(new Font("Times New Roman",Font.BOLD,24));
+        enterMarksFrame.add(subjectCodeLabel);
         
+                
+                sub1Code = new JTextField();
+                sub1Code.setBounds(20,200,100,30);
+                sub1Code.setFont(new Font("Times New Roman",Font.BOLD,21));
+                enterMarksFrame.add(sub1Code);
+
+                
+                sub2Code = new JTextField();
+                sub2Code.setBounds(20,250,100,30);
+                sub2Code.setFont(new Font("Times New Roman",Font.BOLD,21));
+                enterMarksFrame.add(sub2Code);
+
+
+                sub3Code = new JTextField();
+                sub3Code.setBounds(20,300,100,30);
+                sub3Code.setFont(new Font("Times New Roman",Font.BOLD,21));
+                enterMarksFrame.add(sub3Code);
+
+
+                sub4Code = new JTextField();
+                sub4Code.setBounds(20,350,100,30);
+                sub4Code.setFont(new Font("Times New Roman",Font.BOLD,21));
+                enterMarksFrame.add(sub4Code);
+
+
+                sub5Code = new JTextField();
+                sub5Code.setBounds(20,400,100,30);
+                sub5Code.setFont(new Font("Times New Roman",Font.BOLD,21));
+                enterMarksFrame.add(sub5Code);
+
+
+                
         /*======================Subject & Mark Label==================================*/
         subjectLable = new JLabel("Enter Subjects");
-        subjectLable.setBounds(100,150,210,25);
+        subjectLable.setBounds(200,150,210,25);
         subjectLable.setFont(new Font("Times New Roman",Font.BOLD,24));
         enterMarksFrame.add(subjectLable);
         
         
         marksLable = new JLabel("Enter Marks");
-        marksLable.setBounds(450,150,210,25);
+        marksLable.setBounds(550,150,210,25);
         marksLable.setFont(new Font("Times New Roman",Font.BOLD,24));
         enterMarksFrame.add(marksLable);
         
@@ -119,7 +160,7 @@ public class EnterMarks implements ActionListener {
         
         /*======================Subject 1 & it's Marks textfield=================*/
         subject1TF = new JTextField();
-        subject1TF.setBounds(100,200,250,30);
+        subject1TF.setBounds(200,200,250,30);
         subject1TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject1TF);
         //Using lambda to create a check on subject1TF so that user can only enter characters
@@ -140,7 +181,7 @@ public class EnterMarks implements ActionListener {
         
         
         subject1marksTF = new JTextField();
-        subject1marksTF.setBounds(450,200,100,30);
+        subject1marksTF.setBounds(550,200,100,30);
         subject1marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject1marksTF);
         //Using lambda to create a check on subject1marksTF so that user can only enter number
@@ -161,7 +202,7 @@ public class EnterMarks implements ActionListener {
         
         /*======================Subject 2 & it's Marks textfield=================*/
         subject2TF = new JTextField();
-        subject2TF.setBounds(100,250,250,30);
+        subject2TF.setBounds(200,250,250,30);
         subject2TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         enterMarksFrame.add(subject2TF);
         //Using lambda to create a check on subject1TF so that user can only enter characters
@@ -181,7 +222,7 @@ public class EnterMarks implements ActionListener {
         
         subject2marksTF = new JTextField();
         subject2marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject2marksTF.setBounds(450,250,100,30);
+        subject2marksTF.setBounds(550,250,100,30);
         enterMarksFrame.add(subject2marksTF);
         //Using lambda to create a check on subject1marksTF so that user can only enter number
             subject2marksTF.addKeyListener(new KeyAdapter() {
@@ -200,7 +241,7 @@ public class EnterMarks implements ActionListener {
         /*======================Subject 3 & it's Marks textfield=================*/
         subject3TF = new JTextField();
         subject3TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject3TF.setBounds(100,300,250,30);
+        subject3TF.setBounds(200,300,250,30);
         enterMarksFrame.add(subject3TF);
         //Using lambda to create a check on subject1TF so that user can only enter characters
             subject3TF.addKeyListener(new KeyAdapter() {
@@ -220,7 +261,7 @@ public class EnterMarks implements ActionListener {
         
         subject3marksTF = new JTextField();
         subject3marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject3marksTF.setBounds(450,300,100,30);
+        subject3marksTF.setBounds(550,300,100,30);
         enterMarksFrame.add(subject3marksTF);
         //Using lambda to create a check on subject1marksTF so that user can only enter number
             subject3marksTF.addKeyListener(new KeyAdapter() {
@@ -240,7 +281,7 @@ public class EnterMarks implements ActionListener {
         /*======================Subject 4 & it's Marks textfield=================*/
         subject4TF = new JTextField();
         subject4TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject4TF.setBounds(100,350,250,30);
+        subject4TF.setBounds(200,350,250,30);
         enterMarksFrame.add(subject4TF);
         //Using lambda to create a check on subject1TF so that user can only enter characters
             subject4TF.addKeyListener(new KeyAdapter() {
@@ -258,7 +299,7 @@ public class EnterMarks implements ActionListener {
         
         subject4marksTF = new JTextField();
         subject4marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject4marksTF.setBounds(450,350,100,30);
+        subject4marksTF.setBounds(550,350,100,30);
         enterMarksFrame.add(subject4marksTF);
         //Using lambda to create a check on subject1marksTF so that user can only enter number
             subject4marksTF.addKeyListener(new KeyAdapter() {
@@ -281,7 +322,7 @@ public class EnterMarks implements ActionListener {
         /*======================Subject 5 & it's Marks textfield=================*/
         subject5TF = new JTextField();
         subject5TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject5TF.setBounds(100,400,250,30);
+        subject5TF.setBounds(200,400,250,30);
         enterMarksFrame.add(subject5TF);
         //Using lambda to create a check on subject1TF so that user can only enter characters
             subject5TF.addKeyListener(new KeyAdapter() {
@@ -300,7 +341,7 @@ public class EnterMarks implements ActionListener {
             
         subject5marksTF = new JTextField();
         subject5marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject5marksTF.setBounds(450,400,100,30);
+        subject5marksTF.setBounds(550,400,100,30);
         enterMarksFrame.add(subject5marksTF);
         //Using lambda to create a check on subject1marksTF so that user can only enter number
             subject5marksTF.addKeyListener(new KeyAdapter() {
@@ -327,7 +368,7 @@ public class EnterMarks implements ActionListener {
         
 
         JLabel addImage = new JLabel(finalImageIcon);
-        addImage.setBounds(650,400,400,400);
+        addImage.setBounds(680,420,400,400);
         enterMarksFrame.add(addImage);
         
         
