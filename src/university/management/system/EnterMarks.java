@@ -513,6 +513,7 @@ public class EnterMarks implements ActionListener,Runnable {
         if (e.getSource() == cancelButton) {
             enterMarksFrame.dispose();
             enterMarksbgFrame.dispose();
+            Dashboard.dashboardFrame.setVisible(true);
             
         }else if(e.getSource()  == submitButton){
          /*Here we are adding a validation if all the field are filled or not*/  
@@ -572,7 +573,13 @@ public class EnterMarks implements ActionListener,Runnable {
                     System.out.println("Exception"+ex);
                     
                     }
-                popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table        
+                subject1marksTF.setText("");
+                subject2marksTF.setText("");
+                subject3marksTF.setText("");
+                subject4marksTF.setText("");
+                subject5marksTF.setText("");
+                popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
+                
             }else{
                 popUpFailureImage();
             }
