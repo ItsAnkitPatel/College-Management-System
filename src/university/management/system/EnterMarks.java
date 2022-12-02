@@ -9,7 +9,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
-public class EnterMarks implements ActionListener {
+public class EnterMarks implements ActionListener,Runnable {
     JFrame enterMarksFrame, enterMarksbgFrame;
     JLabel title,rollNoLabel,semesterLabel;
     Choice rollNoChoice;
@@ -19,6 +19,10 @@ public class EnterMarks implements ActionListener {
     JTextField sub1Code,sub2Code,sub3Code,sub4Code,sub5Code;
     JTextField subject1TF,subject2TF,subject3TF,subject4TF,subject5TF;
     JTextField subject1marksTF,subject2marksTF,subject3marksTF,subject4marksTF,subject5marksTF;
+    Thread t;
+    JFrame popupFailureImageFrame;
+    JFrame popupSuccessImageFrame;
+    static int ThreadNumber =0;
     public EnterMarks() {
         
         /*============Adding Background image first=================*/
@@ -424,12 +428,155 @@ public class EnterMarks implements ActionListener {
     public static void main(String[] args) {
         new EnterMarks();
     }
+    void popUpFailureImage(){
+        enterMarksFrame.setVisible(false);
+        t = new Thread(this);
+        popupFailureImageFrame = new JFrame();
+        popupFailureImageFrame.setUndecorated(true); //removes the surrounding border
+
+        ImageIcon image = new ImageIcon(ClassLoader.getSystemResource("icons/FailureImage.jpg")); //imports the image
+        Image workDoneImage = image.getImage().getScaledInstance(850, 600,Image.SCALE_SMOOTH);
+        ImageIcon finalworkDoneImageIcon = new ImageIcon(workDoneImage);
+        JLabel lbl = new JLabel(finalworkDoneImageIcon); //puts the image into a jlabel
+
+        popupFailureImageFrame.getContentPane().add(lbl); //puts label inside the jframe
+
+        
+        popupFailureImageFrame.setLocation(500,200);
+        popupFailureImageFrame.setSize(850,600);
+        popupFailureImageFrame.setShape(new RoundRectangle2D.Double(0, 0, 850, 600, 30, 30)); //This will make the edges rounded
+        popupFailureImageFrame.setVisible(true); //makes the jframe visible
+        ThreadNumber =2;
+        t.start();
+        
+    }
+    void popUpSucessImage(){
+           
+        t = new Thread(this);
+        enterMarksFrame.setVisible(false);
+        popupSuccessImageFrame = new JFrame();
+        popupSuccessImageFrame.setUndecorated(true); //removes the surrounding border
+
+        ImageIcon image = new ImageIcon(ClassLoader.getSystemResource("icons/WorkDone.jpg")); //imports the image
+        Image workDoneImage = image.getImage().getScaledInstance(500, 500,Image.SCALE_SMOOTH);
+        ImageIcon finalworkDoneImageIcon = new ImageIcon(workDoneImage);
+        JLabel lbl = new JLabel(finalworkDoneImageIcon); //puts the image into a jlabel
+
+        popupSuccessImageFrame.getContentPane().add(lbl); //puts label inside the jframe
+
+        
+        popupSuccessImageFrame.setLocation(700,300);
+        popupSuccessImageFrame.setSize(500,500);
+        popupSuccessImageFrame.setShape(new RoundRectangle2D.Double(0, 0, 500, 500, 30, 30)); //This will make the edges rounded
+        
+        popupSuccessImageFrame.setVisible(true); //makes the jframe visible
+        ThreadNumber =1;   
+        t.start();
+        
+    }
+    @Override
+    public void run() {
+        
+        if(ThreadNumber == 1){
+            
+            ThreadNumber =0;            
+            
+            try {
+                
+                Thread.sleep(800);
+                popupSuccessImageFrame.dispose();
+                enterMarksFrame.setVisible(true);
+                
+            } catch (InterruptedException ex) {
+                System.out.println("Exception" + ex);
+            }
+            
+        }
+        else if(ThreadNumber ==2){
+            
+            ThreadNumber =0;
+            
+            try {
+                
+                Thread.sleep(1000);
+                popupFailureImageFrame.dispose();
+                enterMarksFrame.setVisible(true);
+                
+            } catch (InterruptedException ex) {
+                System.out.println("Exception" + ex);
+            }
+        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == cancelButton) {
             enterMarksFrame.dispose();
             enterMarksbgFrame.dispose();
+            
+        }else if(e.getSource()  == submitButton){
+         /*Here we are adding a validation if all the field are filled or not*/  
+          
+            String rollno = rollNoChoice.getSelectedItem();
+            String sem = (String) semesterComboBox.getSelectedItem();
+            
+            String subCode1 = sub1Code.getText();
+            String subCode2 = sub2Code.getText();
+            String subCode3 = sub3Code.getText();
+            String subCode4 = sub4Code.getText();
+            String subCode5 = sub5Code.getText();
+            
+            String subject1 = subject1TF.getText();
+            String subject2 = subject2TF.getText();
+            String subject3 = subject3TF.getText();
+            String subject4 = subject4TF.getText();
+            String subject5 = subject5TF.getText();
+            
+            String mark1 = subject1marksTF.getText();
+            String mark2 = subject2marksTF.getText();
+            String mark3 = subject3marksTF.getText();
+            String mark4 = subject4marksTF.getText();
+            String mark5 = subject5marksTF.getText();
+            
+            String[] arr = {rollno,sem,subCode1,subCode2,subCode3,subCode4,subCode5
+                                ,subject1,subject2,subject3,subject4,subject5
+                                ,mark1,mark2,mark3,mark4,mark5
+                           }; 
+            boolean flag = false;
+            int i =0;
+            for(; i < arr.length; i++){
+                if(arr[i].isEmpty()){
+                    break;
+                }
+            }
+            if(i>= arr.length){
+                flag = true;
+            }
+            
+            if(flag){
+                    try {
+                    Conn c= new Conn();
+
+                    String query1 = "insert into subject values('"+rollno+"','"+sem+"','"+subCode1+"','"+subject1+"','"+subCode2+"','"+subject2+"','"
+                                    +subCode3+"','"+subject3+"','"+subCode4+"','"+subject4+"','"+subCode5+"','"+subject5+"')";
+                    String query2 = "insert into marks values('"+rollno+"','"+sem+"','"+mark1+"','"+mark2+"','"+mark3+"','"+mark4+"','"
+                                    +mark5+"'"+")";
+                    
+                    c.s.executeUpdate(query1);
+                    
+                    c.s.executeUpdate(query2);
+                    
+                    
+
+                    } catch (Exception ex) {
+                    System.out.println("Exception"+ex);
+                    
+                    }
+                popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table        
+            }else{
+                popUpFailureImage();
+            }
+            
         }
     }
     
