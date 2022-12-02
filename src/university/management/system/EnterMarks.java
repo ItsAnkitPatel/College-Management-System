@@ -42,8 +42,8 @@ public class EnterMarks implements ActionListener {
     
                     
         enterMarksFrame = new JFrame();
-        enterMarksFrame.setSize(1100,900);
-        enterMarksFrame.setLocation(400,80);
+        enterMarksFrame.setSize(1100,600);
+        enterMarksFrame.setLocation(400,200);
         enterMarksFrame.getContentPane().setBackground(Color.WHITE);
         enterMarksFrame.setLayout(null);
         enterMarksFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -363,12 +363,12 @@ public class EnterMarks implements ActionListener {
         
         /*=========================Image Icon====================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/marksImage.png"));
-        Image i2 = i1.getImage().getScaledInstance(400, 400,Image.SCALE_SMOOTH);
+        Image i2 = i1.getImage().getScaledInstance(350, 350,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
         
 
         JLabel addImage = new JLabel(finalImageIcon);
-        addImage.setBounds(680,420,400,400);
+        addImage.setBounds(720,220,350,350);
         enterMarksFrame.add(addImage);
         
         
@@ -380,7 +380,7 @@ public class EnterMarks implements ActionListener {
         
         
         submitButton=  new JButton(submitFinalImageIcon);
-        submitButton.setBounds(465,770,190,60);
+        submitButton.setBounds(400,503,190,60);
         enterMarksFrame.add(submitButton);
 
         // ADDING CURSOR SYMBOL 
@@ -400,7 +400,7 @@ public class EnterMarks implements ActionListener {
         ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
 
         cancelButton=  new JButton(cancelFinalImageIcon);
-        cancelButton.setBounds(152,768,185,60);
+        cancelButton.setBounds(100,500,185,60);
         cancelButton.setBackground(Color.WHITE);
         
         // ADDING CURSOR SYMBOL 
@@ -416,7 +416,7 @@ public class EnterMarks implements ActionListener {
         
         
         enterMarksFrame.setUndecorated(true);
-        enterMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
+        enterMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 600, 30, 30)); //This will make the edges rounded
         enterMarksFrame.setResizable(false);
         
         enterMarksFrame.setVisible(true);
