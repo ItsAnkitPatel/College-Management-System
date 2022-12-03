@@ -184,49 +184,64 @@ public class Dashboard implements ActionListener{
         
         if(msg.equals("Add new Student Information")){
             dashboardFrame.setVisible(false);
-         
             new AddStudent();
            
         }else if( msg.equals("Add new Faculty Information")){
             dashboardFrame.setVisible(false);
- 
-            new AddTeacher();          
+            new AddTeacher();
+            
         }
         
         
         else if(msg.equals("View Faculty Details")){
             dashboardFrame.setVisible(false);
-             new ShowTeacherDetails();
-        }else if(msg.equals("View Student Details")){
-        dashboardFrame.setVisible(false);
-           
+             new ShowTeacherDetails();     
+        }
+        
+        else if(msg.equals("View Student Details")){
+            dashboardFrame.setVisible(false);
             new ShowStudentDetails();
             
-        }else if(msg.equals("Exam Results")){
+        }
+        
+        else if(msg.equals("Exam Results")){
+            dashboardFrame.setVisible(false);
+            new ExaminationDetails();
             
-
-        }else if(msg.equals("Enter Marks")){
+            
+        }
+        
+        else if(msg.equals("Enter Marks")){
             dashboardFrame.setVisible(false);         
             new EnterMarks();
             
-        }else if(msg.equals("Update Faculty Details")){
+            
+        }
+        
+        else if(msg.equals("Update Faculty Details")){
             dashboardFrame.setVisible(false);
             new UpdateTeacher();
             
-        }else if(msg.equals("Update Student Details")){
+            
+        }
+        
+        else if(msg.equals("Update Student Details")){
             dashboardFrame.setVisible(false);
             new UpdateStudent();
             
-        }else if(msg.equals("Fees Structure")){
             
-        }else if(msg.equals("Student Fee Form")){
+        }
+        
+        else if(msg.equals("Fees Structure")){
+            
+        }
+        
+        else if(msg.equals("Student Fee Form")){
             
             
-            
-            
-            
-            
-        }else if(msg.equals("Calculator")){
+        }
+        
+        else if(msg.equals("Calculator")){
             try {
                 Runtime.getRuntime().exec("gnome-calculator");
             } catch (Exception ex) {

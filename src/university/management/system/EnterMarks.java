@@ -425,9 +425,7 @@ public class EnterMarks implements ActionListener,Runnable {
         
         enterMarksFrame.setVisible(true);
     }
-    public static void main(String[] args) {
-        new EnterMarks();
-    }
+
     void popUpFailureImage(){
         enterMarksFrame.setVisible(false);
         t = new Thread(this);
