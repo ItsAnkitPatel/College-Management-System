@@ -88,12 +88,21 @@ public class Login  implements ActionListener,Runnable {
 //=================================ExitImage + Text + Button=====================================================
         
         ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage.png"));
-        Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_DEFAULT);
+        Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
         ImageIcon exit2 = new ImageIcon(exit);
-        JLabel exitImageJLabel = new JLabel(exit2);
-        exitImageJLabel.setBounds(870, 550, 100, 100);
-        exitImageJLabel.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
-        finalImageJLabel.add(exitImageJLabel);
+
+                
+        //=========Exit Button============ 
+        exitButton = new JButton(exit2);
+        exitButton.setBounds(900, 575, 60, 50);
+        exitButton.setBackground(new Color(0,0,0,0));
+        exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        
+        //SETTING BORDER TRANSPARENT
+        exitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+        
+        exitButton.addActionListener(this);
+        finalImageJLabel.add(exitButton);
         
         
         //=========Exit Text======================
@@ -101,25 +110,8 @@ public class Login  implements ActionListener,Runnable {
         exitText.setBounds(940,620,100,30);
         
         finalImageJLabel.add(exitText);
-        
-        
-        //=========Exit Button============ 
-        
-        exitButton = new JButton();
-        exitButton.setBounds(900, 575, 50, 50);
-        exitButton.setBackground(new Color(0,0,0,0));
-       
-        
-                //SETTING BORDER TRANSPARENT
-        exitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-        
-        
-        exitButton.addActionListener(this);
-        finalImageJLabel.add(exitButton);
-        
 
-        
-        
+
 //==============================THE END===========================================================
 
 
@@ -132,7 +124,9 @@ public class Login  implements ActionListener,Runnable {
         
     }
     
-
+    public static void main(String[] args) {
+        new Login();
+    }
     void popUpFailureImage(){
                
         t = new Thread(this);
