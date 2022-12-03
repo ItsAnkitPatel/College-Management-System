@@ -7,26 +7,32 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
+import net.proteanit.sql.DbUtils;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 public class ExaminationDetails implements ActionListener{
     
-    public static void main(String[] args) {
-        new ExaminationDetails();
-    }
-    
+
     JFrame marksDetailsBgFrame,marksDetailsFrame;
     JButton searchButton,cancelButton;
-    JLabel title,enterRollNoLabel;
-    JTextField enterRollTextField;
+    JLabel title,rollNoLabel;
+    JTextField rollTextField;
+    JTable table;
+    
     public ExaminationDetails()  {
-    /*============Adding Background image first=================*/
+        /*============Adding Background image first=================*/
                     marksDetailsBgFrame = new JFrame();
                     marksDetailsBgFrame.setSize(1920,1080);
                     marksDetailsBgFrame.setLocation(0,0);
@@ -47,8 +53,8 @@ public class ExaminationDetails implements ActionListener{
                     
                     
         marksDetailsFrame = new JFrame();
-        marksDetailsFrame.setSize(1100,600);
-        marksDetailsFrame.setLocation(400,200);
+        marksDetailsFrame.setSize(1400,800);
+        marksDetailsFrame.setLocation(300, 100);
         marksDetailsFrame.getContentPane().setBackground(Color.WHITE);
         marksDetailsFrame.setLayout(null);
         marksDetailsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,19 +67,24 @@ public class ExaminationDetails implements ActionListener{
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
         marksDetailsFrame.add(title);
         
+        
+        
         /*=========================Roll no. lable=============================*/
-        enterRollNoLabel = new JLabel("Enter your rollno");
-        enterRollNoLabel.setBounds(50,100,250,30);
-        enterRollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
-        marksDetailsFrame.add(enterRollNoLabel);
-        
-        /*========================Roll no. TextField==========================*/        
-        enterRollTextField = new JTextField();
-        enterRollTextField.setBounds(250,100,200,30);
-        enterRollTextField.setFont(new Font("Times New Roman",Font.BOLD,25));
-        marksDetailsFrame.add(enterRollTextField);
+        rollNoLabel = new JLabel("Enter your rollno");
+        rollNoLabel.setBounds(50,100,250,30);
+        rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
+        marksDetailsFrame.add(rollNoLabel);
         
         
+        
+            /*========================Roll no. TextField==========================*/        
+            rollTextField = new JTextField();
+            rollTextField.setBounds(250,100,200,30);
+            rollTextField.setFont(new Font("Times New Roman",Font.BOLD,25));
+            marksDetailsFrame.add(rollTextField);
+
+
+   
         /*======================Search Button and Image Icon====================================*/
         ImageIcon searchIcon = new ImageIcon(ClassLoader.getSystemResource("icons/searchIcon.png"));
         Image searchImg = searchIcon.getImage().getScaledInstance(38, 33,Image.SCALE_SMOOTH);
@@ -94,8 +105,34 @@ public class ExaminationDetails implements ActionListener{
             
         
         
+        //=========================TABLE====================================
+        table = new JTable();
+        table.setFillsViewportHeight(true);
+        table.setFont(new Font("Times New Roman",Font.BOLD,15));
+        
+            JScrollPane jsp = new JScrollPane(table); //This will add a scrollbar into our table
+            jsp.setBounds(10,150,1380,350);
+            jsp.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+            marksDetailsFrame.add(jsp);
+        
+        try {
+                Conn connect = new Conn();
+                ResultSet rs = connect.s.executeQuery("select * from students");//This will store the whole result of the given query in double quotes
+                table.setModel(DbUtils.resultSetToTableModel(rs));
+                table.setRowHeight(50);
+
+            } catch (Exception e) {
+                
+            }
         
         
+        table.addMouseListener(new MouseAdapter(){
+            public void mouseClicked(MouseEvent me){
+                int row = table.getSelectedRow();
+                rollTextField.setText(table.getModel().getValueAt(row,2).toString());
+            }
+          
+        });
         
         
         /*=========================Cancel Button Image Icon====================*/
@@ -104,7 +141,7 @@ public class ExaminationDetails implements ActionListener{
         ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
 
         cancelButton=  new JButton(cancelFinalImageIcon);
-        cancelButton.setBounds(100,500,185,60);
+        cancelButton.setBounds(100,600,185,60);
         cancelButton.setBackground(Color.WHITE);
         
         // ADDING CURSOR SYMBOL 
@@ -117,32 +154,29 @@ public class ExaminationDetails implements ActionListener{
         marksDetailsFrame.add(cancelButton);
         
         
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         marksDetailsFrame.setUndecorated(true);
-        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 600, 30, 30)); //This will make the edges rounded
+        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1400,800,30, 30)); //This will make the edges rounded
         marksDetailsFrame.setResizable(false);
         
         marksDetailsFrame.setVisible(true);
 
 
     }
+    
     public void actionPerformed(ActionEvent ae){
-     if(ae.getSource() == cancelButton){
+        
+        if(ae.getSource() == searchButton){
+            marksDetailsFrame.dispose();
+            marksDetailsBgFrame.dispose();
+            new ShowMarks(rollTextField.getText());
+        }
+        
+        else if(ae.getSource() == cancelButton){
          marksDetailsFrame.dispose();
          marksDetailsBgFrame.dispose();
+         Dashboard.dashboardFrame.setVisible(true);
      }   
+        
     }
     
     
