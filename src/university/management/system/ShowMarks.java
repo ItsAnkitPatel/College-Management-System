@@ -18,17 +18,18 @@ import javax.swing.JLabel;
 
 public class ShowMarks implements ActionListener{
     
-//    public static void main(String[] args) {
-//        new ShowMarks("");
-//    }
+
     String rollNo;
     JFrame showMarksBgFrame,showMarksFrame;
     JLabel title,resultLabel;
     JButton exitButton;
     JLabel subjectCodeLabel,subjectLable,marksLable;
     JLabel sub1Code,sub2Code,sub3Code,sub4Code,sub5Code;
-    JLabel subject1TF,subject2TF,subject3TF,subject4TF,subject5TF;
-    JLabel subject1marksTF,subject2marksTF,subject3marksTF,subject4marksTF,subject5marksTF;
+    JLabel subject1LB,subject2LB,subject3LB,subject4LB,subject5LB;
+    JLabel subject1marksLB,subject2marksLB,subject3marksLB,subject4marksLB,subject5marksLB;
+    JLabel rollNoLabel,showrollNoLabel,
+            semeseterLabel,showSemLabel;
+
     public ShowMarks(String rollNo) {
             this.rollNo =rollNo;    
         
@@ -52,14 +53,14 @@ public class ShowMarks implements ActionListener{
         
                     
         showMarksFrame = new JFrame();
-        showMarksFrame.setSize(750,800);
+        showMarksFrame.setSize(750,850);
         showMarksFrame.setLocation(550, 100);
         showMarksFrame.getContentPane().setBackground(Color.WHITE);
         showMarksFrame.setLayout(null);
         showMarksFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         
-        //=========================Title of the form====================================
+        //=========================Title of the form ====================================
 
         title = new JLabel("Dummy Technical University");
         title.setBounds(150,10,500,50);
@@ -75,45 +76,66 @@ public class ShowMarks implements ActionListener{
         
         
         
-        
-        
-        
-        
+        /*Roll no. label and show roll number label*/
+            rollNoLabel = new JLabel("Roll No. :");
+            rollNoLabel.setBounds(10,120,100,25);
+            rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
+            showMarksFrame.add(rollNoLabel);
+
+
+            showrollNoLabel = new JLabel();
+            showrollNoLabel.setBounds(110,120,120,25);
+            showrollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
+            showMarksFrame.add(showrollNoLabel);
+            
+            
+            
+        /*Semester Label and Show semester label*/
+            semeseterLabel = new JLabel("Sem:");
+            semeseterLabel.setBounds(400,120,60,25);
+            semeseterLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
+            showMarksFrame.add(semeseterLabel);
+
+            showSemLabel = new JLabel();
+            showSemLabel.setBounds(460,120,200,25);
+            showSemLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
+            showMarksFrame.add(showSemLabel);
+
         
         
         /*======================Subject Code Label & it's 5 textfield==================================*/
         subjectCodeLabel = new JLabel("Subject Code");
-        subjectCodeLabel.setBounds(20,150,150,25);
+        subjectCodeLabel.setBounds(20,180,150,25);
         subjectCodeLabel.setFont(new Font("Times New Roman",Font.BOLD,24));
         showMarksFrame.add(subjectCodeLabel);
         
                 
                 sub1Code = new JLabel();
-                sub1Code.setBounds(20,200,100,30);
+                sub1Code.setBounds(20,230,100,30);
                 sub1Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub1Code);
 
                 
                 sub2Code = new JLabel();
-                sub2Code.setBounds(20,250,100,30);
+                sub2Code.setBounds(20,280,100,30);
                 sub2Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub2Code);
 
 
                 sub3Code = new JLabel();
-                sub3Code.setBounds(20,300,100,30);
+                sub3Code.setBounds(20,330,100,30);
                 sub3Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub3Code);
 
 
                 sub4Code = new JLabel();
-                sub4Code.setBounds(20,350,100,30);
+                sub4Code.setBounds(20,380,100,30);
                 sub4Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub4Code);
 
 
                 sub5Code = new JLabel();
-                sub5Code.setBounds(20,400,100,30);
+                sub5Code.setBounds(20,430,100,30);
                 sub5Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub5Code);
 
@@ -121,95 +143,91 @@ public class ShowMarks implements ActionListener{
                 
         /*======================Subject & Mark Label==================================*/
         subjectLable = new JLabel("Semester Subjects");
-        subjectLable.setBounds(200,150,210,25);
+        subjectLable.setBounds(200,180,210,25);
         subjectLable.setFont(new Font("Times New Roman",Font.BOLD,24));
         showMarksFrame.add(subjectLable);
         
         
         marksLable = new JLabel("Marks");
-        marksLable.setBounds(550,150,210,25);
+        marksLable.setBounds(550,180,210,25);
         marksLable.setFont(new Font("Times New Roman",Font.BOLD,24));
         showMarksFrame.add(marksLable);
         
         
         
         /*======================Subject 1 & it's Marks textfield=================*/
-        subject1TF = new JLabel();
-        subject1TF.setBounds(200,200,250,30);
-        subject1TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        showMarksFrame.add(subject1TF);
+        subject1LB = new JLabel();
+        subject1LB.setBounds(200,230,250,30);
+        subject1LB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        showMarksFrame.add(subject1LB);
         
         
         
-        subject1marksTF = new JLabel();
-        subject1marksTF.setBounds(550,200,100,30);
-        subject1marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        showMarksFrame.add(subject1marksTF);
+        subject1marksLB = new JLabel();
+        subject1marksLB.setBounds(550,230,100,30);
+        subject1marksLB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        showMarksFrame.add(subject1marksLB);
         
         
         
         /*======================Subject 2 & it's Marks textfield=================*/
-        subject2TF = new JLabel();
-        subject2TF.setBounds(200,250,250,30);
-        subject2TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        showMarksFrame.add(subject2TF);
+        subject2LB = new JLabel();
+        subject2LB.setBounds(200,280,250,30);
+        subject2LB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        showMarksFrame.add(subject2LB);
         
         
-        subject2marksTF = new JLabel();
-        subject2marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject2marksTF.setBounds(550,250,100,30);
-        showMarksFrame.add(subject2marksTF);
+        subject2marksLB = new JLabel();
+        subject2marksLB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject2marksLB.setBounds(550,280,100,30);
+        showMarksFrame.add(subject2marksLB);
        
         
         /*======================Subject 3 & it's Marks textfield=================*/
-        subject3TF = new JLabel();
-        subject3TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject3TF.setBounds(200,300,250,30);
-        showMarksFrame.add(subject3TF);
+        subject3LB = new JLabel();
+        subject3LB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject3LB.setBounds(200,330,250,30);
+        showMarksFrame.add(subject3LB);
         
         
         
-        subject3marksTF = new JLabel();
-        subject3marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject3marksTF.setBounds(550,300,100,30);
-        showMarksFrame.add(subject3marksTF);
+        subject3marksLB = new JLabel();
+        subject3marksLB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject3marksLB.setBounds(550,330,100,30);
+        showMarksFrame.add(subject3marksLB);
        
         
         /*======================Subject 4 & it's Marks textfield=================*/
-        subject4TF = new JLabel();
-        subject4TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject4TF.setBounds(200,350,250,30);
-        showMarksFrame.add(subject4TF);
+        subject4LB = new JLabel();
+        subject4LB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject4LB.setBounds(200,380,250,30);
+        showMarksFrame.add(subject4LB);
        
         
-        subject4marksTF = new JLabel();
-        subject4marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject4marksTF.setBounds(550,350,100,30);
-        showMarksFrame.add(subject4marksTF);
+        subject4marksLB = new JLabel();
+        subject4marksLB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject4marksLB.setBounds(550,380,100,30);
+        showMarksFrame.add(subject4marksLB);
         
         
         
         /*======================Subject 5 & it's Marks textfield=================*/
-        subject5TF = new JLabel();
-        subject5TF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject5TF.setBounds(200,400,250,30);
-        showMarksFrame.add(subject5TF);
+        subject5LB = new JLabel();
+        subject5LB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject5LB.setBounds(200,430,250,30);
+        showMarksFrame.add(subject5LB);
         
             
-        subject5marksTF = new JLabel();
-        subject5marksTF.setFont(new Font("Times New Roman",Font.BOLD,21));
-        subject5marksTF.setBounds(550,400,100,30);
-        showMarksFrame.add(subject5marksTF);
+        subject5marksLB = new JLabel();
+        subject5marksLB.setFont(new Font("Times New Roman",Font.BOLD,21));
+        subject5marksLB.setBounds(550,430,100,30);
+        showMarksFrame.add(subject5marksLB);
         
         
         
         try {
             Conn c= new Conn();
             ResultSet rs1 = c.s.executeQuery("select * from subject where rollno='"+rollNo+"'");
-
-            
-        
-
             while(rs1.next()){
                 sub1Code.setText(rs1.getString("code1"));
                 sub2Code.setText(rs1.getString("code2"));
@@ -218,21 +236,23 @@ public class ShowMarks implements ActionListener{
                 sub5Code.setText(rs1.getString("code5"));
                 
                 
-                subject1TF.setText(rs1.getString("subject1"));
-                subject2TF.setText(rs1.getString("subject2"));
-                subject3TF.setText(rs1.getString("subject3"));
-                subject4TF.setText(rs1.getString("subject4"));
-                subject5TF.setText(rs1.getString("subject5"));
+                subject1LB.setText(rs1.getString("subject1"));
+                subject2LB.setText(rs1.getString("subject2"));
+                subject3LB.setText(rs1.getString("subject3"));
+                subject4LB.setText(rs1.getString("subject4"));
+                subject5LB.setText(rs1.getString("subject5"));
 
-                
+                showrollNoLabel.setText(rs1.getString("rollno"));
+                showSemLabel.setText(rs1.getString("semester"));
             }
+            
             ResultSet rs2 = c.s.executeQuery("select * from marks where rollno='"+rollNo+"'");
             while(rs2.next()){
-                subject1marksTF.setText(rs2.getString("marks1"));
-                subject2marksTF.setText(rs2.getString("marks2"));
-                subject3marksTF.setText(rs2.getString("marks3"));
-                subject4marksTF.setText(rs2.getString("marks4"));
-                subject5marksTF.setText(rs2.getString("marks5"));
+                subject1marksLB.setText(rs2.getString("marks1"));
+                subject2marksLB.setText(rs2.getString("marks2"));
+                subject3marksLB.setText(rs2.getString("marks3"));
+                subject4marksLB.setText(rs2.getString("marks4"));
+                subject5marksLB.setText(rs2.getString("marks5"));
                 
             }
         } catch (Exception e) {
@@ -250,7 +270,7 @@ public class ShowMarks implements ActionListener{
         
 
         JLabel addImage = new JLabel(finalImageIcon);
-        addImage.setBounds(30,490,700,300);
+        addImage.setBounds(30,550,700,300);
         showMarksFrame.add(addImage);
         
         
@@ -267,14 +287,14 @@ public class ShowMarks implements ActionListener{
 
                 //=========Exit Text======================
                 JLabel exitText = new JLabel("EXIT");
-                exitText.setBounds(700,470,100,30);
+                exitText.setBounds(700,510,100,30);
                 showMarksFrame.add(exitText);
 
 
                 //=========Exit Button==================== 
 
                 exitButton = new JButton(exit2);
-                exitButton.setBounds(670, 420, 60, 50);
+                exitButton.setBounds(670, 450, 60, 50);
                 exitButton.setBackground(new Color(0,0,0,0));
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
 
@@ -287,7 +307,7 @@ public class ShowMarks implements ActionListener{
         
                 
         showMarksFrame.setUndecorated(true);
-        showMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 750,800,30, 30)); //This will make the edges rounded
+        showMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 750,850,30, 30)); //This will make the edges rounded
         showMarksFrame.setResizable(false);
         
         showMarksFrame.setVisible(true);
