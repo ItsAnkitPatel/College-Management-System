@@ -103,7 +103,7 @@ public class ShowMarks implements ActionListener{
 
         
         
-        /*======================Subject Code Label & it's 5 textfield==================================*/
+        /*======================Subject Code Label & it's 5 Label==================================*/
         subjectCodeLabel = new JLabel("Subject Code");
         subjectCodeLabel.setBounds(20,180,150,25);
         subjectCodeLabel.setFont(new Font("Times New Roman",Font.BOLD,24));
@@ -155,7 +155,7 @@ public class ShowMarks implements ActionListener{
         
         
         
-        /*======================Subject 1 & it's Marks textfield=================*/
+        /*======================Subject 1 & it's Marks Label=================*/
         subject1LB = new JLabel();
         subject1LB.setBounds(200,230,250,30);
         subject1LB.setFont(new Font("Times New Roman",Font.BOLD,21));
@@ -170,7 +170,7 @@ public class ShowMarks implements ActionListener{
         
         
         
-        /*======================Subject 2 & it's Marks textfield=================*/
+        /*======================Subject 2 & it's Marks Label=================*/
         subject2LB = new JLabel();
         subject2LB.setBounds(200,280,250,30);
         subject2LB.setFont(new Font("Times New Roman",Font.BOLD,21));
@@ -183,7 +183,7 @@ public class ShowMarks implements ActionListener{
         showMarksFrame.add(subject2marksLB);
        
         
-        /*======================Subject 3 & it's Marks textfield=================*/
+        /*======================Subject 3 & it's Marks Label=================*/
         subject3LB = new JLabel();
         subject3LB.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject3LB.setBounds(200,330,250,30);
@@ -197,7 +197,7 @@ public class ShowMarks implements ActionListener{
         showMarksFrame.add(subject3marksLB);
        
         
-        /*======================Subject 4 & it's Marks textfield=================*/
+        /*======================Subject 4 & it's Marks Label=================*/
         subject4LB = new JLabel();
         subject4LB.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject4LB.setBounds(200,380,250,30);
@@ -211,7 +211,7 @@ public class ShowMarks implements ActionListener{
         
         
         
-        /*======================Subject 5 & it's Marks textfield=================*/
+        /*======================Subject 5 & it's Marks Label=================*/
         subject5LB = new JLabel();
         subject5LB.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject5LB.setBounds(200,430,250,30);
