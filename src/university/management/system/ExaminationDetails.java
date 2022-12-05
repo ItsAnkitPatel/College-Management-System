@@ -26,7 +26,7 @@ public class ExaminationDetails implements ActionListener{
     
 
     JFrame marksDetailsBgFrame,marksDetailsFrame;
-    JButton searchButton,cancelButton,exitButton;
+    JButton searchButton,exitButton;
     JLabel title,rollNoLabel;
     JTextField rollTextField;
     JTable table;
@@ -151,8 +151,8 @@ public class ExaminationDetails implements ActionListener{
                 //=========Exit Button==================== 
 
                 exitButton = new JButton(exit2);
-                exitButton.setBounds(50,530,100,70);
-                exitButton.setBackground(Color.WHITE);
+                exitButton.setBounds(50,540,100,70);
+                exitButton.setBackground(new Color(0,0,0,0));
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
 
                 //SETTING BORDER TRANSPARENT
@@ -173,7 +173,7 @@ public class ExaminationDetails implements ActionListener{
 
 
     }
-   
+
     public void actionPerformed(ActionEvent ae){
         
         if(ae.getSource() == searchButton){
