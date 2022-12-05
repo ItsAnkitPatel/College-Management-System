@@ -13,7 +13,9 @@ public class Dashboard implements ActionListener{
         
         dashboardFrame = new JFrame();
         
-        Font font1 = new Font("FreeSerif", Font.BOLD, 18);
+        Font font1 = new Font("Times New Roman", Font.BOLD, 20);
+        Font font2 = new Font("FreeSerif", Font.PLAIN, 18) ;
+        
         dashboardFrame.setSize(1920,1080);
         dashboardFrame.setBackground(Color.WHITE);
         dashboardFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -26,13 +28,13 @@ public class Dashboard implements ActionListener{
         dashboardFrame.add(addImage);
         
         //===========Setting Dimenstions for JMenuItem================
-        Dimension dimension = new Dimension(100,50);
-        Dimension dimension2 = new Dimension(220,50);
+        Dimension dimension1 = new Dimension(110,50);
+        Dimension dimension2 = new Dimension(230,50);
         
         
         
         JMenuBar menuBar = new JMenuBar();
-        menuBar.setPreferredSize(dimension);
+        menuBar.setPreferredSize(new Dimension(100,50));
 
 //============================== New Information ==========================================================
         JMenu newInformation = new JMenu("New Information");
@@ -44,14 +46,16 @@ public class Dashboard implements ActionListener{
         
         
         JMenuItem facultyInfo = new JMenuItem("Add new Faculty Information");
-        facultyInfo.setPreferredSize(dimension);
+        facultyInfo.setPreferredSize(dimension1);
         facultyInfo.setBackground(Color.WHITE);
+        facultyInfo.setFont(font2);
         facultyInfo.addActionListener(this);
         newInformation.add(facultyInfo);
         
         
         JMenuItem studentInfo = new JMenuItem("Add new Student Information");      
         studentInfo.setPreferredSize(dimension2);
+        studentInfo.setFont(font2);
         studentInfo.setBackground(Color.WHITE);
         studentInfo.addActionListener(this);
         newInformation.add(studentInfo);
@@ -68,14 +72,16 @@ public class Dashboard implements ActionListener{
         //=======================Details menu items=================
         
         JMenuItem facultyDetails = new JMenuItem("View Faculty Details");
-        facultyDetails.setPreferredSize(dimension);
+        facultyDetails.setPreferredSize(dimension1);
         facultyDetails.setBackground(Color.WHITE);
+        facultyDetails.setFont(font2);
         facultyDetails.addActionListener(this);
         details.add(facultyDetails);
         
         
         JMenuItem studentDetails = new JMenuItem("View Student Details");
         studentDetails.setPreferredSize(new Dimension(170,50));
+        studentDetails.setFont(font2);
         studentDetails.setBackground(Color.WHITE);
         studentDetails.addActionListener(this);
         details.add(studentDetails);
@@ -89,7 +95,8 @@ public class Dashboard implements ActionListener{
         menuBar.add(exam);
         //=======================Exam menu items=================
         JMenuItem examinationDetails = new JMenuItem("Exam Results");
-        examinationDetails.setPreferredSize(dimension);
+        examinationDetails.setPreferredSize(dimension1);
+        examinationDetails.setFont(font2);
         examinationDetails.setBackground(Color.WHITE);
         examinationDetails.addActionListener(this);
         exam.add(examinationDetails);
@@ -98,6 +105,7 @@ public class Dashboard implements ActionListener{
         JMenuItem enterMarks = new JMenuItem("Enter Marks");
         enterMarks.setPreferredSize(new Dimension(120,50));
         enterMarks.setBackground(Color.WHITE);
+        enterMarks.setFont(font2);
         enterMarks.addActionListener(this);
         exam.add(enterMarks);
         
@@ -111,8 +119,9 @@ public class Dashboard implements ActionListener{
         menuBar.add(upadteInfo);
             //=======================Update menu items=================
         JMenuItem updateFacultyInfo = new JMenuItem("Update Faculty Details");
-        updateFacultyInfo.setPreferredSize(dimension);
+        updateFacultyInfo.setPreferredSize(dimension1);
         updateFacultyInfo.setBackground(Color.WHITE);
+        updateFacultyInfo.setFont(font2);
         updateFacultyInfo.addActionListener(this);
         upadteInfo.add(updateFacultyInfo);
         
@@ -120,6 +129,7 @@ public class Dashboard implements ActionListener{
         JMenuItem updateStudentInfo = new JMenuItem("Update Student Details");
         updateStudentInfo.setPreferredSize(dimension2);
         updateStudentInfo.setBackground(Color.WHITE);
+        updateStudentInfo.setFont(font2);
         updateStudentInfo.addActionListener(this);
         upadteInfo.add(updateStudentInfo);
         
@@ -136,14 +146,16 @@ public class Dashboard implements ActionListener{
         
         //=======================Fees menu items=================
         JMenuItem feeStructure = new JMenuItem("Fees Structure");
-        feeStructure.setPreferredSize(dimension);
+        feeStructure.setPreferredSize(dimension1);
         feeStructure.setBackground(Color.WHITE);
+        feeStructure.setFont(font2);
         feeStructure.addActionListener(this);
         fee.add(feeStructure);        
         
         JMenuItem feeForm = new JMenuItem("Student Fee Form");
         feeForm.setPreferredSize(new Dimension(150,50));
         feeForm.setBackground(Color.WHITE);
+        feeForm.setFont(font2);
         feeForm.addActionListener(this);
         fee.add(feeForm);
 
@@ -158,8 +170,9 @@ public class Dashboard implements ActionListener{
         
         //=======================Utility menu items=================
         JMenuItem notepad = new JMenuItem("Notepad");
-        notepad.setPreferredSize(dimension);
+        notepad.setPreferredSize(dimension1);
         notepad.setBackground(Color.WHITE);
+        notepad.setFont(font2);
         notepad.addActionListener(this);
         utility.add(notepad);
         
@@ -167,6 +180,7 @@ public class Dashboard implements ActionListener{
         JMenuItem calc = new JMenuItem("Calculator");
         calc.setPreferredSize(new Dimension(100,50));
         calc.setBackground(Color.WHITE);
+        calc.setFont(font2);
         calc.addActionListener(this);
         utility.add(calc);
 
