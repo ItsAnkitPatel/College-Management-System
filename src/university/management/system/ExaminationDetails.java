@@ -20,13 +20,13 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
 import java.sql.ResultSet;
-import javax.swing.JOptionPane;
+
 
 public class ExaminationDetails implements ActionListener{
     
 
     JFrame marksDetailsBgFrame,marksDetailsFrame;
-    JButton searchButton,cancelButton;
+    JButton searchButton,cancelButton,exitButton;
     JLabel title,rollNoLabel;
     JTextField rollTextField;
     JTable table;
@@ -63,7 +63,7 @@ public class ExaminationDetails implements ActionListener{
         //=========================Title of the form====================================
 
         title = new JLabel("Check Result");
-        title.setBounds(350,10,500,50);
+        title.setBounds(550,10,500,50);
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
         marksDetailsFrame.add(title);
         
@@ -134,44 +134,56 @@ public class ExaminationDetails implements ActionListener{
           
         });
         
+        //=================================ExitImage + Text + Button=====================================================
         
-        /*=========================Cancel Button Image Icon====================*/
-        ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
-        Image cancel = cancelIcon.getImage().getScaledInstance(210, 85, Image.SCALE_SMOOTH);
-        ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
+                ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage2.png"));
+                Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
+                ImageIcon exit2 = new ImageIcon(exit);
 
-        cancelButton=  new JButton(cancelFinalImageIcon);
-        cancelButton.setBounds(100,600,185,60);
-        cancelButton.setBackground(Color.WHITE);
-        
-        // ADDING CURSOR SYMBOL 
-        cancelButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        
-        //SETTING BORDER TRANSPARENT
-        cancelButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-        
-        cancelButton.addActionListener(this);
-        marksDetailsFrame.add(cancelButton);
+
+
+                //=========Exit Text======================
+                JLabel exitText = new JLabel("EXIT");
+                exitText.setBounds(100,600,100,30);
+                marksDetailsFrame.add(exitText);
+
+
+                //=========Exit Button==================== 
+
+                exitButton = new JButton(exit2);
+                exitButton.setBounds(50,530,100,70);
+                exitButton.setBackground(Color.WHITE);
+                exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
+
+                //SETTING BORDER TRANSPARENT
+                exitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+                
+                // ADDING CURSOR SYMBOL
+                exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                exitButton.addActionListener(this);
+                marksDetailsFrame.add(exitButton);
+
         
         
         marksDetailsFrame.setUndecorated(true);
-        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1400,800,30, 30)); //This will make the edges rounded
+        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1400,650,30, 30)); //This will make the edges rounded
         marksDetailsFrame.setResizable(false);
         
         marksDetailsFrame.setVisible(true);
 
 
     }
-    
+   
     public void actionPerformed(ActionEvent ae){
         
         if(ae.getSource() == searchButton){
             marksDetailsFrame.dispose();
             marksDetailsBgFrame.dispose();
             new ShowMarks(rollTextField.getText());
+
         }
         
-        else if(ae.getSource() == cancelButton){
+        else if(ae.getSource() == exitButton){
          marksDetailsFrame.dispose();
          marksDetailsBgFrame.dispose();
          Dashboard.dashboardFrame.setVisible(true);
