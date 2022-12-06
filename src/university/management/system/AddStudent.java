@@ -89,13 +89,15 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.getContentPane().setBackground(Color.WHITE);
         studentFrame.setLayout(null);
         studentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        studentFrame.setUndecorated(true);
+        studentFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
+        studentFrame.setResizable(false);
             
                  
                  
                  
         
-//=========================Title of the form====================================
+/*=================================Title of the form============================================================*/
 
         JLabel title = new JLabel("New Student Details");
         title.setBounds(350,20,500,50);
@@ -104,7 +106,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Name Label and it's Text field=================*/
+/*============================Name Label and it's Text field===================================================*/
         nameLabel = new JLabel("Name");
         nameLabel.setBounds(100,100,100,50);
         nameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -119,7 +121,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Father name Label and it's Text field=================*/
+/*=============================Father name Label and it's Text field===========================================*/
         fatherNameLabel = new JLabel("Father's Name");
         fatherNameLabel.setBounds(550,100,180,50);
         fatherNameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -131,11 +133,9 @@ public class AddStudent implements ActionListener,Runnable{
         fatherNameTextField.setFont(new Font("Ubuntu Mono",Font.PLAIN,25));
         studentFrame.add(fatherNameTextField);
         
+
         
-        
-        
-        
-        /*===========Rollno Label and it's Text field=================*/
+ /*================================Rollno Label and it's Text field=============================================*/
         rollNumberLabel = new JLabel("RollNo.");
         rollNumberLabel.setBounds(100,180,100,50);
         rollNumberLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -148,10 +148,7 @@ public class AddStudent implements ActionListener,Runnable{
         studentFrame.add(generatedRollNumber);
         
         
-        
-        
-        
-        /*===========Date Of Birth Label and it's Text field=================*/
+/*===============================Date Of Birth Label and it's Text field========================================*/
         DOB = new JLabel("Date of Birth");
         DOB.setBounds(550,180,180,50);
         DOB.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -168,7 +165,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Address Label and it's Text field=================*/
+/*==========================================Address Label and it's Text field===================================*/
         addressLabel = new JLabel("Address");
         addressLabel.setBounds(100,250,100,50);
         addressLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -186,18 +183,14 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-            //============Adding scroll bar===================
+        //============Adding scroll bar===================
         JScrollPane jsp = new JScrollPane(addressTextArea);
         jsp.setBounds(210,260,300,150);
 
-        
         studentFrame.add(jsp);
-                
-
+     
         
-        
-        
-        /*===========Phone number Label and it's Text field=================*/
+/*=============================Phone number Label and it's Text field=============================================*/
         phoneLabel = new JLabel("Phone");
         phoneLabel.setBounds(550,250,100,50);
         phoneLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -226,7 +219,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========EmailID Label and it's Text field=================*/
+/*===============================EmailID Label and it's Text field=============================================*/
         emailLabel = new JLabel("Email");
         emailLabel.setBounds(550,320,100,50);
         emailLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -241,7 +234,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========AdhaarNo. Label and it's Text field=================*/
+/*================================AdhaarNo. Label and it's Text field==========================================*/
         adhaarLabel = new JLabel("AdhaarNo.");
         adhaarLabel.setBounds(550,390,130,50);
         adhaarLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -271,7 +264,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Class 10th Label and it's Text field=================*/
+/*==================================Class 10th Label and it's Text field=========================================*/
         class10Label = new JLabel("Class X(%)");
         class10Label.setBounds(100,430,150,50);
         class10Label.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -302,7 +295,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Class 12th Label and it's Text field=================*/
+/*==============================Class 12th Label and it's Text field=========================================*/
         class12Label = new JLabel("Class XII(%)");
         class12Label.setBounds(100,500,150,50);
         class12Label.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -333,7 +326,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Course Label and it'scombo box=================*/
+/*===================================Course Label and it'scombo box=========================================*/
         courseLabel = new JLabel("Course");
         courseLabel.setBounds(100,580,150,50);
         courseLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -351,7 +344,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*===========Branch Label and it's combo box =================*/
+/*=====================================Branch Label and it's combo box =============================================*/
         branchLabel = new JLabel("Branch");
         branchLabel.setBounds(100,650,150,50);
         branchLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -369,7 +362,7 @@ public class AddStudent implements ActionListener,Runnable{
         
  
         
-        /*=========================Image Icon====================*/
+/*==============================================Image Icon==============================================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/AddDataImage.jpg"));
         Image i2 = i1.getImage().getScaledInstance(400, 400,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
@@ -383,7 +376,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        /*=========================Submit Button Image Icon====================*/
+/*==========================================Submit Button Image Icon===========================================*/
         ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
@@ -399,16 +392,14 @@ public class AddStudent implements ActionListener,Runnable{
         
         //SETTING BORDER TRANSPARENT
         submitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));        
-//        submitButton.setBorder(new RoundedBorder(60));
         submitButton.setBackground(Color.WHITE);
         submitButton.addActionListener(this);
         
 
        
         
-        /*=========================Cancel Button Image Icon====================*/
-        
-        
+/*==================================Cancel Button Image Icon===============================================*/
+
         ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
         Image cancel = cancelIcon.getImage().getScaledInstance(210, 85, Image.SCALE_SMOOTH);
         ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
@@ -430,7 +421,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-         /*Creating object of all message lables and making them invisible for the time*/
+/*=====================Creating object of all message lables and making them invisible for the time====================*/
                 
                 //Message1 for name field
                 showMessage1 = new JLabel("You cannot left this field empty");
@@ -510,9 +501,7 @@ public class AddStudent implements ActionListener,Runnable{
                 studentFrame.add(showMessage11);
                 showMessage11.setVisible(false);
                 
-        studentFrame.setUndecorated(true);
-        studentFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
-        studentFrame.setResizable(false);
+/*==============================================THE END===========================================================*/
         
         studentFrame.setVisible(true);
     }
@@ -547,7 +536,7 @@ public class AddStudent implements ActionListener,Runnable{
     
     
     
-
+//This method will add red border to the empty fields left by the user and visible the message below of the empty field
     void isEmpty(int i){
         switch (i) {
             case 0:
@@ -694,7 +683,7 @@ public class AddStudent implements ActionListener,Runnable{
 
                 boolean flag = true;
                 String[] strArray = {name,fname,dob,address,phone,email,adhaar,class10,class12,course,branch};
-                List <Boolean> fieldIsEmpty = new ArrayList<Boolean>();
+                List <Boolean> fieldIsEmpty = new ArrayList<>();
                
 
                 int i =0;
