@@ -25,12 +25,13 @@ public class Login  implements ActionListener,Runnable {
         loginFrame.setLayout(null);    
         loginFrame.setSize(1000,690);
         loginFrame.setLocation(450,200);
-        
         loginFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
+        loginFrame.setUndecorated(true);
+        loginFrame.setShape(new RoundRectangle2D.Double(0, 0, 1000,660, 30, 30)); //This will make the edges rounded
+        loginFrame.setResizable(false);
        
         
-        //====================ImageIcon===============================================
+/*============================================== ImageIcon ===========================================================*/
         ImageIcon  i1 = new ImageIcon(ClassLoader.getSystemResource("icons/LoginPage.png"));
         Image i2 = i1.getImage().getScaledInstance(1000,667, Image.SCALE_DEFAULT);
         ImageIcon i3 = new ImageIcon(i2);
@@ -41,7 +42,7 @@ public class Login  implements ActionListener,Runnable {
         
         
         
-        //=====================UserName =============================================
+/*============================================= UserName =========================================================*/
 
         userJTextField = new JTextField();
         
@@ -54,7 +55,7 @@ public class Login  implements ActionListener,Runnable {
         
         
         
-        //=======================Password============================================
+/*============================================= Password ==========================================================*/
 
         passwordJTextField = new JPasswordField();
         
@@ -67,7 +68,7 @@ public class Login  implements ActionListener,Runnable {
         
         
         
-//========================Login Button==========================================================        
+/*==============================================Login Button==========================================================*/        
         
         loginButton=  new JButton();
         loginButton.setBounds(712,400,80,20);
@@ -85,7 +86,7 @@ public class Login  implements ActionListener,Runnable {
         finalImageJLabel.add(loginButton);
         
         
-//=================================ExitImage + Text + Button=====================================================
+/*========================================ExitImage + Text + Button=====================================================*/
         
         ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage.png"));
         Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
@@ -112,21 +113,12 @@ public class Login  implements ActionListener,Runnable {
         finalImageJLabel.add(exitText);
 
 
-//==============================THE END===========================================================
+/*==============================================THE END===========================================================*/
 
-
-
-
-        loginFrame.setUndecorated(true);
-        loginFrame.setShape(new RoundRectangle2D.Double(0, 0, 1000,660, 30, 30)); //This will make the edges rounded
-        loginFrame.setResizable(false);
         loginFrame.setVisible(true);
         
     }
-    
-    public static void main(String[] args) {
-        new Login();
-    }
+/*When the given credentials are wrong then we will execute the below method */
     void popUpFailureImage(){
                
         t = new Thread(this);
@@ -182,18 +174,12 @@ public class Login  implements ActionListener,Runnable {
                     new Dashboard();
                     
                     
-                }else{//If validation is false then we will show popup of popup image 
-                    
-                    
-                    loginFrame.setVisible(false);
-//                    JOptionPane.showMessageDialog(null,"Invalid username or password ");
+                }else{//If validation is false then we will show popup of failure with the help of image      
+                   loginFrame.setVisible(false);
                    popUpFailureImage();
-                    
-      
-                    
                 }
                 
-//                c.s.close(); //This is Step 5 of JDBC : Closing the connection .This is optional but a good practice
+                //c.s.close(); //This is Step 5 of JDBC : Closing the connection .This is optional but a good practice
                 
             } catch (Exception ex) {
                 ex.printStackTrace();

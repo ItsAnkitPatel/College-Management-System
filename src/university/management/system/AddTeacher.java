@@ -83,11 +83,13 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
        
         teacherFrame.setLayout(null);
         teacherFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-       
+        teacherFrame.setUndecorated(true);
+        teacherFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
+        teacherFrame.setSize(1100,900);
+        teacherFrame.setLocation(400,80);
+        teacherFrame.setResizable(false);
         
-        
-//=========================Title of the form====================================
-
+/*=================================Title of the form============================================================*/
         JLabel title = new JLabel("New Teacher Details");
         title.setBounds(350,20,500,50);
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
@@ -95,7 +97,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-       /*===========Name Label and it's Text field=================*/
+/*===============================Name Label and it's Text field=============================================*/
         nameLabel = new JLabel("Name");
         nameLabel.setBounds(100,100,100,50);
         nameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -110,7 +112,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        /*===========Father name Label and it's Text field=================*/
+/*===================Father name Label and it's Text field====================================================*/
         fatherNameLabel = new JLabel("Father's Name");
         fatherNameLabel.setBounds(550,100,180,50);
         fatherNameLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -125,8 +127,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        
-        /*===========EmployeeID Label and it's Text field=================*/
+/*==================================EmployeeID Label and it's Text field===============================*/
         empIDLabel = new JLabel("Employee ID");
         empIDLabel.setBounds(100,180,150,50);
         empIDLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -142,7 +143,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        /*===========Date Of Birth Label and it's Text field=================*/
+/*================================Date Of Birth Label and it's Text field======================================*/
         DOB = new JLabel("Date of Birth");
         DOB.setBounds(550,180,180,50);
         DOB.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -160,7 +161,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        /*===========Address Label and it's Text field=================*/
+/*=====================================Address Label and it's Text field============================================*/
         addressLabel = new JLabel("Address");
         addressLabel.setBounds(100,250,100,50);
         addressLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -174,10 +175,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         addressTextArea.setFont(new Font("Times New Roman",Font.PLAIN,20));
         
         
-        
-        
-        
-        
         //============Adding scroll bar======================
         JScrollPane jsp = new JScrollPane(addressTextArea);
         jsp.setBounds(210,260,300,150);
@@ -186,10 +183,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         teacherFrame.add(jsp);
                 
 
-        
-        
-        
-        /*===========Phone number Label and it's Text field=================*/
+/*==============================Phone number Label and it's Text field===============================================*/
         phoneLabel = new JLabel("Phone");
         phoneLabel.setBounds(550,250,100,50);
         phoneLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -214,7 +208,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-         /*===========EmailID Label and it's Text field=================*/
+/*======================================EmailID Label and it's Text field==========================================*/
         emailLabel = new JLabel("EmailID");
         emailLabel.setBounds(550,320,100,50);
         emailLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -229,7 +223,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-         /*===========AdhaarNo. Label and it's Text field=================*/
+/*====================================AdhaarNo. Label and it's Text field========================================*/
         adhaarLabel = new JLabel("AdhaarNo.");
         adhaarLabel.setBounds(550,380,130,50);
         adhaarLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -256,7 +250,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-         /*===========Class 10th Label and it's Text field=================*/
+/*============================Class 10th Label and it's Text field=======================================================*/
         class10Label = new JLabel("Class X(%)");
         class10Label.setBounds(100,430,150,50);
         class10Label.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -286,7 +280,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-         /*===========Class 12th Label and it's Text field=================*/
+/*================================Class 12th Label and it's Text field=====================================================*/
         class12Label = new JLabel("Class XII(%)");
         class12Label.setBounds(100,500,150,50);
         class12Label.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -317,7 +311,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        /*===========Qualification Label and it'scombo box=================*/
+/*====================================Qualification Label and it'scombo box===============================================*/
         qualificationLabel = new JLabel("Qualification");
         qualificationLabel.setBounds(100,580,160,50);
         qualificationLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -333,9 +327,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
+/*============================Department Label and it's combo box =========================================================*/
+        //Here department means in which department the teacher will teach the students
         
-        
-        /*===========Department Label and it's combo box =================*/
         departmentLabel = new JLabel("Department");
         departmentLabel.setBounds(100,650,150,50);
         departmentLabel.setFont(new Font("Times New Roman",Font.BOLD,26));
@@ -352,10 +346,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        
-        
-        
-        /*=========================Image Icon====================*/
+/*=================================================Image Icon============================================================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/AddDataImage.jpg"));
         Image i2 = i1.getImage().getScaledInstance(400, 400,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
@@ -367,20 +358,15 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        
-        
-        /*=========================Submit Button Image Icon====================*/
+/*============================================Submit Button Image Icon====================================================*/
         ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
         
- 
-        
+
         submitButton=  new JButton(submitFinalImageIcon);
         submitButton.setBounds(465,752,200,80);
         
-        
-
         // ADDING CURSOR SYMBOL 
         submitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         
@@ -392,7 +378,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         teacherFrame.add(submitButton);
        
         
-        /*=========================Cancel Button Image Icon====================*/
+/*=========================================Cancel Button Image Icon====================================================*/
         
         
         ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
@@ -413,7 +399,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         teacherFrame.add(cancelButton);
         
       
-        /*Creating object of all message lables and making them invisible for the time*/
+/*===================Creating object of all message lables and making them invisible for the time==========================*/
                 
                 //Message1 for name field
                 showMessage1 = new JLabel("You cannot left this field empty");
@@ -493,21 +479,15 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                 teacherFrame.add(showMessage11);
                 showMessage11.setVisible(false);
                 
-        
-        teacherFrame.setUndecorated(true);
-        teacherFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 900, 30, 30)); //This will make the edges rounded
-        teacherFrame.setSize(1100,900);
-        teacherFrame.setLocation(400,80);
-        teacherFrame.setResizable(false);
+ /*==============================================THE END===========================================================*/       
         
         teacherFrame.setVisible(true);
-        
-        teacherbgFrame.setVisible(true);
         
     }
     
     
-    
+  /*This will only run when all the validations are checked and all the fields are filled correctly 
+    and sql query is successfully executed */
     void popUpSucessImage(){
    
         t =new Thread(this);
@@ -534,7 +514,8 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     
     
     
-    
+/*This method will add red border to the empty fields left by the user and 
+  visible the message below of the empty field*/    
     void isEmpty(int i){
         switch (i) {
             case 0:
@@ -596,11 +577,16 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
     }
     
-
     
-    void changeBorderColorToBlack(int num){//This will executed when we hit the update submit button , 
-                                  //the only reason we are doing this because we dont want to keep showing
-                                  //the red color even though the user filled the empty field
+    
+/*This method will set all the labels colors black and set labels of all messages to invisible 
+  which was first changed by isEmpty method.
+    
+  This method will executed when we hit the update submit button , 
+  the only reason we are doing this because we don't want to keep showing
+  the red color even though the user filled the empty field*/
+   
+    void changeBorderColorToBlack(int num){
         switch (num) {
             case 0:
                 nameTextField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -665,7 +651,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
        
         
         if(e.getSource() == submitButton){
-            
+        /*Here we are adding a validation if all the field are filled or not*/    
         String name = nameTextField.getText();
         String fname = fatherNameTextField.getText();
         String rollno = generatedEmpIDNumber.getText();
@@ -693,10 +679,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                         fieldIsEmpty.add(false);
                     }
                 }
-//                if(i>= strArray.length){
-//                flag = true;
-//                 }
-        
+
         if(flag){
             
             try {//Creating mysql query

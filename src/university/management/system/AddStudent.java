@@ -507,8 +507,8 @@ public class AddStudent implements ActionListener,Runnable{
     }
     
     
-
-
+/*This will only run when all the validations are checked and all the fields are filled correctly 
+    and sql query is successfully executed */
     void popUpSucessImage(){
                
         t = new Thread(this);
@@ -536,7 +536,8 @@ public class AddStudent implements ActionListener,Runnable{
     
     
     
-//This method will add red border to the empty fields left by the user and visible the message below of the empty field
+/*This method will add red border to the empty fields left by the user and 
+  visible the message below of the empty field*/    
     void isEmpty(int i){
         switch (i) {
             case 0:
@@ -598,11 +599,14 @@ public class AddStudent implements ActionListener,Runnable{
         
     }
     
-
+/*This method will set all the labels colors black and set labels of all messages to invisible 
+  which was first changed by isEmpty method.
     
-    void changeBorderColorToBlack(int num){//This will executed when we hit the update submit button , 
-                                  //the only reason we are doing this because we dont want to keep showing
-                                  //the red color even though the user filled the empty field
+  This method will executed when we hit the update submit button , 
+  the only reason we are doing this because we don't want to keep showing
+  the red color even though the user filled the empty field*/
+    
+    void changeBorderColorToBlack(int num){
         switch (num) {
             case 0:
                 nameTextField.setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -666,8 +670,8 @@ public class AddStudent implements ActionListener,Runnable{
     @Override
     public void actionPerformed(ActionEvent e) {
        
-        
         if(e.getSource() == submitButton){
+            /*Here we are adding a validation if all the field are filled or not*/
                 String name = nameTextField.getText();
                 String fname = fatherNameTextField.getText();
                 String rollno = generatedRollNumber.getText();
@@ -757,14 +761,11 @@ public class AddStudent implements ActionListener,Runnable{
     @Override
     public void run() {
         try {
-            
-                
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
                 studentbgFrame.dispose();
                 new AddStudent();
-                
-            
+
         }catch (Exception e) {
             e.printStackTrace();
         }

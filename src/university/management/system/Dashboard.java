@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 
 public class Dashboard implements ActionListener{
     static JFrame dashboardFrame ;
-   
+
     Dashboard() {
         
         dashboardFrame = new JFrame();
@@ -21,7 +21,7 @@ public class Dashboard implements ActionListener{
         dashboardFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/AnimatedCollege.jpg"));
-        Image i2 = i1.getImage().getScaledInstance(1920, 1000,Image.SCALE_DEFAULT);
+        Image i2 = i1.getImage().getScaledInstance(1920, 1000,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
         
         JLabel addImage = new JLabel(finalImageIcon);
@@ -35,33 +35,31 @@ public class Dashboard implements ActionListener{
         
         JMenuBar menuBar = new JMenuBar();
         menuBar.setPreferredSize(new Dimension(100,50));
-
-//============================== New Information ==========================================================
+/*============================== New Information ==========================================================*/
         JMenu newInformation = new JMenu("New Information");
         newInformation.setFont(font1);
         newInformation.setForeground(Color.BLUE);
         menuBar.add(newInformation);
         
-        //==========Menu Items==============================================
+            //==========Menu Items==============================================
+
+            JMenuItem facultyInfo = new JMenuItem("Add new Faculty Information");
+            facultyInfo.setPreferredSize(dimension1);
+            facultyInfo.setBackground(Color.WHITE);
+            facultyInfo.setFont(font2);
+            facultyInfo.addActionListener(this);
+            newInformation.add(facultyInfo);
+
+
+            JMenuItem studentInfo = new JMenuItem("Add new Student Information");      
+            studentInfo.setPreferredSize(dimension2);
+            studentInfo.setFont(font2);
+            studentInfo.setBackground(Color.WHITE);
+            studentInfo.addActionListener(this);
+            newInformation.add(studentInfo);
+            
         
-        
-        JMenuItem facultyInfo = new JMenuItem("Add new Faculty Information");
-        facultyInfo.setPreferredSize(dimension1);
-        facultyInfo.setBackground(Color.WHITE);
-        facultyInfo.setFont(font2);
-        facultyInfo.addActionListener(this);
-        newInformation.add(facultyInfo);
-        
-        
-        JMenuItem studentInfo = new JMenuItem("Add new Student Information");      
-        studentInfo.setPreferredSize(dimension2);
-        studentInfo.setFont(font2);
-        studentInfo.setBackground(Color.WHITE);
-        studentInfo.addActionListener(this);
-        newInformation.add(studentInfo);
-        
- //============================== Details ==========================================================       
-        
+ /*======================================= Details ==========================================================*/       
 
         JMenu details = new JMenu("View Details");
         details.setFont(font1);
@@ -69,73 +67,75 @@ public class Dashboard implements ActionListener{
         menuBar.add(details);
 
         
-        //=======================Details menu items=================
+            //=======================Details menu items=================
+            
+            JMenuItem facultyDetails = new JMenuItem("View Faculty Details");
+            facultyDetails.setPreferredSize(dimension1);
+            facultyDetails.setBackground(Color.WHITE);
+            facultyDetails.setFont(font2);
+            facultyDetails.addActionListener(this);
+            details.add(facultyDetails);
+
+
+            JMenuItem studentDetails = new JMenuItem("View Student Details");
+            studentDetails.setPreferredSize(new Dimension(170,50));
+            studentDetails.setFont(font2);
+            studentDetails.setBackground(Color.WHITE);
+            studentDetails.addActionListener(this);
+            details.add(studentDetails);
         
-        JMenuItem facultyDetails = new JMenuItem("View Faculty Details");
-        facultyDetails.setPreferredSize(dimension1);
-        facultyDetails.setBackground(Color.WHITE);
-        facultyDetails.setFont(font2);
-        facultyDetails.addActionListener(this);
-        details.add(facultyDetails);
-        
-        
-        JMenuItem studentDetails = new JMenuItem("View Student Details");
-        studentDetails.setPreferredSize(new Dimension(170,50));
-        studentDetails.setFont(font2);
-        studentDetails.setBackground(Color.WHITE);
-        studentDetails.addActionListener(this);
-        details.add(studentDetails);
-        
-//============================== Examination ==========================================================               
+/*=================================== Examination =====================================================*/               
 
 
         JMenu exam = new JMenu("Examination");
         exam.setFont(font1);
         exam.setForeground(Color.BLUE);
         menuBar.add(exam);
-        //=======================Exam menu items=================
-        JMenuItem examinationDetails = new JMenuItem("Exam Results");
-        examinationDetails.setPreferredSize(dimension1);
-        examinationDetails.setFont(font2);
-        examinationDetails.setBackground(Color.WHITE);
-        examinationDetails.addActionListener(this);
-        exam.add(examinationDetails);
         
+            //=======================Exam menu items=================
+            JMenuItem examinationDetails = new JMenuItem("Exam Results");
+            examinationDetails.setPreferredSize(dimension1);
+            examinationDetails.setFont(font2);
+            examinationDetails.setBackground(Color.WHITE);
+            examinationDetails.addActionListener(this);
+            exam.add(examinationDetails);
+
+
+            JMenuItem enterMarks = new JMenuItem("Enter Marks");
+            enterMarks.setPreferredSize(new Dimension(120,50));
+            enterMarks.setBackground(Color.WHITE);
+            enterMarks.setFont(font2);
+            enterMarks.addActionListener(this);
+            exam.add(enterMarks);
+
         
-        JMenuItem enterMarks = new JMenuItem("Enter Marks");
-        enterMarks.setPreferredSize(new Dimension(120,50));
-        enterMarks.setBackground(Color.WHITE);
-        enterMarks.setFont(font2);
-        enterMarks.addActionListener(this);
-        exam.add(enterMarks);
-        
-        
-//============================== Update Info ==========================================================               
+/*========================================== Update Info ==========================================================*/               
 
 
         JMenu upadteInfo = new JMenu("Update Information");
         upadteInfo.setFont(font1);
         upadteInfo.setForeground(Color.RED);
         menuBar.add(upadteInfo);
+        
             //=======================Update menu items=================
-        JMenuItem updateFacultyInfo = new JMenuItem("Update Faculty Details");
-        updateFacultyInfo.setPreferredSize(dimension1);
-        updateFacultyInfo.setBackground(Color.WHITE);
-        updateFacultyInfo.setFont(font2);
-        updateFacultyInfo.addActionListener(this);
-        upadteInfo.add(updateFacultyInfo);
+            JMenuItem updateFacultyInfo = new JMenuItem("Update Faculty Details");
+            updateFacultyInfo.setPreferredSize(dimension1);
+            updateFacultyInfo.setBackground(Color.WHITE);
+            updateFacultyInfo.setFont(font2);
+            updateFacultyInfo.addActionListener(this);
+            upadteInfo.add(updateFacultyInfo);
+
+
+            JMenuItem updateStudentInfo = new JMenuItem("Update Student Details");
+            updateStudentInfo.setPreferredSize(dimension2);
+            updateStudentInfo.setBackground(Color.WHITE);
+            updateStudentInfo.setFont(font2);
+            updateStudentInfo.addActionListener(this);
+            upadteInfo.add(updateStudentInfo);
         
         
-        JMenuItem updateStudentInfo = new JMenuItem("Update Student Details");
-        updateStudentInfo.setPreferredSize(dimension2);
-        updateStudentInfo.setBackground(Color.WHITE);
-        updateStudentInfo.setFont(font2);
-        updateStudentInfo.addActionListener(this);
-        upadteInfo.add(updateStudentInfo);
         
-        
-        
-//============================== Fee Info ==========================================================               
+/*======================================== Fee Info ==========================================================*/     
 
 
         JMenu fee = new JMenu("Fee Details");
@@ -144,45 +144,45 @@ public class Dashboard implements ActionListener{
         menuBar.add(fee);
         
         
-        //=======================Fees menu items=================
-        JMenuItem feeStructure = new JMenuItem("Fees Structure");
-        feeStructure.setPreferredSize(dimension1);
-        feeStructure.setBackground(Color.WHITE);
-        feeStructure.setFont(font2);
-        feeStructure.addActionListener(this);
-        fee.add(feeStructure);        
-        
-        JMenuItem feeForm = new JMenuItem("Student Fee Form");
-        feeForm.setPreferredSize(new Dimension(150,50));
-        feeForm.setBackground(Color.WHITE);
-        feeForm.setFont(font2);
-        feeForm.addActionListener(this);
-        fee.add(feeForm);
+            //=======================Fees menu items=================
+            JMenuItem feeStructure = new JMenuItem("Fees Structure");
+            feeStructure.setPreferredSize(dimension1);
+            feeStructure.setBackground(Color.WHITE);
+            feeStructure.setFont(font2);
+            feeStructure.addActionListener(this);
+            fee.add(feeStructure);        
+
+            JMenuItem feeForm = new JMenuItem("Student Fee Form");
+            feeForm.setPreferredSize(new Dimension(150,50));
+            feeForm.setBackground(Color.WHITE);
+            feeForm.setFont(font2);
+            feeForm.addActionListener(this);
+            fee.add(feeForm);
 
 
 
-//============================== Utility ==========================================================               
+/*========================================== Utility ==========================================================*/               
         JMenu utility = new JMenu("Utility");
         utility.setFont(font1);
         utility.setForeground(Color.RED);
         menuBar.add(utility);
         
         
-        //=======================Utility menu items=================
-        JMenuItem notepad = new JMenuItem("Notepad");
-        notepad.setPreferredSize(dimension1);
-        notepad.setBackground(Color.WHITE);
-        notepad.setFont(font2);
-        notepad.addActionListener(this);
-        utility.add(notepad);
-        
-        
-        JMenuItem calc = new JMenuItem("Calculator");
-        calc.setPreferredSize(new Dimension(100,50));
-        calc.setBackground(Color.WHITE);
-        calc.setFont(font2);
-        calc.addActionListener(this);
-        utility.add(calc);
+            //=======================Utility menu items=================
+            JMenuItem notepad = new JMenuItem("Notepad");
+            notepad.setPreferredSize(dimension1);
+            notepad.setBackground(Color.WHITE);
+            notepad.setFont(font2);
+            notepad.addActionListener(this);
+            utility.add(notepad);
+
+
+            JMenuItem calc = new JMenuItem("Calculator");
+            calc.setPreferredSize(new Dimension(100,50));
+            calc.setBackground(Color.WHITE);
+            calc.setFont(font2);
+            calc.addActionListener(this);
+            utility.add(calc);
 
  
 

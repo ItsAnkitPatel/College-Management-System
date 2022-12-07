@@ -51,11 +51,14 @@ public class EnterMarks implements ActionListener,Runnable {
         enterMarksFrame.getContentPane().setBackground(Color.WHITE);
         enterMarksFrame.setLayout(null);
         enterMarksFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        enterMarksFrame.setUndecorated(true);
+        enterMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 600, 30, 30)); //This will make the edges rounded
+        enterMarksFrame.setResizable(false);
         
         
         
         
-        //=========================Title of the form====================================
+/*========================================Title of the form===============================================================*/
 
         title = new JLabel("Enter Student Marks");
         title.setBounds(350,10,500,50);
@@ -63,25 +66,21 @@ public class EnterMarks implements ActionListener,Runnable {
         enterMarksFrame.add(title);
         
          
-        
-                
-        
-        
-        /*======================Rollno Label=======================================*/
+/*==========================================Rollno Label==================================================================*/
         rollNoLabel = new JLabel("Select Roll Number");
         rollNoLabel.setBounds(20,70,210,25);
         rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
         enterMarksFrame.add(rollNoLabel);
 
 
-        /*======================Adding Choice rollnumber bar====================================*/
+/*======================================Adding Choice rollnumber bar======================================================*/
         rollNoChoice = new Choice();
         rollNoChoice.setBounds(250,70,210,25);
         rollNoChoice.setFont(new Font("Times New Roman",Font.BOLD,20));
         enterMarksFrame.add(rollNoChoice);
 
 
-            //Creating Connection and then addButton all roll number values into rollNoChoice bar    
+            //Creating Connection and then adding all roll number values into rollNoChoice bar    
             try {
                 Conn connect = new Conn();
                 ResultSet rs = connect.s.executeQuery("select * from students");//The resultset will store the whole result of the query given quotes
@@ -94,7 +93,7 @@ public class EnterMarks implements ActionListener,Runnable {
                 e.printStackTrace();
             }
 
-        /*======================Semester Label=======================================*/
+/*========================================Semester Label===============================================================*/
         semesterLabel = new JLabel("Select semester");
         semesterLabel.setBounds(500,70,210,25);
         semesterLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -110,7 +109,7 @@ public class EnterMarks implements ActionListener,Runnable {
         
         
         
-       /*======================Subject Code Label & it's 5 textfield==================================*/
+/*======================================Subject Code Label & it's 5 textfield===========================================*/
         subjectCodeLabel = new JLabel("Subject Code");
         subjectCodeLabel.setBounds(20,150,150,25);
         subjectCodeLabel.setFont(new Font("Times New Roman",Font.BOLD,24));
@@ -148,7 +147,7 @@ public class EnterMarks implements ActionListener,Runnable {
 
 
                 
-        /*======================Subject & Mark Label==================================*/
+/*=========================================Subject & Mark Label========================================================*/
         subjectLable = new JLabel("Enter Subjects");
         subjectLable.setBounds(200,150,210,25);
         subjectLable.setFont(new Font("Times New Roman",Font.BOLD,24));
@@ -162,7 +161,7 @@ public class EnterMarks implements ActionListener,Runnable {
         
         
         
-        /*======================Subject 1 & it's Marks textfield=================*/
+/*========================================Subject 1 & it's Marks textfield===========================================*/
         subject1TF = new JTextField();
         subject1TF.setBounds(200,200,250,30);
         subject1TF.setFont(new Font("Times New Roman",Font.BOLD,21));
@@ -204,7 +203,7 @@ public class EnterMarks implements ActionListener,Runnable {
         
         
         
-        /*======================Subject 2 & it's Marks textfield=================*/
+/*=====================================Subject 2 & it's Marks textfield=================================================*/
         subject2TF = new JTextField();
         subject2TF.setBounds(200,250,250,30);
         subject2TF.setFont(new Font("Times New Roman",Font.BOLD,21));
@@ -242,7 +241,7 @@ public class EnterMarks implements ActionListener,Runnable {
                 }
             });
         
-        /*======================Subject 3 & it's Marks textfield=================*/
+/*========================================Subject 3 & it's Marks textfield================================================*/
         subject3TF = new JTextField();
         subject3TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject3TF.setBounds(200,300,250,30);
@@ -282,7 +281,7 @@ public class EnterMarks implements ActionListener,Runnable {
             });
         
         
-        /*======================Subject 4 & it's Marks textfield=================*/
+/*============================================Subject 4 & it's Marks textfield=========================================*/
         subject4TF = new JTextField();
         subject4TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject4TF.setBounds(200,350,250,30);
@@ -320,10 +319,7 @@ public class EnterMarks implements ActionListener,Runnable {
             });
         
         
-        
-        
-        
-        /*======================Subject 5 & it's Marks textfield=================*/
+/*==========================================Subject 5 & it's Marks textfield=============================================*/
         subject5TF = new JTextField();
         subject5TF.setFont(new Font("Times New Roman",Font.BOLD,21));
         subject5TF.setBounds(200,400,250,30);
@@ -362,10 +358,7 @@ public class EnterMarks implements ActionListener,Runnable {
             });
         
 
-        
-        
-        
-        /*=========================Image Icon====================*/
+/*=================================================Image Icon=============================================================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/marksImage.png"));
         Image i2 = i1.getImage().getScaledInstance(350, 350,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
@@ -377,7 +370,7 @@ public class EnterMarks implements ActionListener,Runnable {
         
         
         
-        /*=========================Submit Button Image Icon====================*/
+/*========================================Submit Button Image Icon ======================================================*/
         ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
@@ -396,9 +389,7 @@ public class EnterMarks implements ActionListener,Runnable {
         submitButton.addActionListener(this);
         
 
-           
-   
-        /*=========================Cancel Button Image Icon====================*/
+/*===========================================Cancel Button Image Icon=================================================*/
         ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
         Image cancel = cancelIcon.getImage().getScaledInstance(210, 85, Image.SCALE_SMOOTH);
         ImageIcon cancelFinalImageIcon = new ImageIcon(cancel);
@@ -416,16 +407,13 @@ public class EnterMarks implements ActionListener,Runnable {
         cancelButton.addActionListener(this);
         enterMarksFrame.add(cancelButton);
         
-        
-        
-        
-        enterMarksFrame.setUndecorated(true);
-        enterMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 600, 30, 30)); //This will make the edges rounded
-        enterMarksFrame.setResizable(false);
-        
+/*==============================================THE END====================================================================*/   
+     
         enterMarksFrame.setVisible(true);
     }
-
+    
+    
+/*If any field left and we hit the submit button this method will execute*/
     void popUpFailureImage(){
         enterMarksFrame.setVisible(false);
         t = new Thread(this);
@@ -448,6 +436,8 @@ public class EnterMarks implements ActionListener,Runnable {
         t.start();
         
     }
+/*This will only run when all the validations are checked and all the fields are filled correctly 
+    and sql query is successfully executed */    
     void popUpSucessImage(){
            
         t = new Thread(this);
@@ -571,6 +561,8 @@ public class EnterMarks implements ActionListener,Runnable {
                     System.out.println("Exception"+ex);
                     
                     }
+                /*After updating into database we are setting the textfields empty because the subjects may be the same
+                  but marks are not that's why we are setting the textfields empty after updating into database*/    
                 subject1marksTF.setText("");
                 subject2marksTF.setText("");
                 subject3marksTF.setText("");
@@ -578,7 +570,8 @@ public class EnterMarks implements ActionListener,Runnable {
                 subject5marksTF.setText("");
                 popUpSucessImage(); //This line will only executed when the data is successfully inserted into the table
                 
-            }else{
+                
+            }else{//In case of any field is left empty and tried to submit it , popUpFailureImage() will exeute
                 popUpFailureImage();
             }
             

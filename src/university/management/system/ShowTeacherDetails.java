@@ -48,7 +48,7 @@ public class ShowTeacherDetails implements ActionListener {
         teacherDetailsFrame.setLocation(300, 100);
         teacherDetailsFrame.getContentPane().setBackground(Color.WHITE);
         teacherDetailsFrame.setLayout(null);
-
+        teacherDetailsFrame.setResizable(false);
 
                 //============Adding Image and making edges round===========================================
                 ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Database.jpg"));
@@ -224,11 +224,12 @@ public class ShowTeacherDetails implements ActionListener {
         cancelButton.addActionListener(this);
 
         teacherDetailsFrame.add(cancelButton);
-
+        
+/*==============================================THE END===========================================================*/   
         
 
         teacherDetailsFrame.setVisible(true);
-        teacherDetailsFrame.setResizable(false);
+        
     }
      void tableCreation(){
          try {

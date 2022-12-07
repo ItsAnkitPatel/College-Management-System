@@ -28,22 +28,22 @@ public class ShowStudentDetails implements ActionListener{
 
         studentbgFrame = new JFrame();
 
-            /*============Adding Background image first*/
-            studentbgFrame.setSize(1920,1080);
-            studentbgFrame.setLocation(0,0);
-            studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                    /*============Adding Background image first*/
+                    studentbgFrame.setSize(1920,1080);
+                    studentbgFrame.setLocation(0,0);
+                    studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-            ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-            Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-            ImageIcon img3 = new ImageIcon(img2);
+                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
+                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
+                    ImageIcon img3 = new ImageIcon(img2);
 
-            JLabel addBackgroundImage = new JLabel(img3);
-            addBackgroundImage.setBounds(0,0,1920,1080);
-            studentbgFrame.add(addBackgroundImage);
-            studentbgFrame.setUndecorated(true);
-            studentbgFrame.setResizable(false);
-            studentbgFrame.setVisible(true);
+                    JLabel addBackgroundImage = new JLabel(img3);
+                    addBackgroundImage.setBounds(0,0,1920,1080);
+                    studentbgFrame.add(addBackgroundImage);
+                    studentbgFrame.setUndecorated(true);
+                    studentbgFrame.setResizable(false);
+                    studentbgFrame.setVisible(true);
 
 
 
@@ -56,9 +56,11 @@ public class ShowStudentDetails implements ActionListener{
         studentDetailsframe.setLocation(300, 100);
         studentDetailsframe.getContentPane().setBackground(Color.WHITE);
         studentDetailsframe.setLayout(null);
+        studentDetailsframe.setResizable(false);
+        studentDetailsframe.setUndecorated(true);
+        studentDetailsframe.setShape(new RoundRectangle2D.Double(0, 0, 1400,800, 30, 30)); //This will make the edges rounded
 
-
-                //============Adding Image and making edges round===========================================
+                /*=============================Adding Image =====================================*/
                 ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/Database.jpg"));
                 Image i2 = i1.getImage().getScaledInstance(550, 345,Image.SCALE_SMOOTH);
                 ImageIcon finalImageIcon = new ImageIcon(i2);
@@ -69,12 +71,10 @@ public class ShowStudentDetails implements ActionListener{
                 studentDetailsframe.add(addImage);
 
 
-                studentDetailsframe.setUndecorated(true);
-                studentDetailsframe.setShape(new RoundRectangle2D.Double(0, 0, 1400,800, 30, 30)); //This will make the edges rounded
+                
 
 
-
-        /*======================Heading Label=======================================*/
+/*=========================================Heading Label=========================================================*/
         JLabel headingLabel = new JLabel("Select Roll Number");
         headingLabel.setBounds(20,50,200,20);
         headingLabel.setFont(new Font("Times New Roman",Font.BOLD,20));
@@ -83,7 +83,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-        /*======================Adding Choice rollnumber bar====================================*/
+/*=====================================Adding Choice rollnumber bar===============================================*/
         rollNoChoice = new Choice();
         rollNoChoice.setFont(new Font("Times New Roman",Font.BOLD,18));
         rollNoChoice.setBounds(250,50,200,25);
@@ -106,7 +106,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-        /*====================Adding Clear button on the right side of choice bar================================*/   
+/*======================Adding Clear button on the right side of choice bar=============================================*/   
 
         clearButton =new JButton("Clear");
         clearButton.setBounds(470,50,100,25);
@@ -126,7 +126,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-        /*======================Adding Table ====================================*/
+/*===========================================Adding Table ==========================================================*/
 
         table = new JTable();
         table.setFillsViewportHeight(true);
@@ -137,7 +137,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-        /*======================Search Button and Image Icon====================================*/
+/*==========================================Search Button and Image Icon=============================================*/
         ImageIcon searchIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SearchButtonImage.png"));
         Image searchImg = searchIcon.getImage().getScaledInstance(180, 70, Image.SCALE_SMOOTH);
         ImageIcon searchFinalImageIcon = new ImageIcon(searchImg);
@@ -157,13 +157,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-
-
-
-
-
-
-         /*======================Update Button and Image Icon====================================*/
+/*=====================================Update Button and Image Icon==================================================*/
         ImageIcon updateIcon = new ImageIcon(ClassLoader.getSystemResource("icons/UpdateButtonImage.png"));
         Image updateImg = updateIcon.getImage().getScaledInstance(190, 70, Image.SCALE_SMOOTH);
         ImageIcon updateFinalImageIcon = new ImageIcon(updateImg);
@@ -183,11 +177,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-
-
-
-
-         /*======================Add Button and Image Icon====================================*/
+/*======================================Add Button and Image Icon=================================================*/
 
         ImageIcon addIcon = new ImageIcon(ClassLoader.getSystemResource("icons/AddButtonImage.png"));
         Image addImg = addIcon.getImage().getScaledInstance(180, 65, Image.SCALE_SMOOTH);
@@ -208,9 +198,7 @@ public class ShowStudentDetails implements ActionListener{
         studentDetailsframe.add(addButton);
 
 
-
-
-         /*======================Print Button and Image Icon ===================================*/
+/*==========================================Print Button and Image Icon =================================================*/
         ImageIcon printIcon = new ImageIcon(ClassLoader.getSystemResource("icons/PrintButtonImage.png"));
         Image printImg = printIcon.getImage().getScaledInstance(180, 65, Image.SCALE_SMOOTH);
         ImageIcon printFinalImageIcon = new ImageIcon(printImg);
@@ -230,7 +218,7 @@ public class ShowStudentDetails implements ActionListener{
 
 
 
-        /*======================Cancel Button and Image Icon====================*/
+/*=====================================Cancel Button and Image Icon========================================*/
 
 
         ImageIcon cancelIcon = new ImageIcon(ClassLoader.getSystemResource("icons/CancelButtonImage.png"));
@@ -251,9 +239,9 @@ public class ShowStudentDetails implements ActionListener{
         studentDetailsframe.add(cancelButton);
 
 
-
+/*==============================================THE END===========================================================*/   
         studentDetailsframe.setVisible(true);
-        studentDetailsframe.setResizable(false);
+   
 
     }
     

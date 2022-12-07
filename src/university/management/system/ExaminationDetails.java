@@ -58,9 +58,11 @@ public class ExaminationDetails implements ActionListener{
         marksDetailsFrame.getContentPane().setBackground(Color.WHITE);
         marksDetailsFrame.setLayout(null);
         marksDetailsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-        //=========================Title of the form====================================
+        marksDetailsFrame.setUndecorated(true);
+        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1400,650,30, 30)); //This will make the edges rounded
+        marksDetailsFrame.setResizable(false);
+
+/*===========================================Title of the form =========================================================*/
 
         title = new JLabel("Check Result");
         title.setBounds(550,10,500,50);
@@ -69,7 +71,7 @@ public class ExaminationDetails implements ActionListener{
         
         
         
-        /*=========================Roll no. lable=============================*/
+/*==========================================Roll no. lable==============================================================*/
         rollNoLabel = new JLabel("Enter your rollno");
         rollNoLabel.setBounds(50,100,250,30);
         rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -77,7 +79,7 @@ public class ExaminationDetails implements ActionListener{
         
         
         
-            /*========================Roll no. TextField==========================*/        
+/*=========================================Roll no. TextField===========================================================*/        
             rollTextField = new JTextField();
             rollTextField.setBounds(250,100,200,30);
             rollTextField.setFont(new Font("Times New Roman",Font.BOLD,25));
@@ -85,7 +87,8 @@ public class ExaminationDetails implements ActionListener{
 
 
    
-        /*======================Search Button and Image Icon====================================*/
+/*=======================================Search Button and Image Icon===================================================*/
+
         ImageIcon searchIcon = new ImageIcon(ClassLoader.getSystemResource("icons/searchIcon.png"));
         Image searchImg = searchIcon.getImage().getScaledInstance(38, 33,Image.SCALE_SMOOTH);
         ImageIcon searchFinalImageIcon = new ImageIcon(searchImg);
@@ -105,7 +108,7 @@ public class ExaminationDetails implements ActionListener{
             
         
         
-        //=========================TABLE====================================
+/*===============================================TABLE===============================================================*/
         table = new JTable();
         table.setFillsViewportHeight(true);
         table.setFont(new Font("Times New Roman",Font.BOLD,15));
@@ -134,7 +137,7 @@ public class ExaminationDetails implements ActionListener{
           
         });
         
-        //=================================ExitImage + Text + Button=====================================================
+/*=================================ExitImage + Text + Button=====================================================*/
         
                 ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage2.png"));
                 Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
@@ -164,11 +167,8 @@ public class ExaminationDetails implements ActionListener{
                 marksDetailsFrame.add(exitButton);
 
         
-        
-        marksDetailsFrame.setUndecorated(true);
-        marksDetailsFrame.setShape(new RoundRectangle2D.Double(0, 0, 1400,650,30, 30)); //This will make the edges rounded
-        marksDetailsFrame.setResizable(false);
-        
+/*==============================================THE END===========================================================*/
+
         marksDetailsFrame.setVisible(true);
 
 
@@ -183,7 +183,7 @@ public class ExaminationDetails implements ActionListener{
 
         }
         
-        else if(ae.getSource() == exitButton){
+        else if(ae.getSource() == exitButton){// If Exit button hit we will enable the dashboard frame
          marksDetailsFrame.dispose();
          marksDetailsBgFrame.dispose();
          Dashboard.dashboardFrame.setVisible(true);

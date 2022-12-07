@@ -58,9 +58,11 @@ public class ShowMarks implements ActionListener{
         showMarksFrame.getContentPane().setBackground(Color.WHITE);
         showMarksFrame.setLayout(null);
         showMarksFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        showMarksFrame.setUndecorated(true);
+        showMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 750,850,30, 30)); //This will make the edges rounded
+        showMarksFrame.setResizable(false);
         
-        
-        //=========================Title of the form ====================================
+/*============================================Title of the form ========================================================*/
 
         title = new JLabel("Dummy Technical University");
         title.setBounds(150,10,500,50);
@@ -76,7 +78,7 @@ public class ShowMarks implements ActionListener{
         
         
         
-        /*Roll no. label and show roll number label*/
+ /*==========================================Rollno Label==================================================================*/
             rollNoLabel = new JLabel("Roll No. :");
             rollNoLabel.setBounds(10,120,100,25);
             rollNoLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
@@ -90,7 +92,7 @@ public class ShowMarks implements ActionListener{
             
             
             
-        /*Semester Label and Show semester label*/
+/*==================================Semester Label and Show semester label=================================================*/
             semeseterLabel = new JLabel("Sem:");
             semeseterLabel.setBounds(400,120,60,25);
             semeseterLabel.setFont(new Font("Times New Roman",Font.BOLD,23));
@@ -103,7 +105,8 @@ public class ShowMarks implements ActionListener{
 
         
         
-        /*======================Subject Code Label & it's 5 Label==================================*/
+/*==============================Subject Code Label & it's 5 subject labela======================================================*/
+        
         subjectCodeLabel = new JLabel("Subject Code");
         subjectCodeLabel.setBounds(20,180,150,25);
         subjectCodeLabel.setFont(new Font("Times New Roman",Font.BOLD,24));
@@ -138,10 +141,8 @@ public class ShowMarks implements ActionListener{
                 sub5Code.setBounds(20,430,100,30);
                 sub5Code.setFont(new Font("Times New Roman",Font.BOLD,21));
                 showMarksFrame.add(sub5Code);
-
-
                 
-        /*======================Subject & Mark Label==================================*/
+/*================================Subject & Mark Labels====================================================*/
         subjectLable = new JLabel("Semester Subjects");
         subjectLable.setBounds(200,180,210,25);
         subjectLable.setFont(new Font("Times New Roman",Font.BOLD,24));
@@ -224,7 +225,7 @@ public class ShowMarks implements ActionListener{
         showMarksFrame.add(subject5marksLB);
         
         
-        
+  /*==============================Fetching all data from database and updating all the fields========================*/
         try {
             Conn c= new Conn();
             ResultSet rs1 = c.s.executeQuery("select * from subject where rollno='"+rollNo+"'");
@@ -259,11 +260,7 @@ public class ShowMarks implements ActionListener{
             e.printStackTrace();
         }
         
-        
-        
-        
-        
-         /*=========================Image Icon====================*/
+/*=======================================Image Icon==============================================================*/
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/ShowMarksImage.jpg"));
         Image i2 = i1.getImage().getScaledInstance(700, 300,Image.SCALE_SMOOTH);
         ImageIcon finalImageIcon = new ImageIcon(i2);
@@ -275,14 +272,11 @@ public class ShowMarks implements ActionListener{
         
         
         
-        
-        
-        //=================================ExitImage + Text + Button=====================================================
+/*=================================ExitImage + Text + Button=====================================================*/
         
                 ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage.png"));
                 Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
                 ImageIcon exit2 = new ImageIcon(exit);
-
 
 
                 //=========Exit Text======================
@@ -300,15 +294,12 @@ public class ShowMarks implements ActionListener{
 
                 //SETTING BORDER TRANSPARENT
                 exitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-
+                
+                // ADDING CURSOR SYMBOL 
+                exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
                 exitButton.addActionListener(this);
                 showMarksFrame.add(exitButton);
-
-        
-                
-        showMarksFrame.setUndecorated(true);
-        showMarksFrame.setShape(new RoundRectangle2D.Double(0, 0, 750,850,30, 30)); //This will make the edges rounded
-        showMarksFrame.setResizable(false);
+/*==============================================THE END===========================================================*/
         
         showMarksFrame.setVisible(true);
         
