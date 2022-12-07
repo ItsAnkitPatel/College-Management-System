@@ -1,5 +1,5 @@
 
-package university.management.system;
+package college.management.system;
 
 
 import com.toedter.calendar.JDateChooser;

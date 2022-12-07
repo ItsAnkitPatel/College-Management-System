@@ -1,4 +1,4 @@
-package university.management.system;
+package college.management.system;
 
 import java.awt.Choice;
 import java.awt.Color;

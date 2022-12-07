@@ -1,4 +1,4 @@
-package university.management.system;
+package college.management.system;
 
 import javax.swing.*;
 import java.awt.*;
