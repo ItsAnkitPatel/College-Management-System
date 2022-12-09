@@ -247,11 +247,12 @@ public class Dashboard implements ActionListener{
         }
         
         else if(msg.equals("Fees Structure")){
-            
+            dashboardFrame.setVisible(false);
+            new FeeStructure();
         }
         
         else if(msg.equals("Student Fee Form")){
-            
+            dashboardFrame.setVisible(false);
             
         }
         

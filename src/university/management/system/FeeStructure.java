@@ -1,22 +1,27 @@
 package college.management.system;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
-public class FeeStructure {
+public class FeeStructure implements ActionListener{
     JFrame feeStructureFrame ,feeStructurebgFrame ;
     JLabel title;
     JTable table;
+    JButton exitButton;
     public FeeStructure() {
     
     
@@ -41,19 +46,19 @@ public class FeeStructure {
         
            
         feeStructureFrame = new JFrame();
-        feeStructureFrame.setSize(1100,700);
+        feeStructureFrame.setSize(1100,600);
         feeStructureFrame.setLocation(450,100);
         feeStructureFrame.getContentPane().setBackground(Color.WHITE);
         feeStructureFrame.setLayout(null);
         feeStructureFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         feeStructureFrame.setUndecorated(true);
-        feeStructureFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 700, 30, 30)); //This will make the edges rounded
+        feeStructureFrame.setShape(new RoundRectangle2D.Double(0, 0, 1100, 600, 30, 30)); //This will make the edges rounded
         feeStructureFrame.setResizable(false);
             
 /*==============================================Title of the form=======================================================*/
 
         title = new JLabel("Fee Structure");
-        title.setBounds(350,10,500,50);
+        title.setBounds(430,10,500,50);
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
         feeStructureFrame.add(title);
                  
@@ -64,7 +69,7 @@ public class FeeStructure {
         table.setFont(new Font("Times New Roman",Font.BOLD,15));
         
             JScrollPane jsp = new JScrollPane(table); //This will add a scrollbar into our table
-            jsp.setBounds(5,150,1095,350);
+            jsp.setBounds(5,100,1095,350);
             jsp.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
             feeStructureFrame.add(jsp);
         
@@ -94,6 +99,35 @@ public class FeeStructure {
 //                feeStructureFrame.add(addImage);
 
 
+        /*=================================ExitImage + Text + Button=====================================================*/
+        
+                ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage2.png"));
+                Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
+                ImageIcon exit2 = new ImageIcon(exit);
+
+
+
+                //=========Exit Text======================
+                JLabel exitText = new JLabel("EXIT");
+                exitText.setBounds(90,540,100,30);
+                feeStructureFrame.add(exitText);
+
+
+                //=========Exit Button==================== 
+
+                exitButton = new JButton(exit2);
+                exitButton.setBounds(50,480,80,70);
+                exitButton.setBackground(new Color(0,0,0,0));
+                exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
+
+                //SETTING BORDER TRANSPARENT
+                exitButton.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+                
+                // ADDING CURSOR SYMBOL
+                exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+                exitButton.addActionListener(this);
+                feeStructureFrame.add(exitButton);
+
         
         
         
@@ -102,8 +136,16 @@ public class FeeStructure {
 /*===============================================THE END===========================================================*/                 
         feeStructureFrame.setVisible(true);
     }
-    public static void main(String[] args) {
-        new FeeStructure();
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+    if(e.getSource() == exitButton){
+        feeStructureFrame.dispose();
+        feeStructurebgFrame.dispose();
+        Dashboard.dashboardFrame.setVisible(true);
+    }
+    
     }
     
 }
