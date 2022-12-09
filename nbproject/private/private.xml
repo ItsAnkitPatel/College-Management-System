@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/university/management/system/UpdateStudent.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>811</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/Login.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/Splash.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/Dashboard.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/AddTeacher.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/AddStudent.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/ShowTeacherDetails.java</file>
-            <file>file:/home/ankit/NetBeansProjects/University%20Management%20System/src/university/management/system/ShowStudentDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/Dashboard.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ExaminationDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/About.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/UpdateTeacher.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/AddTeacher.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowMarks.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowStudentDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/EnterMarks.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/Splash.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/AddStudent.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/FeeStructure.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/UpdateStudent.java</file>
+            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowTeacherDetails.java</file>
         </group>
     </open-files>
 </project-private>
