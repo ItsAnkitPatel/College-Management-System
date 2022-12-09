@@ -184,10 +184,21 @@ public class Dashboard implements ActionListener{
             calc.addActionListener(this);
             utility.add(calc);
 
+        
+        
+ /*========================================== About ==========================================================*/               
  
+        JMenu about = new JMenu("About");
+        about.setFont(font1);
+        about.setForeground(Color.BLUE);
+        about.addActionListener(this);
+        menuBar.add(about);
+        
+    dashboardFrame.setJMenuBar(menuBar); //This line will add all the menu in a Menu bar
+        
+        
+/*===============================================THE END===========================================================*/                 
 
-        dashboardFrame.setJMenuBar(menuBar);
-  
         dashboardFrame.setVisible(true);
     
     }
@@ -274,6 +285,8 @@ public class Dashboard implements ActionListener{
             }
             
                 
+        }else if(msg.equals("About")){
+            
         }
         
             
