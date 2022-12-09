@@ -64,7 +64,7 @@ public class ShowMarks implements ActionListener{
         
 /*============================================Title of the form ========================================================*/
 
-        title = new JLabel("Dummy Technical University");
+        title = new JLabel("Dummy Technical College");
         title.setBounds(150,10,500,50);
         title.setFont(new Font("Times New Roman",Font.BOLD,35));
         showMarksFrame.add(title);
