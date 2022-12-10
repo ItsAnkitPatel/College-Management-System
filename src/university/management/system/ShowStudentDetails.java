@@ -28,7 +28,7 @@ public class ShowStudentDetails implements ActionListener{
 
         studentbgFrame = new JFrame();
 
-                    /*============Adding Background image first*/
+                    /*=======================Adding Background image first===========================*/
                     studentbgFrame.setSize(1920,1080);
                     studentbgFrame.setLocation(0,0);
                     studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

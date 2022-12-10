@@ -33,7 +33,7 @@ public class ShowMarks implements ActionListener{
     public ShowMarks(String rollNo) {
             this.rollNo =rollNo;    
         
-             /*============Adding Background image first=================*/
+             /*========================Adding Background image first===============================*/
                     showMarksBgFrame = new JFrame();
                     showMarksBgFrame.setSize(1920,1080);
                     showMarksBgFrame.setLocation(0,0);

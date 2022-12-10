@@ -56,7 +56,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
             
 
-            /*============Adding Background image first*/
+            /*============================Adding Background image first==========================================*/
              teacherbgFrame = new JFrame();
              teacherbgFrame.setSize(1920,1080);
              teacherbgFrame.setLocation(0,0);
@@ -80,7 +80,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         teacherFrame = new JFrame() ;
         teacherFrame.getContentPane().setBackground(Color.WHITE);
-       
         teacherFrame.setLayout(null);
         teacherFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         teacherFrame.setUndecorated(true);
@@ -158,9 +157,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         teacherFrame.add(dcdob);
         
         
-        
-        
-        
 /*=====================================Address Label and it's Text field============================================*/
         addressLabel = new JLabel("Address");
         addressLabel.setBounds(100,250,100,50);
@@ -221,8 +217,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
-        
-        
 /*====================================AdhaarNo. Label and it's Text field========================================*/
         adhaarLabel = new JLabel("AdhaarNo.");
         adhaarLabel.setBounds(550,380,130,50);
@@ -277,9 +271,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
             });
         
         
-        
-        
-        
+            
 /*================================Class 12th Label and it's Text field=====================================================*/
         class12Label = new JLabel("Class XII(%)");
         class12Label.setBounds(100,500,150,50);
@@ -305,10 +297,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                     }
                 }
             });
-        
-        
-        
-        
+            
         
         
 /*====================================Qualification Label and it'scombo box===============================================*/
@@ -582,7 +571,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the update submit button , 
+  This method will executed when we hit the submit button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
    

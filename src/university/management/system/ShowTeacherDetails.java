@@ -22,23 +22,23 @@ public class ShowTeacherDetails implements ActionListener {
     public ShowTeacherDetails() {
         isShowTeachDetailsON = true;
 
-            /*============Adding Background image first*/
-            teacherbgFrame = new JFrame();
-            teacherbgFrame.setSize(1920,1080);
-            teacherbgFrame.setLocation(0,0);
-            teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            /*=========================Adding Background image first======================================*/
+                    teacherbgFrame = new JFrame();
+                    teacherbgFrame.setSize(1920,1080);
+                    teacherbgFrame.setLocation(0,0);
+                    teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
-            ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-            Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-            ImageIcon img3 = new ImageIcon(img2);
+                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
+                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
+                    ImageIcon img3 = new ImageIcon(img2);
 
-            JLabel addBackgroundImage = new JLabel(img3);
-            addBackgroundImage.setBounds(0,0,1920,1080);
-            teacherbgFrame.add(addBackgroundImage);
-            teacherbgFrame.setUndecorated(true);
-            teacherbgFrame.setResizable(false);
-            teacherbgFrame.setVisible(true);
+                    JLabel addBackgroundImage = new JLabel(img3);
+                    addBackgroundImage.setBounds(0,0,1920,1080);
+                    teacherbgFrame.add(addBackgroundImage);
+                    teacherbgFrame.setUndecorated(true);
+                    teacherbgFrame.setResizable(false);
+                    teacherbgFrame.setVisible(true);
 
 
 

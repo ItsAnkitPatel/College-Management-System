@@ -4,11 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 
 public class Dashboard implements ActionListener{
     static JFrame dashboardFrame ;
-
+    
     Dashboard() {
         
         dashboardFrame = new JFrame();
@@ -34,6 +36,7 @@ public class Dashboard implements ActionListener{
         
         
         JMenuBar menuBar = new JMenuBar();
+        menuBar.setCursor(new Cursor(Cursor.HAND_CURSOR));
         menuBar.setPreferredSize(new Dimension(100,50));
 /*============================== New Information ==========================================================*/
         JMenu newInformation = new JMenu("New Information");
@@ -152,14 +155,7 @@ public class Dashboard implements ActionListener{
             feeStructure.addActionListener(this);
             fee.add(feeStructure);        
 
-            JMenuItem feeForm = new JMenuItem("Student Fee Form");
-            feeForm.setPreferredSize(new Dimension(150,50));
-            feeForm.setBackground(Color.WHITE);
-            feeForm.setFont(font2);
-            feeForm.addActionListener(this);
-            fee.add(feeForm);
-
-
+ 
 
 /*========================================== Utility ==========================================================*/               
         JMenu utility = new JMenu("Utility");
@@ -191,9 +187,15 @@ public class Dashboard implements ActionListener{
         JMenu about = new JMenu("About");
         about.setFont(font1);
         about.setForeground(Color.BLUE);
-        about.addActionListener(this);
         menuBar.add(about);
-        
+        about.addMouseListener(new MouseAdapter(){
+            public void mousePressed(MouseEvent me){
+                dashboardFrame.setVisible(false);
+                new About();
+            }
+          
+        });
+    
     dashboardFrame.setJMenuBar(menuBar); //This line will add all the menu in a Menu bar
         
         
@@ -262,11 +264,6 @@ public class Dashboard implements ActionListener{
             new FeeStructure();
         }
         
-        else if(msg.equals("Student Fee Form")){
-            dashboardFrame.setVisible(false);
-            
-        }
-        
         else if(msg.equals("Calculator")){
             try {
                 Runtime.getRuntime().exec("gnome-calculator");
@@ -285,10 +282,7 @@ public class Dashboard implements ActionListener{
             }
             
                 
-        }else if(msg.equals("About")){
-            
         }
-        
             
     }
     

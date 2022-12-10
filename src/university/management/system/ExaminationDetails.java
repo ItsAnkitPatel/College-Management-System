@@ -32,7 +32,7 @@ public class ExaminationDetails implements ActionListener{
     JTable table;
     
     public ExaminationDetails()  {
-        /*============Adding Background image first=================*/
+            /*====================Adding Background image first==============================*/
                     marksDetailsBgFrame = new JFrame();
                     marksDetailsBgFrame.setSize(1920,1080);
                     marksDetailsBgFrame.setLocation(0,0);
@@ -154,7 +154,7 @@ public class ExaminationDetails implements ActionListener{
                 //=========Exit Button==================== 
 
                 exitButton = new JButton(exit2);
-                exitButton.setBounds(50,540,100,70);
+                exitButton.setBounds(50,540,80,70);
                 exitButton.setBackground(new Color(0,0,0,0));
                 exitButton.setCursor(new Cursor(Cursor.HAND_CURSOR)) ;
 
@@ -173,6 +173,7 @@ public class ExaminationDetails implements ActionListener{
 
 
     }
+  
 
     public void actionPerformed(ActionEvent ae){
         

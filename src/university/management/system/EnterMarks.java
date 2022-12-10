@@ -25,7 +25,7 @@ public class EnterMarks implements ActionListener,Runnable {
     static int ThreadNumber =0;
     public EnterMarks() {
         
-        /*============Adding Background image first=================*/
+            /*=========================Adding Background image first=========================*/
                     enterMarksbgFrame = new JFrame();
                     enterMarksbgFrame.setSize(1920,1080);
                     enterMarksbgFrame.setLocation(0,0);

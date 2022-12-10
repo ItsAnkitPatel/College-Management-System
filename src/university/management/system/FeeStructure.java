@@ -25,7 +25,7 @@ public class FeeStructure implements ActionListener{
     public FeeStructure() {
     
     
-        /*============Adding Background image first*/
+        /*===============Adding Background image first===============================================*/
                     feeStructurebgFrame = new JFrame();
                     feeStructurebgFrame.setSize(1920,1080);
                     feeStructurebgFrame.setLocation(0,0);
@@ -82,24 +82,9 @@ public class FeeStructure implements ActionListener{
             } catch (Exception e) {
                
             }
-            
-   
-        
-        
-        
-        
-//        
-//                ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/FeeIcon.jpg"));
-//                Image i2 = i1.getImage().getScaledInstance(450, 300,Image.SCALE_SMOOTH);
-//                ImageIcon finalImageIcon = new ImageIcon(i2);
-//
-//
-//                JLabel addImage = new JLabel(finalImageIcon);
-//                addImage.setBounds(400,500,450,300);
-//                feeStructureFrame.add(addImage);
 
-
-        /*=================================ExitImage + Text + Button=====================================================*/
+        
+/*=================================ExitImage + Text + Button=====================================================*/
         
                 ImageIcon exitImage= new ImageIcon(ClassLoader.getSystemResource("icons/ExitImage2.png"));
                 Image exit = exitImage.getImage().getScaledInstance(100,100, Image.SCALE_SMOOTH);
@@ -129,10 +114,7 @@ public class FeeStructure implements ActionListener{
                 feeStructureFrame.add(exitButton);
 
         
-        
-        
-        
-        
+
 /*===============================================THE END===========================================================*/                 
         feeStructureFrame.setVisible(true);
     }

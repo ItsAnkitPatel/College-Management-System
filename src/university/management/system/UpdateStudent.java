@@ -56,7 +56,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     
     public UpdateStudent() {
       
-                    /*============Adding Background image first================================*/
+            /*=============================Adding Background image first================================*/
                     updateStudentbgFrame = new JFrame();
                     updateStudentbgFrame.setSize(1920,1080);
                     updateStudentbgFrame.setLocation(0,0);
@@ -617,7 +617,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the update submit button , 
+  This method will executed when we hit the update button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
     

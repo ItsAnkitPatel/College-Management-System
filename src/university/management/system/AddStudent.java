@@ -63,7 +63,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
       
-        /*============Adding Background image first*/
+            /*=========================Adding Background image first=============================================*/
                     studentbgFrame = new JFrame();
                     studentbgFrame.setSize(1920,1080);
                     studentbgFrame.setLocation(0,0);
@@ -341,9 +341,6 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        
-        
-        
 /*=====================================Branch Label and it's combo box =============================================*/
         branchLabel = new JLabel("Branch");
         branchLabel.setBounds(100,650,150,50);
@@ -374,13 +371,10 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
-        
-        
 /*==========================================Submit Button Image Icon===========================================*/
         ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
-        
         
         
         submitButton=  new JButton(submitFinalImageIcon);
@@ -396,7 +390,6 @@ public class AddStudent implements ActionListener,Runnable{
         submitButton.addActionListener(this);
         
 
-       
         
 /*==================================Cancel Button Image Icon===============================================*/
 
@@ -602,7 +595,7 @@ public class AddStudent implements ActionListener,Runnable{
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the update submit button , 
+  This method will executed when we hit the submit button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
     
