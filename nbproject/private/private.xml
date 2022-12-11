@@ -12,19 +12,18 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/Dashboard.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ExaminationDetails.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/About.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/UpdateTeacher.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/AddTeacher.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowMarks.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowStudentDetails.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/EnterMarks.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/Splash.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/AddStudent.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/FeeStructure.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/UpdateStudent.java</file>
-            <file>file:/home/ankit/NetBeansProjects/College%20Management%20System/src/college/management/system/ShowTeacherDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/ShowTeacherDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/UpdateTeacher.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/About.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/AddTeacher.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/ShowMarks.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/FeeStructure.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/AddStudent.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/ShowStudentDetails.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/EnterMarks.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/UpdateStudent.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/Dashboard.java</file>
+            <file>file:/home/ankit/NetBeansProjects/CMS%20(Without%20bg)/src/college/management/system/ExaminationDetails.java</file>
         </group>
     </open-files>
 </project-private>
