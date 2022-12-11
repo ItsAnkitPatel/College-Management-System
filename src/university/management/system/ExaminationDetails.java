@@ -25,32 +25,14 @@ import java.sql.ResultSet;
 public class ExaminationDetails implements ActionListener{
     
 
-    JFrame marksDetailsBgFrame,marksDetailsFrame;
+    JFrame marksDetailsFrame;
     JButton searchButton,exitButton;
     JLabel title,rollNoLabel;
     JTextField rollTextField;
     JTable table;
     
     public ExaminationDetails()  {
-            /*====================Adding Background image first==============================*/
-                    marksDetailsBgFrame = new JFrame();
-                    marksDetailsBgFrame.setSize(1920,1080);
-                    marksDetailsBgFrame.setLocation(0,0);
-                    marksDetailsBgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    marksDetailsBgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    marksDetailsBgFrame.add(addBackgroundImage);
-                    marksDetailsBgFrame.setUndecorated(true);
-                    marksDetailsBgFrame.setResizable(false);
-                    marksDetailsBgFrame.setVisible(true);
-        
-                    
+       
                     
         marksDetailsFrame = new JFrame();
         marksDetailsFrame.setSize(1400,800);
@@ -179,14 +161,12 @@ public class ExaminationDetails implements ActionListener{
         
         if(ae.getSource() == searchButton){
             marksDetailsFrame.dispose();
-            marksDetailsBgFrame.dispose();
             new ShowMarks(rollTextField.getText());
 
         }
         
         else if(ae.getSource() == exitButton){// If Exit button hit we will enable the dashboard frame
          marksDetailsFrame.dispose();
-         marksDetailsBgFrame.dispose();
          Dashboard.dashboardFrame.setVisible(true);
      }   
         

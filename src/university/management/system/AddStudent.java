@@ -1,10 +1,13 @@
 package college.management.system;
 
-import javax.swing.*;
-import java.awt.*;
+
 import java.util.Random;
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -12,6 +15,15 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 
 
@@ -23,7 +35,7 @@ public class AddStudent implements ActionListener,Runnable{
            showMessage9,showMessage10,showMessage11;
   
     Thread t;
-   JFrame studentFrame ,studentbgFrame ;
+   JFrame studentFrame  ;
     
     
     JLabel nameLabel,fatherNameLabel,rollNumberLabel,
@@ -63,25 +75,7 @@ public class AddStudent implements ActionListener,Runnable{
         
         
       
-            /*=========================Adding Background image first=============================================*/
-                    studentbgFrame = new JFrame();
-                    studentbgFrame.setSize(1920,1080);
-                    studentbgFrame.setLocation(0,0);
-                    studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    studentbgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    studentbgFrame.add(addBackgroundImage);
-                    studentbgFrame.setUndecorated(true);
-                    studentbgFrame.setResizable(false);
-                    studentbgFrame.setVisible(true);
-
-        
+       
            
         studentFrame = new JFrame();
         studentFrame.setSize(1100,900);
@@ -341,6 +335,9 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
+        
+        
+        
 /*=====================================Branch Label and it's combo box =============================================*/
         branchLabel = new JLabel("Branch");
         branchLabel.setBounds(100,650,150,50);
@@ -371,10 +368,13 @@ public class AddStudent implements ActionListener,Runnable{
         
         
         
+        
+        
 /*==========================================Submit Button Image Icon===========================================*/
         ImageIcon submitIcon = new ImageIcon(ClassLoader.getSystemResource("icons/SubmitButtonImage.png"));
         Image submit = submitIcon.getImage().getScaledInstance(200, 80, Image.SCALE_SMOOTH);
         ImageIcon submitFinalImageIcon = new ImageIcon(submit);
+        
         
         
         submitButton=  new JButton(submitFinalImageIcon);
@@ -390,6 +390,7 @@ public class AddStudent implements ActionListener,Runnable{
         submitButton.addActionListener(this);
         
 
+       
         
 /*==================================Cancel Button Image Icon===============================================*/
 
@@ -595,7 +596,7 @@ public class AddStudent implements ActionListener,Runnable{
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the submit button , 
+  This method will executed when we hit the update submit button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
     
@@ -735,11 +736,9 @@ public class AddStudent implements ActionListener,Runnable{
             
 
             studentFrame.dispose();
-            studentbgFrame.dispose();
             if( ShowStudentDetails.isShowStuDetailON == true){
                 
                 ShowStudentDetails.isShowStuDetailON = false;
-                ShowStudentDetails.studentbgFrame.setVisible(true);
                 ShowStudentDetails.studentDetailsframe.setVisible(true);
                 
             }else{
@@ -756,7 +755,6 @@ public class AddStudent implements ActionListener,Runnable{
         try {
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
-                studentbgFrame.dispose();
                 new AddStudent();
 
         }catch (Exception e) {

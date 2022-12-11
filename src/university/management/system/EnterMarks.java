@@ -10,7 +10,7 @@ import java.awt.event.KeyEvent;
 import java.awt.geom.RoundRectangle2D;
 import java.sql.ResultSet;
 public class EnterMarks implements ActionListener,Runnable {
-    JFrame enterMarksFrame, enterMarksbgFrame;
+    JFrame enterMarksFrame;
     JLabel title,rollNoLabel,semesterLabel;
     Choice rollNoChoice;
     JComboBox semesterComboBox;
@@ -25,26 +25,7 @@ public class EnterMarks implements ActionListener,Runnable {
     static int ThreadNumber =0;
     public EnterMarks() {
         
-            /*=========================Adding Background image first=========================*/
-                    enterMarksbgFrame = new JFrame();
-                    enterMarksbgFrame.setSize(1920,1080);
-                    enterMarksbgFrame.setLocation(0,0);
-                    enterMarksbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    enterMarksbgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    enterMarksbgFrame.add(addBackgroundImage);
-                    enterMarksbgFrame.setUndecorated(true);
-                    enterMarksbgFrame.setResizable(false);
-                    enterMarksbgFrame.setVisible(true);
-
-    
-                    
+        
         enterMarksFrame = new JFrame();
         enterMarksFrame.setSize(1100,600);
         enterMarksFrame.setLocation(400,200);
@@ -500,7 +481,6 @@ public class EnterMarks implements ActionListener,Runnable {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == cancelButton) {
             enterMarksFrame.dispose();
-            enterMarksbgFrame.dispose();
             Dashboard.dashboardFrame.setVisible(true);
             
         }else if(e.getSource()  == submitButton){

@@ -18,33 +18,14 @@ import javax.swing.JTable;
 import net.proteanit.sql.DbUtils;
 
 public class FeeStructure implements ActionListener{
-    JFrame feeStructureFrame ,feeStructurebgFrame ;
+    JFrame feeStructureFrame  ;
     JLabel title;
     JTable table;
     JButton exitButton;
     public FeeStructure() {
     
     
-        /*===============Adding Background image first===============================================*/
-                    feeStructurebgFrame = new JFrame();
-                    feeStructurebgFrame.setSize(1920,1080);
-                    feeStructurebgFrame.setLocation(0,0);
-                    feeStructurebgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    feeStructurebgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    feeStructurebgFrame.add(addBackgroundImage);
-                    feeStructurebgFrame.setUndecorated(true);
-                    feeStructurebgFrame.setResizable(false);
-                    feeStructurebgFrame.setVisible(true);
-
-        
-           
+       
         feeStructureFrame = new JFrame();
         feeStructureFrame.setSize(1100,600);
         feeStructureFrame.setLocation(450,100);
@@ -124,7 +105,6 @@ public class FeeStructure implements ActionListener{
     public void actionPerformed(ActionEvent e) {
     if(e.getSource() == exitButton){
         feeStructureFrame.dispose();
-        feeStructurebgFrame.dispose();
         Dashboard.dashboardFrame.setVisible(true);
     }
     

@@ -18,31 +18,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 public class About implements ActionListener{
-    JFrame aboutbgFrame,aboutFrame;
+    JFrame aboutFrame;
     JLabel title;
     JButton twitterButton,linkedinButton,githubButton,exitButton;
     public About() {
         
     
-            /*===================Adding Background image first=================================*/
-                    aboutbgFrame = new JFrame();
-                    aboutbgFrame.setSize(1920,1080);
-                    aboutbgFrame.setLocation(0,0);
-                    aboutbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    aboutbgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    aboutbgFrame.add(addBackgroundImage);
-                    aboutbgFrame.setUndecorated(true);
-                    aboutbgFrame.setResizable(false);
-                    aboutbgFrame.setVisible(true);
-
-
+            
                     
         aboutFrame = new JFrame();
         aboutFrame.setSize(1100,1000);
@@ -93,7 +75,7 @@ public class About implements ActionListener{
 
 /*=================================================Socila links====================================================*/
     /*We will add social icons in button and when the user click those 
-      buttons we will redirect the user to our social media accounts*/
+      buttons it will get redirected to our social media accouts*/
     
         /*First we will add github link*/
             
@@ -193,7 +175,6 @@ public class About implements ActionListener{
                        }
         }else if(e.getSource() == exitButton){
             aboutFrame.dispose();
-            aboutbgFrame.dispose();
             Dashboard.dashboardFrame.setVisible(true);
         }
     }

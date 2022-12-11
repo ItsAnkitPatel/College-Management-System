@@ -14,7 +14,7 @@ import net.proteanit.sql.DbUtils;
 public class ShowTeacherDetails implements ActionListener {
  static boolean isShowTeachDetailsON = false;
 
- static JFrame teacherDetailsFrame ,teacherbgFrame;
+ static JFrame teacherDetailsFrame ;
     Choice empNoChoice;
     JTable table ;
     JButton clearButton,searchButton,addButton,updateButton,printButton,cancelButton;
@@ -22,25 +22,7 @@ public class ShowTeacherDetails implements ActionListener {
     public ShowTeacherDetails() {
         isShowTeachDetailsON = true;
 
-            /*=========================Adding Background image first======================================*/
-                    teacherbgFrame = new JFrame();
-                    teacherbgFrame.setSize(1920,1080);
-                    teacherbgFrame.setLocation(0,0);
-                    teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    teacherbgFrame.add(addBackgroundImage);
-                    teacherbgFrame.setUndecorated(true);
-                    teacherbgFrame.setResizable(false);
-                    teacherbgFrame.setVisible(true);
-
-
+           
 
         teacherDetailsFrame = new JFrame();
         teacherDetailsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -258,7 +240,6 @@ public class ShowTeacherDetails implements ActionListener {
         if(e.getSource() == clearButton){
             
               teacherDetailsFrame.dispose();
-              teacherbgFrame.dispose();
               
            new ShowTeacherDetails(); //The only reason we are re launching a new anonymous object because the table is not properly rendering
                                      // which is why we are doing this
@@ -283,7 +264,6 @@ public class ShowTeacherDetails implements ActionListener {
         
         else if(e.getSource() == updateButton){
             teacherDetailsFrame.dispose();
-            teacherbgFrame.dispose();
             new UpdateTeacher();
             
         }
@@ -292,8 +272,6 @@ public class ShowTeacherDetails implements ActionListener {
         else if(e.getSource() == addButton){
             
             teacherDetailsFrame.setVisible(false);
-            teacherbgFrame.setVisible(false);
-            
             new AddTeacher();
         }
         
@@ -311,7 +289,6 @@ public class ShowTeacherDetails implements ActionListener {
         else if(e.getSource() == cancelButton){
             
             teacherDetailsFrame.dispose();
-            teacherbgFrame.dispose();
             
             Dashboard.dashboardFrame.setVisible(true);
            

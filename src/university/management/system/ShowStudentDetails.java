@@ -17,7 +17,7 @@ import net.proteanit.sql.DbUtils;
 public class ShowStudentDetails implements ActionListener{
     static boolean isShowStuDetailON = false;
 
-    static JFrame studentDetailsframe , studentbgFrame;
+    static JFrame studentDetailsframe ;
     Choice rollNoChoice;
     JTable table ;
     JButton clearButton, searchButton,addButton,updateButton,printButton,cancelButton;
@@ -25,30 +25,6 @@ public class ShowStudentDetails implements ActionListener{
         
         
         isShowStuDetailON = true;
-
-        studentbgFrame = new JFrame();
-
-                    /*=======================Adding Background image first===========================*/
-                    studentbgFrame.setSize(1920,1080);
-                    studentbgFrame.setLocation(0,0);
-                    studentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background2.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    studentbgFrame.add(addBackgroundImage);
-                    studentbgFrame.setUndecorated(true);
-                    studentbgFrame.setResizable(false);
-                    studentbgFrame.setVisible(true);
-
-
-
-
-
 
         studentDetailsframe = new JFrame();
         studentDetailsframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -274,8 +250,7 @@ public class ShowStudentDetails implements ActionListener{
         if(e.getSource() == clearButton){
      
          studentDetailsframe.dispose();
-         studentbgFrame.dispose();
-           new ShowStudentDetails(); //The only reason we are re launching a new anonymous object because the table is not properly rendering
+         new ShowStudentDetails(); //The only reason we are re launching a new anonymous object because the table is not properly rendering
                                      // which is why we are doing this
            
         }
@@ -297,7 +272,6 @@ public class ShowStudentDetails implements ActionListener{
         
         else if(e.getSource() == updateButton){
              studentDetailsframe.dispose();
-             studentbgFrame.dispose();
              new UpdateStudent();
   
         }
@@ -305,7 +279,6 @@ public class ShowStudentDetails implements ActionListener{
         else if(e.getSource() == addButton){
             
             studentDetailsframe.setVisible(false);
-            studentbgFrame.setVisible(false);
             new AddStudent();
             
         }
@@ -322,8 +295,6 @@ public class ShowStudentDetails implements ActionListener{
         
         else if(e.getSource() == cancelButton){
             studentDetailsframe.dispose();
-            studentbgFrame.dispose();
-                
             Dashboard.dashboardFrame.setVisible(true);
             
         }

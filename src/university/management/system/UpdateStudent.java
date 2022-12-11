@@ -20,9 +20,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 
     Thread t;
     JFrame updateStudentFrame ;
-    JFrame updateStudentbgFrame ;
-    
-
     
     JLabel title ,headingLabel;
     Choice rollNoChoice;
@@ -56,25 +53,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
     
     public UpdateStudent() {
       
-            /*=============================Adding Background image first================================*/
-                    updateStudentbgFrame = new JFrame();
-                    updateStudentbgFrame.setSize(1920,1080);
-                    updateStudentbgFrame.setLocation(0,0);
-                    updateStudentbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    updateStudentbgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background1.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    updateStudentbgFrame.add(addBackgroundImage);
-                    updateStudentbgFrame.setUndecorated(true);
-                    updateStudentbgFrame.setResizable(false);
-                    updateStudentbgFrame.setVisible(true);
-
-      
+                    
         updateStudentFrame = new JFrame();
         updateStudentFrame.setSize(1100,900);
         updateStudentFrame.setLocation(400,80);
@@ -617,7 +596,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the update button , 
+  This method will executed when we hit the update submit button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
     
@@ -780,13 +759,11 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         }
         else if(e.getSource() == cancelButton){
             
-
             updateStudentFrame.dispose();
-            updateStudentbgFrame.dispose();
+
             if( ShowStudentDetails.isShowStuDetailON == true){
                 
                 ShowStudentDetails.isShowStuDetailON = false;
-                ShowStudentDetails.studentbgFrame.setVisible(true);
                 ShowStudentDetails.studentDetailsframe.setVisible(true);
                 
             }else{
@@ -804,7 +781,6 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                updateStudentFrame.dispose();
                 Thread.sleep(800);
                 popupSuccessImageFrame.dispose();
-                updateStudentbgFrame.dispose();
                 new UpdateStudent();
                 
         }catch (Exception e) {

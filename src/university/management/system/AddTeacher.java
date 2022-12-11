@@ -3,7 +3,6 @@ package college.management.system;
 
 import com.toedter.calendar.JDateChooser;
 import com.toedter.calendar.JTextFieldDateEditor;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
@@ -12,6 +11,7 @@ import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.Random;
 import javax.swing.*;
+import java.awt.*;
 
 
 
@@ -20,7 +20,7 @@ public class AddTeacher implements ActionListener,Runnable{
 JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMessage6,showMessage7,showMessage8,showMessage9,showMessage10,showMessage11;
     Thread t ;
     JFrame teacherFrame  ;
-    JFrame teacherbgFrame;
+
     
     
     JLabel nameLabel,fatherNameLabel,empIDLabel,
@@ -56,30 +56,12 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
             
 
-            /*============================Adding Background image first==========================================*/
-             teacherbgFrame = new JFrame();
-             teacherbgFrame.setSize(1920,1080);
-             teacherbgFrame.setLocation(0,0);
-             teacherbgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-             ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-             Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-             ImageIcon img3 = new ImageIcon(img2);
-
-             JLabel addBackgroundImage = new JLabel(img3);
-             addBackgroundImage.setBounds(0,0,1920,1080);
-             teacherbgFrame.add(addBackgroundImage);
-             teacherbgFrame.setUndecorated(true);
-             teacherbgFrame.setResizable(false);
-             teacherbgFrame.setVisible(true);
-
-
-        
+           
         
         
         teacherFrame = new JFrame() ;
         teacherFrame.getContentPane().setBackground(Color.WHITE);
+       
         teacherFrame.setLayout(null);
         teacherFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         teacherFrame.setUndecorated(true);
@@ -157,6 +139,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         teacherFrame.add(dcdob);
         
         
+        
+        
+        
 /*=====================================Address Label and it's Text field============================================*/
         addressLabel = new JLabel("Address");
         addressLabel.setBounds(100,250,100,50);
@@ -217,6 +202,8 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         
         
         
+        
+        
 /*====================================AdhaarNo. Label and it's Text field========================================*/
         adhaarLabel = new JLabel("AdhaarNo.");
         adhaarLabel.setBounds(550,380,130,50);
@@ -271,7 +258,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
             });
         
         
-            
+        
+        
+        
 /*================================Class 12th Label and it's Text field=====================================================*/
         class12Label = new JLabel("Class XII(%)");
         class12Label.setBounds(100,500,150,50);
@@ -297,7 +286,10 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
                     }
                 }
             });
-            
+        
+        
+        
+        
         
         
 /*====================================Qualification Label and it'scombo box===============================================*/
@@ -571,7 +563,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
 /*This method will set all the labels colors black and set labels of all messages to invisible 
   which was first changed by isEmpty method.
     
-  This method will executed when we hit the submit button , 
+  This method will executed when we hit the update submit button , 
   the only reason we are doing this because we don't want to keep showing
   the red color even though the user filled the empty field*/
    
@@ -706,12 +698,9 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
             
             
             teacherFrame.dispose();
-            teacherbgFrame.dispose();
-
             if(ShowTeacherDetails.isShowTeachDetailsON == true){
                 
                 ShowTeacherDetails.isShowTeachDetailsON = false;
-                ShowTeacherDetails.teacherbgFrame.setVisible(true);
                 ShowTeacherDetails.teacherDetailsFrame.setVisible(true);
                 
             }else{
@@ -727,8 +716,7 @@ JLabel showMessage1,showMessage2,showMessage3,showMessage4,showMessage5,showMess
         try {   
             teacherFrame.dispose();
             Thread.sleep(800);
-            popupSuccessImageFrame.dispose();   
-            teacherbgFrame.dispose();
+            popupSuccessImageFrame.dispose();
             new AddTeacher();
 
         } catch (Exception e) {

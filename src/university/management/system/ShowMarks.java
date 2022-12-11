@@ -20,7 +20,7 @@ public class ShowMarks implements ActionListener{
     
 
     String rollNo;
-    JFrame showMarksBgFrame,showMarksFrame;
+    JFrame showMarksFrame;
     JLabel title,resultLabel;
     JButton exitButton;
     JLabel subjectCodeLabel,subjectLable,marksLable;
@@ -33,25 +33,7 @@ public class ShowMarks implements ActionListener{
     public ShowMarks(String rollNo) {
             this.rollNo =rollNo;    
         
-             /*========================Adding Background image first===============================*/
-                    showMarksBgFrame = new JFrame();
-                    showMarksBgFrame.setSize(1920,1080);
-                    showMarksBgFrame.setLocation(0,0);
-                    showMarksBgFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    showMarksBgFrame.setLayout(null);
-
-                    ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("icons/Background3.png"));
-                    Image img2 = img.getImage().getScaledInstance(1920, 1080,Image.SCALE_SMOOTH);
-                    ImageIcon img3 = new ImageIcon(img2);
-
-                    JLabel addBackgroundImage = new JLabel(img3);
-                    addBackgroundImage.setBounds(0,0,1920,1080);
-                    showMarksBgFrame.add(addBackgroundImage);
-                    showMarksBgFrame.setUndecorated(true);
-                    showMarksBgFrame.setResizable(false);
-                    showMarksBgFrame.setVisible(true);
-        
-                    
+            
         showMarksFrame = new JFrame();
         showMarksFrame.setSize(750,850);
         showMarksFrame.setLocation(550, 100);
@@ -309,7 +291,6 @@ public class ShowMarks implements ActionListener{
     public void  actionPerformed(ActionEvent ae){
         if(ae.getSource() == exitButton){
             showMarksFrame.dispose();
-            showMarksBgFrame.dispose();
             new ExaminationDetails();
                     
         }
